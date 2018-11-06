@@ -5,6 +5,7 @@ using NRepository.MyTestBL.BL.DataAccess;
 using NRepository.MyTestBL.Models;
 using SimpleInjector;
 using SimpleInjector.Diagnostics;
+using System;
 
 namespace MyTestBL.Tests
 {
@@ -16,9 +17,7 @@ namespace MyTestBL.Tests
         [TestInitialize]
         public void TestInit()
         {
-            Container = new Container();
-            //Container.Options.DefaultScopedLifestyle = new AsyncScopedLifestyle();
-
+            Container = new Container();            
             Container.Register<ITestRepository, TestRepository>();
             Container.Register<TestProvider>();
             Container.Register<DbContext, MyTestContext>();
