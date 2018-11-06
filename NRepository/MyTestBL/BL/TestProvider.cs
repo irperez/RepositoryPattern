@@ -36,5 +36,15 @@ namespace NRepository.MyTestBL.BL
             //Here we are combining preexisting specs using "AND" logic.
             return TestRepo.Get(TestSpecs.TimeFrame(startDate, endDate) & TestSpecs.PassingScoreSpec(70));
         }
+
+        public void Add(Test instance)
+        {
+            TestRepo.Add(instance);
+        }
+
+        public void Update(Test instance)
+        {
+            TestRepo.Save(instance);
+        }
     }
 }
