@@ -4,7 +4,6 @@ using NRepository.MyTestBL.BL;
 using NRepository.MyTestBL.BL.DataAccess;
 using SimpleInjector;
 using SimpleInjector.Diagnostics;
-using SimpleInjector.Lifestyles;
 
 namespace MyTestBL.Tests
 {
