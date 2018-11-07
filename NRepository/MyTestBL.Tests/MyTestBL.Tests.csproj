@@ -4,6 +4,8 @@
     <TargetFramework>netcoreapp2.1</TargetFramework>
 
     <IsPackable>false</IsPackable>
+
+    <LangVersion>7.3</LangVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -16,6 +18,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\MyTestBL\MyTestBL.csproj" />
+    <ProjectReference Include="..\NRepository.Persistence.Infrastructure\NRepository.Persistence.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

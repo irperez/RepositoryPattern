@@ -11,10 +11,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyTestBL", "MyTestBL\MyTest
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyTestBL.Tests", "MyTestBL.Tests\MyTestBL.Tests.csproj", "{67A6F6BF-C85B-4A53-9A60-E751710E5D19}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItem", "SolutionItem", "{9C34AD11-FD5E-433F-874A-D00D77F54A78}"
-	ProjectSection(SolutionItems) = preProject
-		readme.md = readme.md
-	EndProjectSection
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NRepository.Persistence.Infrastructure", "NRepository.Persistence.Infrastructure\NRepository.Persistence.Infrastructure.csproj", "{0BE8B4C7-622F-452E-818C-99C9E50C953A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NRepository.WebForms", "NRepository.WebForms\NRepository.WebForms.csproj", "{9811EFD7-5CE3-4CF0-AF8B-0D59EF315176}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -38,6 +37,14 @@ Global
 		{67A6F6BF-C85B-4A53-9A60-E751710E5D19}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{67A6F6BF-C85B-4A53-9A60-E751710E5D19}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{67A6F6BF-C85B-4A53-9A60-E751710E5D19}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0BE8B4C7-622F-452E-818C-99C9E50C953A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0BE8B4C7-622F-452E-818C-99C9E50C953A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0BE8B4C7-622F-452E-818C-99C9E50C953A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0BE8B4C7-622F-452E-818C-99C9E50C953A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9811EFD7-5CE3-4CF0-AF8B-0D59EF315176}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9811EFD7-5CE3-4CF0-AF8B-0D59EF315176}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9811EFD7-5CE3-4CF0-AF8B-0D59EF315176}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9811EFD7-5CE3-4CF0-AF8B-0D59EF315176}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

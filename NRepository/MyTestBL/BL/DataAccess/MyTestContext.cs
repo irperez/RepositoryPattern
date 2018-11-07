@@ -23,8 +23,7 @@ namespace NRepository.MyTestBL.BL.DataAccess
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.ApplyConfiguration(new TestTypeConfiguration());
-            modelBuilder.ApplyConfiguration(new TestItemTypeConfiguration());
+            modelBuilder.ApplyAllConfigurations();
 
             base.OnModelCreating(modelBuilder);
         }
