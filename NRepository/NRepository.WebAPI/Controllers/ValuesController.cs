@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NRepository.MyTestBL.BL;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -9,6 +10,13 @@ namespace NRepository.WebAPI.Controllers
 {
     public class ValuesController : ApiController
     {
+        public TestProvider TestProvider { get; set; }
+
+        public ValuesController(TestProvider testProvider)
+        {
+            TestProvider = testProvider;
+        }
+
         // GET api/values
         public IEnumerable<string> Get()
         {
