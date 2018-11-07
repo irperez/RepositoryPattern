@@ -3,13 +3,18 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.28010.2048
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NRepository.EF", "NRepository\NRepository.EF.csproj", "{76D93875-A79B-4EF2-9BAA-00E58F587AE7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NRepository.EF", "NRepository\NRepository.EF.csproj", "{76D93875-A79B-4EF2-9BAA-00E58F587AE7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NRepository.Abstractions", "NRepository.Abstractions\NRepository.Abstractions.csproj", "{0935A5DB-7C56-475E-8169-64E51AB29C6E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NRepository.Abstractions", "NRepository.Abstractions\NRepository.Abstractions.csproj", "{0935A5DB-7C56-475E-8169-64E51AB29C6E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyTestBL", "MyTestBL\MyTestBL.csproj", "{F5BF3EC5-E0DD-48E2-BC77-416410D2B824}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyTestBL", "MyTestBL\MyTestBL.csproj", "{F5BF3EC5-E0DD-48E2-BC77-416410D2B824}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyTestBL.Tests", "MyTestBL.Tests\MyTestBL.Tests.csproj", "{67A6F6BF-C85B-4A53-9A60-E751710E5D19}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyTestBL.Tests", "MyTestBL.Tests\MyTestBL.Tests.csproj", "{67A6F6BF-C85B-4A53-9A60-E751710E5D19}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItem", "SolutionItem", "{9C34AD11-FD5E-433F-874A-D00D77F54A78}"
+	ProjectSection(SolutionItems) = preProject
+		readme.md = readme.md
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
