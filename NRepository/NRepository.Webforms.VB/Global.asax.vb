@@ -1,20 +1,15 @@
-﻿Imports Microsoft.Web.Infrastructure.DynamicModuleHelper
+﻿Imports System.ComponentModel.Composition
+Imports System.Reflection
+Imports System.Web.Compilation
+Imports System.Web.Optimization
+Imports Microsoft.EntityFrameworkCore
+Imports Microsoft.Web.Infrastructure.DynamicModuleHelper
+Imports NRepository.MyTestBL.BL
+Imports NRepository.MyTestBL.BL.DataAccess
 Imports SimpleInjector
 Imports SimpleInjector.Advanced
 Imports SimpleInjector.Diagnostics
 Imports SimpleInjector.Integration.Web
-Imports System
-Imports System.Linq
-Imports System.Reflection
-Imports System.ComponentModel.Composition
-Imports System.Web
-Imports System.Web.Compilation
-Imports System.Web.Optimization
-Imports System.Web.Routing
-Imports System.Web.UI
-Imports NRepository.MyTestBL.BL
-Imports NRepository.MyTestBL.BL.DataAccess
-Imports Microsoft.EntityFrameworkCore
 
 <Assembly: PreApplicationStartMethod(GetType(NRepository.Webforms.VB.PageInitializerModule), "Initialize")>
 Public NotInheritable Class PageInitializerModule

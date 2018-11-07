@@ -1,20 +1,20 @@
-﻿using Microsoft.Web.Infrastructure.DynamicModuleHelper;
+﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.Web.Infrastructure.DynamicModuleHelper;
+using NRepository.MyTestBL.BL;
+using NRepository.MyTestBL.BL.DataAccess;
 using SimpleInjector;
 using SimpleInjector.Advanced;
 using SimpleInjector.Diagnostics;
 using SimpleInjector.Integration.Web;
 using System;
+using System.ComponentModel.Composition;
 using System.Linq;
 using System.Reflection;
-using System.ComponentModel.Composition;
 using System.Web;
 using System.Web.Compilation;
 using System.Web.Optimization;
 using System.Web.Routing;
 using System.Web.UI;
-using NRepository.MyTestBL.BL;
-using NRepository.MyTestBL.BL.DataAccess;
-using Microsoft.EntityFrameworkCore;
 
 [assembly: PreApplicationStartMethod(typeof(NRepository.WebForms.PageInitializerModule), "Initialize")]
 namespace NRepository.WebForms
