@@ -54,8 +54,27 @@ Public Class Global_asax
         BundleConfig.RegisterBundles(BundleTable.Bundles)
     End Sub
 
-    Public Shared Sub InitializeHandler(handler As IHttpHandler)
-        container.GetRegistration(handler.GetType(), True).Registration.InitializeInstance(handler)
+    Public Shared Sub InitializeHandler(ByVal handler As IHttpHandler)
+        If TypeOf handler Is Page Then
+            Global_asax.InitializePage(CType(handler, Page))
+        End If
+    End Sub
+
+    Private Shared Sub InitializePage(ByVal page As Page)
+        container.GetRegistration(page.GetType(), True).Registration.InitializeInstance(page)
+        AddHandler page.InitComplete, Sub()
+                                          Global_asax.InitializeControl(page)
+                                      End Sub
+    End Sub
+
+    Private Shared Sub InitializeControl(ByVal control As Control)
+        If TypeOf control Is UserControl Then
+            container.GetRegistration(control.[GetType](), True).Registration.InitializeInstance(control)
+        End If
+
+        For Each child As Control In control.Controls
+            Global_asax.InitializeControl(child)
+        Next
     End Sub
 
     Public Shared Sub Bootstrap()
@@ -79,7 +98,6 @@ Public Class Global_asax
         RegisterWebPages(container)
 
         Dim Registration As Registration = container.GetRegistration(GetType(MyTestContext)).Registration
-
         Registration.SuppressDiagnosticWarning(DiagnosticType.DisposableTransientComponent, "Reason of suppression")
 
         ' 3. Store the container for use by Page classes
@@ -95,7 +113,7 @@ Public Class Global_asax
                         Where Not assembly.IsDynamic
                         Where Not assembly.GlobalAssemblyCache
                         From type In assembly.GetExportedTypes()
-                        Where type.IsSubclassOf(GetType(Page))
+                        Where type.IsSubclassOf(GetType(Page)) OrElse type.IsSubclassOf(GetType(UserControl))
                         Where Not type.IsAbstract AndAlso Not type.IsGenericType
                         Select type
 
@@ -112,7 +130,7 @@ Public Class Global_asax
 
         Public Function SelectProperty(implementationType As Type, propertyInfo As PropertyInfo) As Boolean Implements IPropertySelectionBehavior.SelectProperty
             ' Makes use of the System.ComponentModel.Composition assembly
-            Return GetType(Page).IsAssignableFrom(implementationType) AndAlso propertyInfo.GetCustomAttributes(GetType(ImportAttribute), True).Any()
+            Return (GetType(Page).IsAssignableFrom(implementationType) OrElse GetType(UserControl).IsAssignableFrom(implementationType)) AndAlso propertyInfo.GetCustomAttributes(GetType(ImportAttribute), True).Any()
         End Function
     End Class
 End Class

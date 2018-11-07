@@ -58,8 +58,31 @@ namespace NRepository.WebForms
 
         public static void InitializeHandler(IHttpHandler handler)
         {
-            container.GetRegistration(handler.GetType(), true).Registration
-                .InitializeInstance(handler);
+            if(handler is Page)
+            {
+                Global.InitializePage((Page)handler);
+            }            
+        }
+
+        private static void InitializePage(Page page)
+        {
+            container.GetRegistration(page.GetType(), true).Registration
+                .InitializeInstance(page);
+
+            page.InitComplete += delegate { Global.InitializeControl(page); };
+        }
+
+        private static void InitializeControl(Control control)
+        {
+            if(control is UserControl)
+            {
+                container.GetRegistration(control.GetType(), true).Registration
+                    .InitializeInstance(control);
+            }
+            foreach(Control child in control.Controls)
+            {
+                Global.InitializeControl(child);
+            }
         }
 
         private static void Bootstrap()
@@ -104,7 +127,7 @@ namespace NRepository.WebForms
                 where !assembly.IsDynamic
                 where !assembly.GlobalAssemblyCache
                 from type in assembly.GetExportedTypes()
-                where type.IsSubclassOf(typeof(Page))
+                where type.IsSubclassOf(typeof(Page)) || type.IsSubclassOf(typeof(UserControl))
                 where !type.IsAbstract && !type.IsGenericType
                 select type;
 
@@ -123,7 +146,8 @@ namespace NRepository.WebForms
             public bool SelectProperty(Type implementationType, PropertyInfo property)
             {
                 // Makes use of the System.ComponentModel.Composition assembly
-                return typeof(Page).IsAssignableFrom(implementationType) &&
+                return (typeof(Page).IsAssignableFrom(implementationType) ||
+            typeof(UserControl).IsAssignableFrom(implementationType)) &&
                     property.GetCustomAttributes(typeof(ImportAttribute), true).Any();
             }
         }

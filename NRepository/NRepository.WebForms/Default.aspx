@@ -1,5 +1,8 @@
 ﻿<%@ Page Title="Home Page" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="NRepository.WebForms._Default" %>
 
+<%@ Register Src="~/Controls/SampleControl.ascx" TagPrefix="uc1" TagName="SampleControl" %>
+
+
 <asp:Content ID="BodyContent" ContentPlaceHolderID="MainContent" runat="server">
 
     <div class="jumbotron">
@@ -38,5 +41,5 @@
             </p>
         </div>
     </div>
-
+    <uc1:SampleControl runat="server" id="SampleControl" />
 </asp:Content>
