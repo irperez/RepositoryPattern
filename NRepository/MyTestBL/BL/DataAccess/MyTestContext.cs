@@ -1,5 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using NRepository.MyTestBL.Models;
+using NRepository.MyTestBL.Domain;
 
 namespace NRepository.MyTestBL.BL.DataAccess
 {

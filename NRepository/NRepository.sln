@@ -33,9 +33,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".Net Core", ".Net Core", "{
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Unit Tests", "Unit Tests", "{1CC2937D-130C-47B3-A426-C2FDFD3C57CC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NRepository.WebAPICore", "NRepository.WebAPICore\NRepository.WebAPICore.csproj", "{6B134A1F-5060-4E77-8A29-950EBC69A543}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NRepository.WebAPICore", "NRepository.WebAPICore\NRepository.WebAPICore.csproj", "{6B134A1F-5060-4E77-8A29-950EBC69A543}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NRepository.RazorPages", "NRepository.RazorPages\NRepository.RazorPages.csproj", "{8F5BD26B-2E6C-4803-A8D6-1766842D849C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NRepository.RazorPages", "NRepository.RazorPages\NRepository.RazorPages.csproj", "{8F5BD26B-2E6C-4803-A8D6-1766842D849C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyTestBL.Domain", "MyTestBL.Domain\MyTestBL.Domain.csproj", "{11E78550-0AE0-41B7-9DCC-A9057BF1B1D7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -83,6 +85,10 @@ Global
 		{8F5BD26B-2E6C-4803-A8D6-1766842D849C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8F5BD26B-2E6C-4803-A8D6-1766842D849C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8F5BD26B-2E6C-4803-A8D6-1766842D849C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{11E78550-0AE0-41B7-9DCC-A9057BF1B1D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{11E78550-0AE0-41B7-9DCC-A9057BF1B1D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{11E78550-0AE0-41B7-9DCC-A9057BF1B1D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{11E78550-0AE0-41B7-9DCC-A9057BF1B1D7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -98,6 +104,7 @@ Global
 		{8F681679-367E-43F0-B51F-73606B21AAED} = {CF96CD29-2717-4673-8142-5E22C3055FB7}
 		{6B134A1F-5060-4E77-8A29-950EBC69A543} = {AC6FDE4E-5EE0-4073-B8F4-5F94F4AC0CF8}
 		{8F5BD26B-2E6C-4803-A8D6-1766842D849C} = {AC6FDE4E-5EE0-4073-B8F4-5F94F4AC0CF8}
+		{11E78550-0AE0-41B7-9DCC-A9057BF1B1D7} = {20A986AA-EC89-42D1-B9F3-383198966D46}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9046F5F5-2453-4C7E-8C03-D452AE04A3D3}

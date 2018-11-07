@@ -1,6 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
-using NRepository.MyTestBL.Models;
+using NRepository.MyTestBL.Domain;
 
 namespace NRepository.MyTestBL.BL.DataAccess
 {

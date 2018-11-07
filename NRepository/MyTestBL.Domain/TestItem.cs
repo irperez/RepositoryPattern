@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace NRepository.MyTestBL.Models
+namespace NRepository.MyTestBL.Domain
 {
     public class TestItem
     {

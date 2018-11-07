@@ -1,4 +1,4 @@
-﻿using NRepository.MyTestBL.Models;
+﻿using NRepository.MyTestBL.Domain;
 using NSpecifications;
 using System;
 

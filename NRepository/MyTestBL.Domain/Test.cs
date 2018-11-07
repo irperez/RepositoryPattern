@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace NRepository.MyTestBL.Models
+namespace NRepository.MyTestBL.Domain
 {
     public class Test
     {

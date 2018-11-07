@@ -2,7 +2,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NRepository.MyTestBL.BL;
 using NRepository.MyTestBL.BL.DataAccess;
-using NRepository.MyTestBL.Models;
+using NRepository.MyTestBL.Domain;
 using SimpleInjector;
 using SimpleInjector.Diagnostics;
 using System;

@@ -1,5 +1,5 @@
 ﻿using NRepository.Abstractions;
-using NRepository.MyTestBL.Models;
+using NRepository.MyTestBL.Domain;
 using NSpecifications;
 using System;
 using System.Collections.Generic;
