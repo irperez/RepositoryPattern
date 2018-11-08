@@ -19,6 +19,7 @@ Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "NRepository.Webforms.VB", "
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionItems", "{DCB1850E-E6A1-4FFD-81B2-BA231B97D177}"
 	ProjectSection(SolutionItems) = preProject
+		.editorconfig = .editorconfig
 		readme.md = readme.md
 		TestDB.sql = TestDB.sql
 	EndProjectSection
@@ -37,7 +38,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NRepository.WebAPICore", "N
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NRepository.RazorPages", "NRepository.RazorPages\NRepository.RazorPages.csproj", "{8F5BD26B-2E6C-4803-A8D6-1766842D849C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MyTestBL.Domain", "MyTestBL.Domain\MyTestBL.Domain.csproj", "{11E78550-0AE0-41B7-9DCC-A9057BF1B1D7}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MyTestBL.Domain", "MyTestBL.Domain\MyTestBL.Domain.csproj", "{11E78550-0AE0-41B7-9DCC-A9057BF1B1D7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

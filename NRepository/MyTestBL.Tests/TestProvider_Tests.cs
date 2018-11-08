@@ -10,20 +10,20 @@ using System;
 namespace MyTestBL.Tests
 {
     [TestClass]
-    public class UnitTest1
+    public class TestProvider_Tests
     {
         private Container Container { get; set; }
 
         [TestInitialize]
         public void TestInit()
         {
-            Container = new Container();            
+            Container = new Container();
             Container.Register<ITestRepository, TestRepository>();
             Container.Register<TestProvider>();
             Container.Register<DbContext, MyTestContext>();
             Container.Register<DbContextOptions<MyTestContext>>(() => {
                 return new DbContextOptionsBuilder<MyTestContext>()
-                .UseInMemoryDatabase(databaseName: "Tests")
+                .UseInMemoryDatabase(databaseName: "TestDB")
                 .Options;
             }, Lifestyle.Singleton);
 
@@ -36,9 +36,9 @@ namespace MyTestBL.Tests
         }
 
         [TestMethod]
-        public void TestMethod1()
+        public void TestProvider_CRUD_Test()
         {
-            var tp = Container.GetInstance<TestProvider>();
+            TestProvider tp = Container.GetInstance<TestProvider>();
 
             var myTest = new Test
             {
