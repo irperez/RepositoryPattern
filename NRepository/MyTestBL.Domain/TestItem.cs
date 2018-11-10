@@ -7,5 +7,7 @@ namespace NRepository.MyTestBL.Domain
         public Guid Guid { get; set; }
         public string Question { get; set; }
         public string Answer { get; set; }
+
+        public Guid TestId { get; set; }
     }
 }

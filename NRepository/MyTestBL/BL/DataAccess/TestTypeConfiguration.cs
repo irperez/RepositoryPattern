@@ -9,6 +9,10 @@ namespace NRepository.MyTestBL.BL.DataAccess
         public void Configure(EntityTypeBuilder<Test> builder)
         {
             builder.HasKey(p => p.Guid);
+
+            builder.HasMany(b => b.TestItems)
+                   .WithOne()
+                   .HasForeignKey(p => p.TestId);
         }
     }
 }

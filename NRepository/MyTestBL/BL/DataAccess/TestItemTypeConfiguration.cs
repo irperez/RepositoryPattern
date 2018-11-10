@@ -9,6 +9,8 @@ namespace NRepository.MyTestBL.BL.DataAccess
         public void Configure(EntityTypeBuilder<TestItem> builder)
         {
             builder.HasKey(p => p.Guid);
+
+            
         }
     }
 }

@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{9C7A8B6C-2D9A-492E-9BBD-86312E43BEDF}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>NRepository.ConsoleFx</RootNamespace>
+    <AssemblyName>NRepository.ConsoleFx</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer">
+      <Version>2.1.4</Version>
+    </PackageReference>
+    <PackageReference Include="NSpecifications">
+      <Version>1.1.0</Version>
+    </PackageReference>
+    <PackageReference Include="SimpleInjector">
+      <Version>4.4.0</Version>
+    </PackageReference>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MyTestBL.Domain\MyTestBL.Domain.csproj">
+      <Project>{11e78550-0ae0-41b7-9dcc-a9057bf1b1d7}</Project>
+      <Name>MyTestBL.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MyTestBL\MyTestBL.csproj">
+      <Project>{f5bf3ec5-e0dd-48e2-bc77-416410d2b824}</Project>
+      <Name>MyTestBL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NRepository.Abstractions\NRepository.Abstractions.csproj">
+      <Project>{0935A5DB-7C56-475E-8169-64E51AB29C6E}</Project>
+      <Name>NRepository.Abstractions</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\NRepository\NRepository.EF.csproj">
+      <Project>{76D93875-A79B-4EF2-9BAA-00E58F587AE7}</Project>
+      <Name>NRepository.EF</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
