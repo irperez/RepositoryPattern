@@ -20,22 +20,21 @@ namespace NRepository.WebAPI
             container.Options.DefaultScopedLifestyle = new AsyncScopedLifestyle();
 
             // Register your types, for instance using the scoped lifestyle:
-            container.Register<ITestRepository, TestRepository>();
-            container.Register<TestProvider>();
+            container.Register<ITestRepository, TestRepository>(Lifestyle.Scoped);
+            container.Register<TestProvider>(Lifestyle.Scoped);
             container.Register<DbContext, MyTestContext>(Lifestyle.Scoped);
             container.Register<DbContextOptions<MyTestContext>>(() => {
                 return new DbContextOptionsBuilder<MyTestContext>()
                 .UseSqlServer("Server=localhost;Database=TestDB;Trusted_Connection=True;")
                 .Options;
-            }, Lifestyle.Singleton);
+            }, Lifestyle.Scoped);
 
             // This is an extension method from the integration package.
             container.RegisterWebApiControllers(GlobalConfiguration.Configuration);
 
             container.Verify();
 
-            GlobalConfiguration.Configuration.DependencyResolver =
-                new SimpleInjectorWebApiDependencyResolver(container);
+            GlobalConfiguration.Configuration.DependencyResolver = new SimpleInjectorWebApiDependencyResolver(container);
 
             AreaRegistration.RegisterAllAreas();
             GlobalConfiguration.Configure(WebApiConfig.Register);

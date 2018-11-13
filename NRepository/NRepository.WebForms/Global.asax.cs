@@ -96,23 +96,18 @@ namespace NRepository.WebForms
             container.Options.PropertySelectionBehavior = new ImportAttributePropertySelectionBehavior();
 
             // 2. Configure the container (register)
-            container.Register<ITestRepository, TestRepository>();
-            container.Register<TestProvider>();
-            container.Register<DbContext, MyTestContext>();
+            container.Register<ITestRepository, TestRepository>(Lifestyle.Scoped);
+            container.Register<TestProvider>(Lifestyle.Scoped);
+            container.Register<DbContext, MyTestContext>(Lifestyle.Scoped);
             container.Register<DbContextOptions<MyTestContext>>(() => {
                 return new DbContextOptionsBuilder<MyTestContext>()
                 .UseSqlServer("Server=localhost;Database=TestDB;Trusted_Connection=True;")
                 .Options;
-            }, Lifestyle.Singleton);            
+            }, Lifestyle.Scoped);            
 
             // Register your Page classes to allow them to be verified and diagnosed.
             RegisterWebPages(container);
-
-            Registration registration = container.GetRegistration(typeof(MyTestContext)).Registration;
-
-            registration.SuppressDiagnosticWarning(DiagnosticType.DisposableTransientComponent,
-                "Reason of suppression");
-
+            
             // 3. Store the container for use by Page classes.
             Global.container = container;
 

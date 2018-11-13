@@ -81,19 +81,16 @@ Public Class Global_asax
         container.Options.PropertySelectionBehavior = New ImportAttributePropertySelectionBehavior()
 
         ' 2. Configure the container (register)
-        container.Register(Of ITestRepository, TestRepository)()
-        container.Register(Of TestProvider)()
-        container.Register(Of DbContext, MyTestContext)()
+        container.Register(Of ITestRepository, TestRepository)(Lifestyle.Scoped)
+        container.Register(Of TestProvider)(Lifestyle.Scoped)
+        container.Register(Of DbContext, MyTestContext)(Lifestyle.Scoped)
         container.Register(Of DbContextOptions(Of MyTestContext))(
             Function()
                 Return New DbContextOptionsBuilder(Of MyTestContext)().UseSqlServer("Server=localhost;Database=TestDB;Trusted_Connection=True;").Options
-            End Function, Lifestyle.Singleton)
+            End Function, Lifestyle.Scoped)
 
         ' Register your Page classes to allow them to be verified and diagnosed.
         RegisterWebPages(container)
-
-        Dim Registration As Registration = container.GetRegistration(GetType(MyTestContext)).Registration
-        Registration.SuppressDiagnosticWarning(DiagnosticType.DisposableTransientComponent, "Reason of suppression")
 
         ' 3. Store the container for use by Page classes
         Global_asax.container = container

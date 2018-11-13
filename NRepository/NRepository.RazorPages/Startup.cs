@@ -33,8 +33,7 @@ namespace NRepository.RazorPages
             services.AddScoped<TestProvider>();
 
             var connection = @"Server=localhost;Database=TestDB;Trusted_Connection=True;";
-            services.AddDbContext<DbContext, MyTestContext>
-                (options => options.UseSqlServer(connection));
+            services.AddDbContext<DbContext, MyTestContext>(options => options.UseSqlServer(connection));
             services.AddScoped<ITestRepository, TestRepository>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
