@@ -8,13 +8,13 @@ namespace NRepository.WebForms
     public partial class _Default : Page
     {
         [Import]
-        public CourseProvider TestProvider { get; set; }
+        public CourseProvider CourseProvider { get; set; }
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(TestProvider == null)
+            if(CourseProvider == null)
             {
-                throw new ArgumentNullException("TestProvider");
+                throw new ArgumentNullException("CourseProvider");
             }
         }
     }

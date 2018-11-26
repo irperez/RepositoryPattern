@@ -4,6 +4,7 @@ using NRepository.UniversityBL.BL;
 using NRepository.UniversityBL.BL.DataAccess;
 using SimpleInjector;
 using SimpleInjector.Diagnostics;
+using SimpleInjector.Lifestyles;
 
 namespace NRepository.ConsoleCore
 {
@@ -15,10 +16,12 @@ namespace NRepository.ConsoleCore
         {
             Program.Bootstrap();
 
-            var testProvider = Container.GetInstance<CourseProvider>();
+            using (ThreadScopedLifestyle.BeginScope(Container))
+            {
+                var testProvider = Container.GetInstance<CourseProvider>();
 
-            var data = testProvider.GetHighlyRatedCourses();
-
+                var data = testProvider.GetHighlyRatedCourses();
+            }
             Console.WriteLine("Test Provider loaded successfully");
 
             Console.ReadKey();
@@ -28,6 +31,7 @@ namespace NRepository.ConsoleCore
         {
             // 1. Create a new Simple Injector container.
             var container = new Container();
+            container.Options.DefaultScopedLifestyle = new ThreadScopedLifestyle();
 
             // 2. Configure the container (register)
             container.Register<ICourseRepository, CourseRepository>();
@@ -37,11 +41,10 @@ namespace NRepository.ConsoleCore
                 return new DbContextOptionsBuilder<UniversityContext>()
                 .UseSqlServer("Server=localhost;Database=TestDB;Trusted_Connection=True;")
                 .Options;
-            }, Lifestyle.Singleton);
+            }, Lifestyle.Scoped);
 
             Registration registration = container.GetRegistration(typeof(UniversityContext)).Registration;
-
-            registration.SuppressDiagnosticWarning(DiagnosticType.DisposableTransientComponent, "Reason of suppression");
+            
 
             // 3. Store the container for use by Page classes.
             Container = container;

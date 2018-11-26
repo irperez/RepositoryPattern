@@ -6,16 +6,17 @@ namespace NRepository.WebAPI.Controllers
 {
     public class ValuesController : ApiController
     {
-        public CourseProvider TestProvider { get; set; }
+        public CourseProvider CourseProvider { get; set; }
 
-        public ValuesController(CourseProvider testProvider)
+        public ValuesController(CourseProvider courseProvider)
         {
-            TestProvider = testProvider;
+            CourseProvider = courseProvider;
         }
 
         // GET api/values
         public IEnumerable<string> Get()
         {
+            
             return new string[] { "value1", "value2" };
         }
 

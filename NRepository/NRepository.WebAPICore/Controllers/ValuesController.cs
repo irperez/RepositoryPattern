@@ -9,20 +9,20 @@ namespace NRepository.WebAPICore.Controllers
     [ApiController]
     public class ValuesController : ControllerBase
     {
-        public CourseProvider TestProvider { get; set; }
+        public CourseProvider CourseProvider { get; set; }
 
-        public ValuesController(CourseProvider testProvider)
+        public ValuesController(CourseProvider courseProvider)
         {
-            TestProvider = testProvider;
+            CourseProvider = courseProvider;
         }
 
         // GET api/values
         [HttpGet]
         public ActionResult<IEnumerable<string>> Get()
         {
-            if(TestProvider == null)
+            if(CourseProvider == null)
             {
-                throw new ArgumentNullException("TestProvider");
+                throw new ArgumentNullException("CourseProvider");
             }
 
             return new string[] { "value1", "value2" };

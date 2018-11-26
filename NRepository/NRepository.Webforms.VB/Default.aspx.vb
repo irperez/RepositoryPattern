@@ -5,11 +5,11 @@ Public Class _Default
     Inherits Page
 
     <Import>
-    Public Property TestProvider As CourseProvider
+    Public Property CourseProvider As CourseProvider
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As EventArgs) Handles Me.Load
-        If (TestProvider Is Nothing) Then
-            Throw New ArgumentNullException("TestProvider")
+        If (CourseProvider Is Nothing) Then
+            Throw New ArgumentNullException("CourseProvider")
         End If
     End Sub
 End Class

@@ -5,7 +5,7 @@ namespace NRepository.UniversityBL.BL.DataAccess
 {
     public class UniversityContext : DbContext
     {
-        public DbSet<Course> Tests { get; set; }
+        public DbSet<Course> Courses { get; set; }
 
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)

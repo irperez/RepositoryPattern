@@ -26,5 +26,11 @@ namespace NRepository.EF
             //NOTE: The lack of a using statement here
             return Context.Set<T>().Where(specification).AsNoTracking().ToList();
         }
+
+        public List<T> Get()
+        {
+            //NOTE: The lack of a using statement here
+            return Context.Set<T>().AsNoTracking().ToList();
+        }
     }    
 }

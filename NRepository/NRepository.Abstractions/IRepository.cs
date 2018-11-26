@@ -11,6 +11,7 @@ namespace NRepository.Abstractions
     {
         T GetSingle(ASpec<T> specification);
         List<T> Get(ASpec<T> specification);
+        List<T> Get();
         void Add(T entity);
         void Save(T entity); //I'm thinking of removing this.  Not sure yet.
     }

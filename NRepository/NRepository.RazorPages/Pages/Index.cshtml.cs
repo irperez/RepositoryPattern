@@ -6,16 +6,16 @@ namespace NRepository.RazorPages.Pages
 {
     public class IndexModel : PageModel
     {
-        public IndexModel(CourseProvider testProvider)
+        public IndexModel(CourseProvider courseProvider)
         {
-            TestProvider = testProvider;
+            CourseProvider = courseProvider;
         }
 
-        public CourseProvider TestProvider { get; set; }
+        public CourseProvider CourseProvider { get; set; }
 
         public void OnGet()
         {
-            if(TestProvider == null)
+            if(CourseProvider == null)
             {
                 throw new ArgumentNullException("TestProvider");
             }

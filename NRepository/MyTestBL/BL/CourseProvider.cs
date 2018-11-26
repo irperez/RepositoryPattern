@@ -20,6 +20,16 @@ namespace NRepository.UniversityBL.BL
             CourseValidator = new CourseValidator();
         }
 
+        public List<Course> GetAllCourses()
+        {
+            return CourseRepository.Get();
+        }
+
+        public Course Get(Guid id)
+        {
+            return CourseRepository.GetSingle(CourseSpecs.ById(id));
+        }
+
         public List<Guid> GetSubjectGuids()
         {
             return CourseRepository.GetChildGuids(CourseSpecs.HighRatingSpec(5));

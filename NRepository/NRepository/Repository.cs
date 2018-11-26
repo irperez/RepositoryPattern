@@ -39,6 +39,12 @@ namespace NRepository.EF
             return Context.Set<T>().Where(specification).ToList();
         }
 
+        public List<T> Get()
+        {
+            //NOTE: The lack of a using statement here
+            return Context.Set<T>().ToList();
+        }
+
         public void Save(T entity) //I'm thinking of removing this, not sure yet.
         {
             //NOTE: The lack of a using statement here

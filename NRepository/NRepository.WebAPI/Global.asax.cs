@@ -25,7 +25,7 @@ namespace NRepository.WebAPI
             container.Register<DbContext, UniversityContext>(Lifestyle.Scoped);
             container.Register<DbContextOptions<UniversityContext>>(() => {
                 return new DbContextOptionsBuilder<UniversityContext>()
-                .UseSqlServer("Server=localhost;Database=TestDB;Trusted_Connection=True;")
+                .UseSqlServer("Server=localhost;Database=UniversityDB;Trusted_Connection=True;")
                 .Options;
             }, Lifestyle.Scoped);
 
