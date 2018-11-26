@@ -80,5 +80,26 @@ namespace UniversityBL.Tests
             Assert.AreEqual<int>(1, actual2.Count);
             Assert.IsTrue(actual2.Contains(mathCourse));
         }
+
+        [TestMethod]
+        public void CourseProvider_Validation_Test()
+        {
+            CourseProvider tp = Container.GetInstance<CourseProvider>();
+
+            var mathCourse = new Course
+            {
+                Guid = Guid.NewGuid(),
+                Name = "",
+                AverageRating = 5,
+                StartDate = new DateTimeOffset(2018, 10, 31, 8, 0, 0, new TimeSpan(0)),
+            };            
+
+            var mathValidation = tp.Add(mathCourse);
+
+            Assert.IsNotNull(mathValidation);
+            Assert.IsFalse(mathValidation.IsValid);
+            Assert.IsTrue(mathValidation.Errors.Count > 0);
+            Assert.AreEqual("Please specify a course name.", mathValidation.Errors[0].ErrorMessage);
+        }
     }
 }

@@ -43,7 +43,7 @@ namespace NRepository.UniversityBL.BL
 
         public ValidationResult Add(Course instance)
         {
-            ValidationResult validationResult = CourseValidator.Validate(instance);
+            var validationResult = CourseValidator.Validate(instance);
             if (!validationResult.IsValid)
             {
                 return validationResult;
@@ -57,7 +57,7 @@ namespace NRepository.UniversityBL.BL
 
         public ValidationResult Update(Course instance)
         {
-            ValidationResult validationResult = CourseValidator.Validate(instance);
+            var validationResult = CourseValidator.Validate(instance);
             if (!validationResult.IsValid)
             {
                 return validationResult;
