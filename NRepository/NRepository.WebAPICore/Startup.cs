@@ -24,7 +24,7 @@ namespace NRepository.WebAPICore
             services.AddScoped<ICourseRepository, CourseRepository>();
             services.AddScoped<CourseProvider>();
 
-            var connection = @"Server=localhost;Database=TestDB;Trusted_Connection=True;";
+            var connection = @"Server=localhost;Database=UniversityDB;Trusted_Connection=True;";
             services.AddDbContext<DbContext, UniversityContext>(options => options.UseSqlServer(connection));
             services.AddScoped<ICourseRepository, CourseRepository>();
 
