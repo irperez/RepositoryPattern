@@ -81,15 +81,18 @@ namespace UniversityBL.Tests
             Assert.IsTrue(actual2.Contains(mathCourse));
         }
 
-        [TestMethod]
-        public void CourseProvider_Validation_Test()
+        [DataTestMethod]
+        [DataRow("", "Please specify a course name.")]
+        [DataRow("M", "The length of 'Name' must be at least 4 characters. You entered 1 characters.")]
+        [DataRow("Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim. Donec pede justo, fringilla vel, aliquet nec, vulputate eget, arcu. In enim justo, rhoncus ut, imperdiet a, venenatis vitae, justo. Nullam dictum felis eu pede mollis pretium. Integer tincidunt. Cras dapibus. Vivamus elementum semper nisi. Aenean vulputate eleifend tellus. Aenean leo ligula, porttitor eu, consequat vitae, eleifend ac, enim. Aliquam lorem ante, dapibus in, viverra quis, feugiat a, tellus. Phasellus viverra nulla ut metus varius laoreet. Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Maecenas tempus, tellus eget condimentum rhoncus, sem quam semper libero, sit amet adipiscing sem neque sed ipsum. Nam quam nunc, blandit vel", "The length of 'Name' must be 1024 characters or fewer. You entered 1025 characters.")]
+        public void CourseProvider_NameValidation_Test(string name, string expectedValidationMessage)
         {
             CourseProvider tp = Container.GetInstance<CourseProvider>();
 
             var mathCourse = new Course
             {
                 Guid = Guid.NewGuid(),
-                Name = "",
+                Name = name,
                 AverageRating = 5,
                 StartDate = new DateTimeOffset(2018, 10, 31, 8, 0, 0, new TimeSpan(0)),
             };            
@@ -99,7 +102,74 @@ namespace UniversityBL.Tests
             Assert.IsNotNull(mathValidation);
             Assert.IsFalse(mathValidation.IsValid);
             Assert.IsTrue(mathValidation.Errors.Count > 0);
-            Assert.AreEqual("Please specify a course name.", mathValidation.Errors[0].ErrorMessage);
+            Assert.AreEqual(expectedValidationMessage, mathValidation.Errors[0].ErrorMessage);
+        }        
+
+        [DataTestMethod]
+        [DataRow("00000000-0000-0000-0000-000000000000", "'Guid' should not be empty.")]
+        public void CourseProvider_GuidValidation_Test(string guid, string expectedValidationMessage)
+        {
+            CourseProvider tp = Container.GetInstance<CourseProvider>();
+
+            var mathCourse = new Course
+            {
+                Guid = new Guid(guid),
+                Name = "MathTest",
+                AverageRating = 5,
+                StartDate = new DateTimeOffset(2018, 10, 31, 8, 0, 0, new TimeSpan(0)),
+            };
+
+            var mathValidation = tp.Add(mathCourse);
+
+            Assert.IsNotNull(mathValidation);
+            Assert.IsFalse(mathValidation.IsValid);
+            Assert.IsTrue(mathValidation.Errors.Count > 0);
+            Assert.AreEqual("'Guid' should not be empty.", mathValidation.Errors[0].ErrorMessage);
+        }
+
+        [DataTestMethod]
+        [DataRow(2017, "'Start Date' must be greater than '1/1/2018 12:00:00 AM -05:00'.")]
+        public void CourseProvider_StartDateValidation_Test(int year, string expectedValidationMessage)
+        {
+            CourseProvider tp = Container.GetInstance<CourseProvider>();
+
+            var mathCourse = new Course
+            {
+                Guid = Guid.NewGuid(),
+                Name = "MathTest",
+                AverageRating = 5,
+                StartDate = new DateTimeOffset(year, 10, 31, 8, 0, 0, new TimeSpan(0)),
+            };
+
+            var mathValidation = tp.Add(mathCourse);
+
+            Assert.IsNotNull(mathValidation);
+            Assert.IsFalse(mathValidation.IsValid);
+            Assert.IsTrue(mathValidation.Errors.Count > 0);
+            Assert.AreEqual(expectedValidationMessage, mathValidation.Errors[0].ErrorMessage);
+        }
+
+        [DataTestMethod]
+        [DataRow(-1, "'Average Rating' must be between 0 and 5. You entered -1.")]
+        [DataRow(6, "'Average Rating' must be between 0 and 5. You entered 6.")]
+        public void CourseProvider_RatingValidation_Test(int rating, string expectedValidationMessage)
+        {
+            CourseProvider tp = Container.GetInstance<CourseProvider>();
+
+            var mathCourse = new Course
+            {
+                Guid = Guid.NewGuid(),
+                Name = "MathTest",
+                AverageRating = rating,
+                StartDate = new DateTimeOffset(2018, 10, 31, 8, 0, 0, new TimeSpan(0)),
+            };
+
+            var mathValidation = tp.Add(mathCourse);
+
+            Assert.IsNotNull(mathValidation);
+            Assert.IsFalse(mathValidation.IsValid);
+            Assert.IsTrue(mathValidation.Errors.Count > 0);
+            Assert.AreEqual(expectedValidationMessage, mathValidation.Errors[0].ErrorMessage);
         }
     }
 }
