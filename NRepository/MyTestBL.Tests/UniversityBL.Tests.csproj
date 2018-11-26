@@ -17,7 +17,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\MyTestBL\MyTestBL.csproj" />
+    <ProjectReference Include="..\MyTestBL\UniversityBL.csproj" />
     <ProjectReference Include="..\NRepository.Persistence.Infrastructure\NRepository.Persistence.Infrastructure.csproj" />
   </ItemGroup>
 

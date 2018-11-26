@@ -4,8 +4,8 @@ Imports System.Web.Compilation
 Imports System.Web.Optimization
 Imports Microsoft.EntityFrameworkCore
 Imports Microsoft.Web.Infrastructure.DynamicModuleHelper
-Imports NRepository.MyTestBL.BL
-Imports NRepository.MyTestBL.BL.DataAccess
+Imports NRepository.UniversityBL.BL
+Imports NRepository.UniversityBL.BL.DataAccess
 Imports SimpleInjector
 Imports SimpleInjector.Advanced
 Imports SimpleInjector.Diagnostics
@@ -81,12 +81,12 @@ Public Class Global_asax
         container.Options.PropertySelectionBehavior = New ImportAttributePropertySelectionBehavior()
 
         ' 2. Configure the container (register)
-        container.Register(Of ITestRepository, TestRepository)(Lifestyle.Scoped)
-        container.Register(Of TestProvider)(Lifestyle.Scoped)
-        container.Register(Of DbContext, MyTestContext)(Lifestyle.Scoped)
-        container.Register(Of DbContextOptions(Of MyTestContext))(
+        container.Register(Of ICourseRepository, CourseRepository)(Lifestyle.Scoped)
+        container.Register(Of CourseProvider)(Lifestyle.Scoped)
+        container.Register(Of DbContext, UniversityContext)(Lifestyle.Scoped)
+        container.Register(Of DbContextOptions(Of UniversityContext))(
             Function()
-                Return New DbContextOptionsBuilder(Of MyTestContext)().UseSqlServer("Server=localhost;Database=TestDB;Trusted_Connection=True;").Options
+                Return New DbContextOptionsBuilder(Of UniversityContext)().UseSqlServer("Server=localhost;Database=TestDB;Trusted_Connection=True;").Options
             End Function, Lifestyle.Scoped)
 
         ' Register your Page classes to allow them to be verified and diagnosed.

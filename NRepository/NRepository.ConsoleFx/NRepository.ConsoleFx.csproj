@@ -62,13 +62,13 @@
     </PackageReference>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MyTestBL.Domain\MyTestBL.Domain.csproj">
+    <ProjectReference Include="..\MyTestBL.Domain\UniversityBL.Domain.csproj">
       <Project>{11e78550-0ae0-41b7-9dcc-a9057bf1b1d7}</Project>
-      <Name>MyTestBL.Domain</Name>
+      <Name>UniversityBL.Domain</Name>
     </ProjectReference>
-    <ProjectReference Include="..\MyTestBL\MyTestBL.csproj">
+    <ProjectReference Include="..\MyTestBL\UniversityBL.csproj">
       <Project>{f5bf3ec5-e0dd-48e2-bc77-416410d2b824}</Project>
-      <Name>MyTestBL</Name>
+      <Name>UniversityBL</Name>
     </ProjectReference>
     <ProjectReference Include="..\NRepository.Abstractions\NRepository.Abstractions.csproj">
       <Project>{0935A5DB-7C56-475E-8169-64E51AB29C6E}</Project>

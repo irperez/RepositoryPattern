@@ -1,7 +1,7 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using Microsoft.Web.Infrastructure.DynamicModuleHelper;
-using NRepository.MyTestBL.BL;
-using NRepository.MyTestBL.BL.DataAccess;
+using NRepository.UniversityBL.BL;
+using NRepository.UniversityBL.BL.DataAccess;
 using SimpleInjector;
 using SimpleInjector.Advanced;
 using SimpleInjector.Diagnostics;
@@ -96,11 +96,11 @@ namespace NRepository.WebForms
             container.Options.PropertySelectionBehavior = new ImportAttributePropertySelectionBehavior();
 
             // 2. Configure the container (register)
-            container.Register<ITestRepository, TestRepository>(Lifestyle.Scoped);
-            container.Register<TestProvider>(Lifestyle.Scoped);
-            container.Register<DbContext, MyTestContext>(Lifestyle.Scoped);
-            container.Register<DbContextOptions<MyTestContext>>(() => {
-                return new DbContextOptionsBuilder<MyTestContext>()
+            container.Register<ICourseRepository, CourseRepository>(Lifestyle.Scoped);
+            container.Register<CourseProvider>(Lifestyle.Scoped);
+            container.Register<DbContext, UniversityContext>(Lifestyle.Scoped);
+            container.Register<DbContextOptions<UniversityContext>>(() => {
+                return new DbContextOptionsBuilder<UniversityContext>()
                 .UseSqlServer("Server=localhost;Database=TestDB;Trusted_Connection=True;")
                 .Options;
             }, Lifestyle.Scoped);            

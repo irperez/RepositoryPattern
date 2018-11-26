@@ -1,4 +1,4 @@
-﻿using NRepository.MyTestBL.BL;
+﻿using NRepository.UniversityBL.BL;
 using System;
 using System.ComponentModel.Composition;
 using System.Web.UI;
@@ -8,7 +8,7 @@ namespace NRepository.WebForms
     public partial class _Default : Page
     {
         [Import]
-        public TestProvider TestProvider { get; set; }
+        public CourseProvider TestProvider { get; set; }
 
         protected void Page_Load(object sender, EventArgs e)
         {

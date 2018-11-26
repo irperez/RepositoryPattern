@@ -3,7 +3,7 @@ using System;
 using System.Linq;
 using System.Reflection;
 
-namespace NRepository.MyTestBL.BL.DataAccess
+namespace NRepository.UniversityBL.BL.DataAccess
 {
     public static class ModelBuilderExtensions
     {
@@ -14,7 +14,7 @@ namespace NRepository.MyTestBL.BL.DataAccess
                 .GetMethods(BindingFlags.Instance | BindingFlags.Public)
                 .First(m => m.Name.Equals("ApplyConfiguration", StringComparison.OrdinalIgnoreCase));
 
-            var ret = typeof(MyTestContext).Assembly
+            var ret = typeof(UniversityContext).Assembly
                 .GetTypes()
                 .Select(t => (t, i: t.GetInterfaces().FirstOrDefault(i => i.Name.Equals(typeof(IEntityTypeConfiguration<>).Name, StringComparison.Ordinal))))
                 .Where(it => it.i != null)

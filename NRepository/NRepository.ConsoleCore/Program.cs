@@ -1,7 +1,7 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
-using NRepository.MyTestBL.BL;
-using NRepository.MyTestBL.BL.DataAccess;
+using NRepository.UniversityBL.BL;
+using NRepository.UniversityBL.BL.DataAccess;
 using SimpleInjector;
 using SimpleInjector.Diagnostics;
 
@@ -15,9 +15,9 @@ namespace NRepository.ConsoleCore
         {
             Program.Bootstrap();
 
-            var testProvider = Container.GetInstance<TestProvider>();
+            var testProvider = Container.GetInstance<CourseProvider>();
 
-            var data = testProvider.GetPassingTests();
+            var data = testProvider.GetHighlyRatedCourses();
 
             Console.WriteLine("Test Provider loaded successfully");
 
@@ -30,16 +30,16 @@ namespace NRepository.ConsoleCore
             var container = new Container();
 
             // 2. Configure the container (register)
-            container.Register<ITestRepository, TestRepository>();
-            container.Register<TestProvider>();
-            container.Register<DbContext, MyTestContext>();
-            container.Register<DbContextOptions<MyTestContext>>(() => {
-                return new DbContextOptionsBuilder<MyTestContext>()
+            container.Register<ICourseRepository, CourseRepository>();
+            container.Register<CourseProvider>();
+            container.Register<DbContext, UniversityContext>();
+            container.Register<DbContextOptions<UniversityContext>>(() => {
+                return new DbContextOptionsBuilder<UniversityContext>()
                 .UseSqlServer("Server=localhost;Database=TestDB;Trusted_Connection=True;")
                 .Options;
             }, Lifestyle.Singleton);
 
-            Registration registration = container.GetRegistration(typeof(MyTestContext)).Registration;
+            Registration registration = container.GetRegistration(typeof(UniversityContext)).Registration;
 
             registration.SuppressDiagnosticWarning(DiagnosticType.DisposableTransientComponent, "Reason of suppression");
 

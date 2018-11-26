@@ -2,17 +2,18 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <RootNamespace>NRepository.MyTestBL</RootNamespace>
-    <AssemblyName>NRepository.MyTestBL</AssemblyName>
+    <RootNamespace>NRepository.UniversityBL</RootNamespace>
+    <AssemblyName>NRepository.UniversityBL</AssemblyName>
     <LangVersion>7.3</LangVersion>
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="FluentValidation" Version="8.0.101" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="2.1.4" />
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\MyTestBL.Domain\MyTestBL.Domain.csproj" />
+    <ProjectReference Include="..\MyTestBL.Domain\UniversityBL.Domain.csproj" />
     <ProjectReference Include="..\NRepository.Persistence.Infrastructure\NRepository.Persistence.Infrastructure.csproj" />
     <ProjectReference Include="..\NRepository\NRepository.EF.csproj" />
   </ItemGroup>

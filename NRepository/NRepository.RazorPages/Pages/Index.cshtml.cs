@@ -1,17 +1,17 @@
 ﻿using Microsoft.AspNetCore.Mvc.RazorPages;
-using NRepository.MyTestBL.BL;
+using NRepository.UniversityBL.BL;
 using System;
 
 namespace NRepository.RazorPages.Pages
 {
     public class IndexModel : PageModel
     {
-        public IndexModel(TestProvider testProvider)
+        public IndexModel(CourseProvider testProvider)
         {
             TestProvider = testProvider;
         }
 
-        public TestProvider TestProvider { get; set; }
+        public CourseProvider TestProvider { get; set; }
 
         public void OnGet()
         {

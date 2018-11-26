@@ -4,8 +4,8 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using NRepository.MyTestBL.BL;
-using NRepository.MyTestBL.BL.DataAccess;
+using NRepository.UniversityBL.BL;
+using NRepository.UniversityBL.BL.DataAccess;
 
 namespace NRepository.WebAPICore
 {
@@ -21,12 +21,12 @@ namespace NRepository.WebAPICore
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddScoped<ITestRepository, TestRepository>();
-            services.AddScoped<TestProvider>();
+            services.AddScoped<ICourseRepository, CourseRepository>();
+            services.AddScoped<CourseProvider>();
 
             var connection = @"Server=localhost;Database=TestDB;Trusted_Connection=True;";
-            services.AddDbContext<DbContext, MyTestContext>(options => options.UseSqlServer(connection));
-            services.AddScoped<ITestRepository, TestRepository>();
+            services.AddDbContext<DbContext, UniversityContext>(options => options.UseSqlServer(connection));
+            services.AddScoped<ICourseRepository, CourseRepository>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }

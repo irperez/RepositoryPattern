@@ -1,4 +1,4 @@
-﻿using NRepository.MyTestBL.BL;
+﻿using NRepository.UniversityBL.BL;
 using System.Collections.Generic;
 using System.Web.Http;
 
@@ -6,9 +6,9 @@ namespace NRepository.WebAPI.Controllers
 {
     public class ValuesController : ApiController
     {
-        public TestProvider TestProvider { get; set; }
+        public CourseProvider TestProvider { get; set; }
 
-        public ValuesController(TestProvider testProvider)
+        public ValuesController(CourseProvider testProvider)
         {
             TestProvider = testProvider;
         }

@@ -1,11 +1,11 @@
 ﻿Imports System.ComponentModel.Composition
-Imports NRepository.MyTestBL.BL
+Imports NRepository.UniversityBL.BL
 
 Public Class SampleControl
     Inherits System.Web.UI.UserControl
 
     <Import>
-    Public Property TestProvider As TestProvider
+    Public Property TestProvider As CourseProvider
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         If (TestProvider Is Nothing) Then

@@ -1,11 +1,11 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using NRepository.MyTestBL.Domain;
+using NRepository.UniversityBL.Domain;
 
-namespace NRepository.MyTestBL.BL.DataAccess
+namespace NRepository.UniversityBL.BL.DataAccess
 {
-    public class MyTestContext : DbContext
+    public class UniversityContext : DbContext
     {
-        public DbSet<Test> Tests { get; set; }
+        public DbSet<Course> Tests { get; set; }
 
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -16,7 +16,7 @@ namespace NRepository.MyTestBL.BL.DataAccess
             }
         }
 
-        public MyTestContext(DbContextOptions<MyTestContext> options): base(options)
+        public UniversityContext(DbContextOptions<UniversityContext> options): base(options)
         {
 
         }

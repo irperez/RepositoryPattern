@@ -1,5 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using NRepository.MyTestBL.BL;
+using NRepository.UniversityBL.BL;
 using System;
 using System.Collections.Generic;
 
@@ -9,9 +9,9 @@ namespace NRepository.WebAPICore.Controllers
     [ApiController]
     public class ValuesController : ControllerBase
     {
-        public TestProvider TestProvider { get; set; }
+        public CourseProvider TestProvider { get; set; }
 
-        public ValuesController(TestProvider testProvider)
+        public ValuesController(CourseProvider testProvider)
         {
             TestProvider = testProvider;
         }

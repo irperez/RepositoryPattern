@@ -359,9 +359,9 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\MyTestBL\MyTestBL.csproj">
+    <ProjectReference Include="..\MyTestBL\UniversityBL.csproj">
       <Project>{F5BF3EC5-E0DD-48E2-BC77-416410D2B824}</Project>
-      <Name>MyTestBL</Name>
+      <Name>UniversityBL</Name>
     </ProjectReference>
     <ProjectReference Include="..\NRepository.Abstractions\NRepository.Abstractions.csproj">
       <Project>{0935A5DB-7C56-475E-8169-64E51AB29C6E}</Project>
