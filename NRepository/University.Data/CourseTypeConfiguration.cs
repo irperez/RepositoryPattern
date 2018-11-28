@@ -2,7 +2,7 @@
 using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using NRepository.UniversityBL.Domain;
 
-namespace NRepository.UniversityBL.BL.DataAccess
+namespace University.Data
 {
     public class CourseTypeConfiguration : IEntityTypeConfiguration<Course>
     {        

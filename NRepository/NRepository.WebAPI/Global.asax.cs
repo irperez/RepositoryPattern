@@ -1,13 +1,13 @@
-﻿using Microsoft.EntityFrameworkCore;
-using NRepository.UniversityBL.BL;
-using NRepository.UniversityBL.BL.DataAccess;
-using SimpleInjector;
-using SimpleInjector.Integration.WebApi;
-using SimpleInjector.Lifestyles;
-using System.Web.Http;
+﻿using System.Web.Http;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
+using Microsoft.EntityFrameworkCore;
+using NRepository.UniversityBL.BL;
+using SimpleInjector;
+using SimpleInjector.Integration.WebApi;
+using SimpleInjector.Lifestyles;
+using University.Data;
 
 namespace NRepository.WebAPI
 {

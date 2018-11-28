@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using NRepository.UniversityBL.BL;
-using NRepository.UniversityBL.BL.DataAccess;
+using University.Data;
 
 namespace NRepository.RazorPages
 {

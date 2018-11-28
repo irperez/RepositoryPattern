@@ -5,11 +5,11 @@ Imports System.Web.Optimization
 Imports Microsoft.EntityFrameworkCore
 Imports Microsoft.Web.Infrastructure.DynamicModuleHelper
 Imports NRepository.UniversityBL.BL
-Imports NRepository.UniversityBL.BL.DataAccess
 Imports SimpleInjector
 Imports SimpleInjector.Advanced
 Imports SimpleInjector.Diagnostics
 Imports SimpleInjector.Integration.Web
+Imports University.Data
 
 <Assembly: PreApplicationStartMethod(GetType(NRepository.Webforms.VB.PageInitializerModule), "Initialize")>
 Public NotInheritable Class PageInitializerModule

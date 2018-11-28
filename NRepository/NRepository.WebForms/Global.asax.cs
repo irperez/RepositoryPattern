@@ -1,12 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
-using Microsoft.Web.Infrastructure.DynamicModuleHelper;
-using NRepository.UniversityBL.BL;
-using NRepository.UniversityBL.BL.DataAccess;
-using SimpleInjector;
-using SimpleInjector.Advanced;
-using SimpleInjector.Diagnostics;
-using SimpleInjector.Integration.Web;
-using System;
+﻿using System;
 using System.ComponentModel.Composition;
 using System.Linq;
 using System.Reflection;
@@ -15,6 +7,14 @@ using System.Web.Compilation;
 using System.Web.Optimization;
 using System.Web.Routing;
 using System.Web.UI;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.Web.Infrastructure.DynamicModuleHelper;
+using NRepository.UniversityBL.BL;
+using SimpleInjector;
+using SimpleInjector.Advanced;
+using SimpleInjector.Diagnostics;
+using SimpleInjector.Integration.Web;
+using University.Data;
 
 [assembly: PreApplicationStartMethod(typeof(NRepository.WebForms.PageInitializerModule), "Initialize")]
 namespace NRepository.WebForms
@@ -26,10 +26,10 @@ namespace NRepository.WebForms
             DynamicModuleUtility.RegisterModule(typeof(PageInitializerModule));
         }
 
-        void IHttpModule.Init(HttpApplication app)
+        void IHttpModule.Init(HttpApplication context)
         {
-            app.PreRequestHandlerExecute += (sender, e) => {
-                var handler = app.Context.CurrentHandler;
+            context.PreRequestHandlerExecute += (sender, e) => {
+                var handler = context.Context.CurrentHandler;
                 if(handler != null)
                 {
                     string name = handler.GetType().Assembly.FullName;
@@ -138,12 +138,12 @@ namespace NRepository.WebForms
 
         class ImportAttributePropertySelectionBehavior : IPropertySelectionBehavior
         {
-            public bool SelectProperty(Type implementationType, PropertyInfo property)
+            public bool SelectProperty(Type implementationType, PropertyInfo propertyInfo)
             {
                 // Makes use of the System.ComponentModel.Composition assembly
                 return (typeof(Page).IsAssignableFrom(implementationType) ||
             typeof(UserControl).IsAssignableFrom(implementationType)) &&
-                    property.GetCustomAttributes(typeof(ImportAttribute), true).Any();
+                    propertyInfo.GetCustomAttributes(typeof(ImportAttribute), true).Any();
             }
         }
     }

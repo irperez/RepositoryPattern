@@ -1,10 +1,9 @@
 ﻿using System;
 using Microsoft.EntityFrameworkCore;
 using NRepository.UniversityBL.BL;
-using NRepository.UniversityBL.BL.DataAccess;
 using SimpleInjector;
-using SimpleInjector.Diagnostics;
 using SimpleInjector.Lifestyles;
+using University.Data;
 
 namespace NRepository.ConsoleCore
 {

@@ -19,6 +19,7 @@
   <ItemGroup>
     <ProjectReference Include="..\MyTestBL\UniversityBL.csproj" />
     <ProjectReference Include="..\NRepository.Persistence.Infrastructure\NRepository.Persistence.Infrastructure.csproj" />
+    <ProjectReference Include="..\University.Data\University.Data.csproj" />
   </ItemGroup>
 
 </Project>

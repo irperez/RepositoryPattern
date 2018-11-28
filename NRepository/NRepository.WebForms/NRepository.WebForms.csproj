@@ -330,6 +330,10 @@
       <Project>{76D93875-A79B-4EF2-9BAA-00E58F587AE7}</Project>
       <Name>NRepository.EF</Name>
     </ProjectReference>
+    <ProjectReference Include="..\University.Data\University.Data.csproj">
+      <Project>{2682B478-9D47-44F2-BC69-8B38189E3C9D}</Project>
+      <Name>University.Data</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

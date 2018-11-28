@@ -17,6 +17,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\MyTestBL\UniversityBL.csproj" />
+    <ProjectReference Include="..\University.Data\University.Data.csproj" />
   </ItemGroup>
 
   <PropertyGroup>

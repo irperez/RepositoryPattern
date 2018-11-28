@@ -1,14 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using NRepository.UniversityBL.BL;
-using NRepository.UniversityBL.BL.DataAccess;
 using SimpleInjector;
-using SimpleInjector.Diagnostics;
 using SimpleInjector.Lifestyles;
+using University.Data;
 
 namespace NRepository.ConsoleFx
 {

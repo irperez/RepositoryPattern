@@ -1,11 +1,11 @@
+using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using NRepository.UniversityBL.BL;
-using NRepository.UniversityBL.BL.DataAccess;
 using NRepository.UniversityBL.Domain;
 using SimpleInjector;
 using SimpleInjector.Diagnostics;
-using System;
+using University.Data;
 
 namespace UniversityBL.Tests
 {

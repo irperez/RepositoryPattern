@@ -4,7 +4,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace NRepository.UniversityBL.BL.DataAccess
+namespace University.Data
 {
     public class UniversityDbContextFactory : DesignTimeDbContextFactoryBase<UniversityContext>
     {

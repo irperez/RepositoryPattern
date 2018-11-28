@@ -3,7 +3,7 @@ using System;
 using System.Linq;
 using System.Reflection;
 
-namespace NRepository.UniversityBL.BL.DataAccess
+namespace University.Data
 {
     public static class ModelBuilderExtensions
     {

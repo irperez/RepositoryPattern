@@ -1,0 +1,13 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+    <LangVersion>latest</LangVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\MyTestBL.Domain\UniversityBL.Domain.csproj" />
+    <ProjectReference Include="..\NRepository.Persistence.Infrastructure\NRepository.Persistence.Infrastructure.csproj" />
+  </ItemGroup>
+
+</Project>
