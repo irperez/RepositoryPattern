@@ -13,6 +13,9 @@ namespace University.Data
             builder.HasMany(b => b.Topics)
                    .WithOne()
                    .HasForeignKey(p => p.CourseId);
+
+            builder.Property(p => p.RowVersion)
+                .IsRowVersion();
         }
     }
 }

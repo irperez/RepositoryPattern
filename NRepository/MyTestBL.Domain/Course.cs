@@ -10,5 +10,6 @@ namespace NRepository.UniversityBL.Domain
         public int AverageRating { get; set; }
         public List<Topic> Topics { get; set; }
         public DateTimeOffset StartDate { get; set; }
+        public byte[] RowVersion {get;set;}
     }
 }
