@@ -78,5 +78,10 @@ namespace NRepository.UniversityBL.BL
                 return null;
             }
         }
+
+        public void Delete(Guid id)
+        {
+            CourseRepository.Remove(id);
+        }
     }
 }

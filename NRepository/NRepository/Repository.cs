@@ -50,5 +50,12 @@ namespace NRepository.EF
             //NOTE: The lack of a using statement here
             Context.SaveChanges();
         }
+
+        public void Remove(Guid id)
+        {
+            var entity = Context.Set<T>().Find(id);
+            Context.Set<T>().Remove(entity);
+            Context.SaveChanges();
+        }
     }
 }

@@ -46,6 +46,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NRepository.ConsoleCore", "
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NRepository", "NRepository", "{1F26D6CB-0A11-4B57-98B5-4358146C0E03}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Integration Tests", "Integration Tests", "{996B5B08-F7BE-4B9D-9E6D-0D731BF6A266}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU

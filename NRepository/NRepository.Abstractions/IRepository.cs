@@ -1,4 +1,5 @@
 ﻿using NSpecifications;
+using System;
 using System.Collections.Generic;
 
 namespace NRepository.Abstractions
@@ -14,5 +15,6 @@ namespace NRepository.Abstractions
         List<T> Get();
         void Add(T entity);
         void Save(T entity); //I'm thinking of removing this.  Not sure yet.
+        void Remove(Guid id);
     }
 }
