@@ -65,8 +65,13 @@ namespace UniversityBL.Tests
             };
 
             var mathValidation = tp.Add(mathCourse);
+            Assert.IsNull(mathValidation);
+
             var englishValidation = tp.Add(englishCourse);
+            Assert.IsNull(englishValidation);
+
             var biologyValidation = tp.Add(biologyCourse);
+            Assert.IsNull(biologyValidation);
 
             var actual = tp.GetHighlyRatedCourses();
 

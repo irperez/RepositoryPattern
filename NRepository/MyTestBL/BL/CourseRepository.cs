@@ -16,7 +16,6 @@ namespace NRepository.UniversityBL.BL
 
         public List<Guid> GetChildGuids(ASpec<Course> specification)
         {
-            //NOTE: The lack of a using statement here
             return Context.Set<Course>()
                     .Include(h => h.Topics)
                     .Where(specification).ToList()

@@ -20,7 +20,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionItems", "{DCB1850E-E6A1-4FFD-81B2-BA231B97D177}"
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
-		readme.md = readme.md
+		..\README.md = ..\README.md
 		UniversityDB.sql = UniversityDB.sql
 	EndProjectSection
 EndProject

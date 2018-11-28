@@ -17,19 +17,16 @@ namespace NRepository.EF
 
         public T GetSingle(ASpec<T> specification)
         {
-            //NOTE: The lack of a using statement here
             return Context.Set<T>().Where(specification).AsNoTracking().SingleOrDefault();
         }
 
         public List<T> Get(ASpec<T> specification)
         {
-            //NOTE: The lack of a using statement here
             return Context.Set<T>().Where(specification).AsNoTracking().ToList();
         }
 
         public List<T> Get()
         {
-            //NOTE: The lack of a using statement here
             return Context.Set<T>().AsNoTracking().ToList();
         }
     }    
