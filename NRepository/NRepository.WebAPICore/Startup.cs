@@ -9,6 +9,10 @@ using University.Data;
 
 namespace NRepository.WebAPICore
 {
+
+    /// <summary>
+    /// test comment
+    /// </summary>
     public class Startup
     {
         public Startup(IConfiguration configuration)
