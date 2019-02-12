@@ -6,7 +6,7 @@ namespace University.Data
     public class UniversityContext : DbContext
     {
         public DbSet<Course> Courses { get; set; }
-
+ 
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

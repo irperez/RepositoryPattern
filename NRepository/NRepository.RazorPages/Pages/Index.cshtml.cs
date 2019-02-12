@@ -19,6 +19,7 @@ namespace NRepository.RazorPages.Pages
             {
                 throw new ArgumentNullException("TestProvider");
             }
+          //  var t = CourseProvider.GetAllCourses();
         }
     }
 }

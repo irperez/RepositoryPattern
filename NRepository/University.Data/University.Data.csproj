@@ -10,4 +10,8 @@
     <ProjectReference Include="..\NRepository.Persistence.Infrastructure\NRepository.Persistence.Infrastructure.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="UniversityDBMigrations\" />
+  </ItemGroup>
+
 </Project>

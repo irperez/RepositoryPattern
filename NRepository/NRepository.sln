@@ -20,6 +20,7 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "SolutionItems", "SolutionItems", "{DCB1850E-E6A1-4FFD-81B2-BA231B97D177}"
 	ProjectSection(SolutionItems) = preProject
 		.editorconfig = .editorconfig
+		appsettings.json = appsettings.json
 		..\README.md = ..\README.md
 		UniversityDB.sql = UniversityDB.sql
 	EndProjectSection
@@ -48,7 +49,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NRepository", "NRepository"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Integration Tests", "Integration Tests", "{996B5B08-F7BE-4B9D-9E6D-0D731BF6A266}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "University.Data", "University.Data\University.Data.csproj", "{2682B478-9D47-44F2-BC69-8B38189E3C9D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "University.Data", "University.Data\University.Data.csproj", "{2682B478-9D47-44F2-BC69-8B38189E3C9D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

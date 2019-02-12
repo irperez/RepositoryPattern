@@ -32,8 +32,8 @@ namespace NRepository.RazorPages
             services.AddScoped<ICourseRepository, CourseRepository>();
             services.AddScoped<CourseProvider>();
 
-            var connection = @"Server=localhost;Database=TestDB;Trusted_Connection=True;";
-            services.AddDbContext<DbContext, UniversityContext>(options => options.UseSqlServer(connection));
+            var connectionString = Configuration.GetConnectionString("UniversityDB");
+            services.AddDbContext<DbContext, UniversityContext>(options => options.UseSqlServer(connectionString));
             services.AddScoped<ICourseRepository, CourseRepository>();
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
