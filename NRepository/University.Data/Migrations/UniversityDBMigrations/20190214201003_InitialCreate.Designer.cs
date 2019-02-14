@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using University.Data;
 
-namespace University.Data.Migrations.SqlServerMigrations
+namespace University.Data.Migrations.UniversityDBMigrations
 {
     [DbContext(typeof(UniversityContext))]
-    partial class UniversityContextModelSnapshot : ModelSnapshot
+    [Migration("20190214201003_InitialCreate")]
+    partial class InitialCreate
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

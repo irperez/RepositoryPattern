@@ -21,9 +21,9 @@ namespace NRepository.Persistence.Infrastructure
 
         public TContext CreateDbContext(string[] args)
         {
-             
 
-            //Add-Migration InitialCreate -project 'University.Data' -startupproject 'NRepository.RazorPages' -Context UniversityContext -OutputDir Migrations\SqlServerMigrations
+
+            //Add-Migration InitialCreate -project 'University.Data' -startupproject 'NRepository.RazorPages' -Context UniversityContext -OutputDir Migrations\UniversityDBMigrations
             //update-database -project 'University.Data' -startupproject 'NRepository.RazorPages'
             //Remove-Migration -project 'University.Data' -startupproject 'NRepository.RazorPages'
 
