@@ -51,9 +51,12 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Integration Tests", "Integr
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "University.Data", "University.Data\University.Data.csproj", "{2682B478-9D47-44F2-BC69-8B38189E3C9D}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Contact.Data", "Contact.Data\Contact.Data.csproj", "{614805AB-8F9C-4006-B4BC-1722C8B341F9}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Contact.Domain", "Contact.Domain\Contact.Domain.csproj", "{C7331680-4D6B-4516-BF32-8F4EB47A9DA8}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "References", "References", "{48DD07CD-B9D0-4EB8-8522-872B2AECA113}"
+	ProjectSection(SolutionItems) = preProject
+		References\eviti.data.tracking.deps.json = References\eviti.data.tracking.deps.json
+		References\eviti.data.tracking.dll = References\eviti.data.tracking.dll
+		References\eviti.data.tracking.pdb = References\eviti.data.tracking.pdb
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -117,14 +120,6 @@ Global
 		{2682B478-9D47-44F2-BC69-8B38189E3C9D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2682B478-9D47-44F2-BC69-8B38189E3C9D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2682B478-9D47-44F2-BC69-8B38189E3C9D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{614805AB-8F9C-4006-B4BC-1722C8B341F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{614805AB-8F9C-4006-B4BC-1722C8B341F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{614805AB-8F9C-4006-B4BC-1722C8B341F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{614805AB-8F9C-4006-B4BC-1722C8B341F9}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C7331680-4D6B-4516-BF32-8F4EB47A9DA8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C7331680-4D6B-4516-BF32-8F4EB47A9DA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C7331680-4D6B-4516-BF32-8F4EB47A9DA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C7331680-4D6B-4516-BF32-8F4EB47A9DA8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -145,8 +140,6 @@ Global
 		{DA6D8052-B0C1-4B89-8028-980FEFA3AE97} = {AC6FDE4E-5EE0-4073-B8F4-5F94F4AC0CF8}
 		{1F26D6CB-0A11-4B57-98B5-4358146C0E03} = {20A986AA-EC89-42D1-B9F3-383198966D46}
 		{2682B478-9D47-44F2-BC69-8B38189E3C9D} = {20A986AA-EC89-42D1-B9F3-383198966D46}
-		{614805AB-8F9C-4006-B4BC-1722C8B341F9} = {20A986AA-EC89-42D1-B9F3-383198966D46}
-		{C7331680-4D6B-4516-BF32-8F4EB47A9DA8} = {20A986AA-EC89-42D1-B9F3-383198966D46}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9046F5F5-2453-4C7E-8C03-D452AE04A3D3}
