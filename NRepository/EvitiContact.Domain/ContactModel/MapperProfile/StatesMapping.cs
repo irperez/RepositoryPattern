@@ -19,7 +19,9 @@ namespace EvitiContact.Domain.ContactModelDB
             #region Generated Mapping
             CreateMap<States, StatesViewModel>();
             #endregion
-         }
+            CreateMap<States, StatesViewModel>(MemberList.None);
+            CreateMap<StatesViewModel, States>(MemberList.None);
+        }
      }
     /*
     #region Generated Reference Class

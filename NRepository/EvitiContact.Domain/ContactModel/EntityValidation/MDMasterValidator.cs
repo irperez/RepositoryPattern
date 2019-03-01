@@ -9,25 +9,26 @@ using EvitiContact.ContactModel;
 namespace EvitiContact.Domain.ContactModelDB
 {
     public partial class MDMasterValidator : AbstractValidator<MDMaster>
-     {
-    /// <summary>
-    /// Initializes a new instance of the <see cref="MDMasterValidator"/> class.
-    /// </summary>
-    public MDMasterValidator()
-     {
-    #region Generated Entity Validation
-    RuleFor(p => p.Name).NotEmpty();
-    RuleFor(p => p.Name).MaximumLength(50);
-    //RuleFor(p => p.Version).NotEmpty();
-    //RuleFor(p => p.Version).MaximumLength(50);
-    //RuleFor(p => p.CreatedBy).NotEmpty();
-    //RuleFor(p => p.CreatedBy).MaximumLength(256);
-    //RuleFor(p => p.ModifiedBy).NotEmpty();
-    //RuleFor(p => p.ModifiedBy).MaximumLength(256);
-    //RuleFor(p => p.RowVersion).NotEmpty();
-    #endregion
-     }
-     }
+    {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MDMasterValidator"/> class.
+        /// </summary>
+        public MDMasterValidator()
+        {
+            #region Generated Entity Validation
+            RuleFor(p => p.Name).NotEmpty();
+            RuleFor(p => p.Name).MaximumLength(50);
+            //RuleFor(p => p.Version).NotEmpty();
+            //RuleFor(p => p.Version).MaximumLength(50);
+            //RuleFor(p => p.CreatedBy).NotEmpty();
+            //RuleFor(p => p.CreatedBy).MaximumLength(256);
+            //RuleFor(p => p.ModifiedBy).NotEmpty();
+            //RuleFor(p => p.ModifiedBy).MaximumLength(256);
+            //RuleFor(p => p.RowVersion).NotEmpty();
+            #endregion
+            RuleFor(p => p.RowVersion).NotEmpty();
+        }
+    }
     /*
     #region Generated Reference Class
     public partial class MDMaster

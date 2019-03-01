@@ -19,7 +19,9 @@ namespace EvitiContact.Domain.ContactModelDB
             #region Generated Mapping
             CreateMap<ZipCodes, ZipCodesViewModel>();
             #endregion
-         }
+            CreateMap<ZipCodes, ZipCodesViewModel>(MemberList.None);
+            CreateMap<ZipCodesViewModel, ZipCodes>(MemberList.None);
+        }
      }
     /*
     #region Generated Reference Class

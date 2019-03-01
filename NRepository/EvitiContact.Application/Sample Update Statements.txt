@@ -1,0 +1,49 @@
+﻿1.	NO serialization SQL update statements – I modified two properties 'NO serialization Master' on the master record and  1 'NO serialization Child' on one of the child properties 
+
+This results in 5 update statements with all properties getting pushed to the DB. 
+
+exec sp_executesql N'SET NOCOUNT ON;
+UPDATE [dbo].[MDDetail] SET [MasterId] = @p0, [ModifiedBy] = @p1, [ModifiedDate] = @p2, [Name] = @p3, [SomeOtherName] = @p4
+WHERE [DetailID] = @p5;
+SELECT @@ROWCOUNT;
+
+UPDATE [dbo].[MDDetail] SET [MasterId] = @p6, [ModifiedBy] = @p7, [ModifiedDate] = @p8, [Name] = @p9, [SomeOtherName] = @p10
+WHERE [DetailID] = @p11;
+SELECT @@ROWCOUNT;
+
+UPDATE [dbo].[MDDetail] SET [MasterId] = @p12, [ModifiedBy] = @p13, [ModifiedDate] = @p14, [Name] = @p15, [SomeOtherName] = @p16
+WHERE [DetailID] = @p17;
+SELECT @@ROWCOUNT;
+
+UPDATE [dbo].[MDDetail] SET [MasterId] = @p18, [ModifiedBy] = @p19, [ModifiedDate] = @p20, [Name] = @p21, [SomeOtherName] = @p22
+WHERE [DetailID] = @p23;
+SELECT @@ROWCOUNT;
+
+UPDATE [dbo].[MDMaster] SET [ModifiedBy] = @p24, [ModifiedDate] = @p25, [Name] = @p26
+WHERE [MasterId] = @p27 AND [RowVersion] = @p28;
+SELECT [RowVersion]
+FROM [dbo].[MDMaster]
+WHERE @@ROWCOUNT = 1 AND [MasterId] = @p27;
+
+',N'@p5 uniqueidentifier,@p0 uniqueidentifier,@p1 varchar(256),@p2 datetime,@p3 varchar(50),@p4 varchar(50),@p11 uniqueidentifier,@p6 uniqueidentifier,@p7 varchar(256),@p8 datetime,@p9 varchar(50),@p10 varchar(50),@p17 uniqueidentifier,@p12 uniqueidentifier,@p13 varchar(256),@p14 datetime,@p15 varchar(50),@p16 varchar(50),@p23 uniqueidentifier,@p18 uniqueidentifier,@p19 varchar(256),@p20 datetime,@p21 varchar(50),@p22 varchar(50),@p27 uniqueidentifier,@p24 varchar(256),@p25 datetime,@p26 varchar(50),@p28 varbinary(8)',@p5='0C4C6DC1-374A-4F43-1B8B-08D65F6CE171',@p0='0FAD3A78-9C71-4622-2E06-08D65F6CDF21',@p1='bob',@p2='2019-02-12 23:56:45.283',@p3='Child Name 1 update',@p4='Child Name 1 - SomeOhter Name',@p11='3388BF71-FE6C-44F3-1B8D-08D65F6CE171',@p6='0FAD3A78-9C71-4622-2E06-08D65F6CDF21',@p7='bob',@p8='2019-02-12 23:56:45.283',@p9='Child Name 3',@p10='Child Name 3 -Some Other Name',@p17='3A4605ED-5569-4A27-1B8E-08D65F6CE171',@p12='0FAD3A78-9C71-4622-2E06-08D65F6CDF21',@p13='bob',@p14='2019-02-12 23:56:45.283',@p15='Child Name 4',@p16='Child Name 4 -Some Other Name',@p23='7BE714E6-1AC2-4029-1B8C-08D65F6CE171',@p18='0FAD3A78-9C71-4622-2E06-08D65F6CDF21',@p19='bob',@p20='2019-02-12 23:56:45.283',@p21='NO serialization Child',@p22='Child Name 2 -Some Other Name',@p27='0FAD3A78-9C71-4622-2E06-08D65F6CDF21',@p24='bob',@p25='2019-02-12 23:56:45.283',@p26='NO serialization Master',@p28=0x000000000005C493
+
+
+2.	Here is the result with serialization.  Same two properties 'WITH serialization Master' on the master record and 1 'WITH serialization Child' on one of the child properties 
+(NOTE EF core batch size is 3 records) so this results in two update statements
+
+exec sp_executesql N'SET NOCOUNT ON;
+UPDATE [dbo].[MDDetail] SET [ModifiedBy] = @p0, [ModifiedDate] = @p1, [Name] = @p2
+WHERE [DetailID] = @p3;
+SELECT @@ROWCOUNT;
+
+',N'@p3 uniqueidentifier,@p0 varchar(256),@p1 datetime,@p2 varchar(50)',@p3='7BE714E6-1AC2-4029-1B8C-08D65F6CE171',@p0='bob',@p1='2019-02-13 00:06:00.190',@p2='WITH serialization Child'
+
+
+exec sp_executesql N'SET NOCOUNT ON;
+UPDATE [dbo].[MDMaster] SET [ModifiedBy] = @p0, [ModifiedDate] = @p1, [Name] = @p2
+WHERE [MasterId] = @p3 AND [RowVersion] = @p4;
+SELECT [RowVersion]
+FROM [dbo].[MDMaster]
+WHERE @@ROWCOUNT = 1 AND [MasterId] = @p3;
+
+',N'@p3 uniqueidentifier,@p0 varchar(256),@p1 datetime,@p2 varchar(50),@p4 varbinary(8)',@p3='0FAD3A78-9C71-4622-2E06-08D65F6CDF21',@p0='bob',@p1='2019-02-13 00:06:00.190',@p2='WITH serialization Master',@p4=0x000000000005C494

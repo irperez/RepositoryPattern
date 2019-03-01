@@ -1,0 +1,6 @@
+﻿Add-Migration V2 -project 'EvitiContact.Data' -startupproject 'EvitiContact.Web' -Context ContactModelDbContext -OutputDir ContactModelDB\Migrations
+
+
+
+Add-Migration Initial -project 'EvitiContact.Data' -startupproject 'NRepository.RazorPages' -Context ContactModelDbContext -OutputDir ContactModel\Migrations
+Add-Migration Initial -project 'EvitiContact.Data' -startupproject 'NRepository.RazorPages' -Context SchoolModelDbContext -OutputDir SchoolModel\Migrations

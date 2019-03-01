@@ -17,6 +17,29 @@ namespace EvitiContact.SchoolModel
 
         partial void InitializePartial();
 
+        public Grade? GradeAsEnum
+        {
+            get
+            {
+
+                if (_Grade.HasValue)
+                {
+                    return (SchoolModel.Grade)_Grade;
+                }
+                else
+                {
+                    return SchoolModel.Grade.F;
+                }
+
+            }
+            set
+            {
+                int something = (int)value;
+                _Grade = something;
+
+            }
+
+        }
         #region Generated Properties
         private int _EnrollmentID;  
         public int EnrollmentID { get { return _EnrollmentID; } set { SetKeyWithOutNotify(value, ref _EnrollmentID); } } 

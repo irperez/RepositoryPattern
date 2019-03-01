@@ -62,6 +62,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EvitiContact.Domain", "Evit
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EvitiContact.Data", "EvitiContact.Data\EvitiContact.Data.csproj", "{747CB30C-AD44-4B1D-99BA-173D6DB59568}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EvitiContact.Application", "EvitiContact.Application\EvitiContact.Application.csproj", "{678D378B-EA21-450C-ACA6-B19FC0C6D63D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -132,6 +134,10 @@ Global
 		{747CB30C-AD44-4B1D-99BA-173D6DB59568}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{747CB30C-AD44-4B1D-99BA-173D6DB59568}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{747CB30C-AD44-4B1D-99BA-173D6DB59568}.Release|Any CPU.Build.0 = Release|Any CPU
+		{678D378B-EA21-450C-ACA6-B19FC0C6D63D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{678D378B-EA21-450C-ACA6-B19FC0C6D63D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{678D378B-EA21-450C-ACA6-B19FC0C6D63D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{678D378B-EA21-450C-ACA6-B19FC0C6D63D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -154,6 +160,7 @@ Global
 		{2682B478-9D47-44F2-BC69-8B38189E3C9D} = {20A986AA-EC89-42D1-B9F3-383198966D46}
 		{48F653A9-BB3D-4571-AF02-CB404932C883} = {20A986AA-EC89-42D1-B9F3-383198966D46}
 		{747CB30C-AD44-4B1D-99BA-173D6DB59568} = {20A986AA-EC89-42D1-B9F3-383198966D46}
+		{678D378B-EA21-450C-ACA6-B19FC0C6D63D} = {20A986AA-EC89-42D1-B9F3-383198966D46}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9046F5F5-2453-4C7E-8C03-D452AE04A3D3}

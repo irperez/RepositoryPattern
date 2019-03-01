@@ -5,22 +5,36 @@ using FluentValidation;
 using eviti.Data.Tracking.BaseObjects;
 using eviti.data.tracking.Interfaces;
 using EvitiContact.ContactModel;
+ 
+using AutoMapper.EquivalencyExpression;
+using eviti.data.tracking.BaseObjects;
+ 
 
 namespace EvitiContact.Domain.ContactModelDB
 {
     public partial class MDDetailProfile : Profile
     {
-    /// <summary>
-    /// Initializes a new instance of the <see cref="MDDetailProfile"/> class.
-    /// Based on <see cref="MDDetail"/> class.
-    /// </summary>
+        /// <summary>
+        /// Initializes a new instance of the <see cref="MDDetailProfile"/> class.
+        /// Based on <see cref="MDDetail"/> class.
+        /// </summary>
         public MDDetailProfile()
         {
-            #region Generated Mapping
-            CreateMap<MDDetail, MDDetailViewModel>();
-            #endregion
-         }
-     }
+            if (1 == 0)
+            {
+                #region Generated Mapping
+                CreateMap<MDDetail, MDDetailViewModel>();
+                #endregion
+            }
+            CreateMap<MDDetailViewModel, MDDetail>(MemberList.None)
+             .EqualityComparison((odto, o) => odto.DetailID == o.DetailID)
+             .ForMember(d => d.TrackingState, opt => opt.MapFrom(s => TrackingHelper.SetIsDeletedToTrackingStateDeleted(s.IsDeleted)));
+
+            CreateMap<MDDetail, MDDetailViewModel>(MemberList.None)
+                      .EqualityComparison((odto, o) => odto.DetailID == o.DetailID);
+
+        }
+    }
     /*
     #region Generated Reference Class
     public partial class MDDetail
