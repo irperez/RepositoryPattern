@@ -1,0 +1,61 @@
+﻿@page
+@model NRepository.RazorPages.Pages.MD.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>MDMaster</h4>
+    <hr />
+    <dl class="row">
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.MDMaster.Name)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.MDMaster.Name)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.MDMaster.Version)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.MDMaster.Version)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.MDMaster.CreatedDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.MDMaster.CreatedDate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.MDMaster.CreatedBy)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.MDMaster.CreatedBy)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.MDMaster.ModifiedDate)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.MDMaster.ModifiedDate)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.MDMaster.ModifiedBy)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.MDMaster.ModifiedBy)
+        </dd>
+        <dt class="col-sm-2">
+            @Html.DisplayNameFor(model => model.MDMaster.RowVersion)
+        </dt>
+        <dd class="col-sm-10">
+            @Html.DisplayFor(model => model.MDMaster.RowVersion)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.MDMaster.MasterId">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

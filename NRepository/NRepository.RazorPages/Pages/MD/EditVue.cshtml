@@ -1,0 +1,144 @@
+﻿@page
+@model NRepository.RazorPages.Pages.MD.EditVueModel
+@{
+    ViewData["Title"] = "EditVue";
+}
+
+<h1>EditVue</h1>
+
+
+<h2>EditVue</h2>
+<style>
+    .deleted {
+        display: none;
+    }
+
+    .invalidInput {
+        border: 2px solid red;
+    }
+
+    .validInput {
+        border: 2px solid green;
+    }
+
+    .text-danger {
+        color: red;
+    }
+</style>
+<div id='root'>
+
+
+
+
+
+
+    <form v-on:submit.prevent v-on:keydown="errors.clearTest($event.target.name)">
+        @*Stop the submit of the form*@
+
+
+        <div>
+            <button class="btn btn-primary" v-on:click="submitToApi" v-bind:disabled="errors.any()">Submit to API</button>
+
+            |
+            <button class="btn btn-danger" v-on:click="clearForm">Clear Form</button>
+            |  <button class="btn btn-warning" v-on:click="reloadFromServer">Reload From Server</button>
+
+
+            <ol>
+                <li v-for="todo in errors.errors">
+                    @*{{ todo.name }} -*@
+
+                    <span class="text-danger">  {{ todo.message }}</span>
+
+
+                </li>
+            </ol>
+            <p>
+                <label for="Nametest">Name Test</label>
+                <br />
+                <input id="Nametest" v-model="todos.nametest" type="text" name="nametest"
+                       v-bind:class="{ 'invalidInput' :errors.get('Nametest',todos)}"
+                       v-on:keydown="errors.clear('Nametest')">
+                <br />
+                <span class="text-danger" v-text="errors.get('Nametest',todos)"></span>
+            </p>
+
+
+
+            <div class="row " v-for="(todo,index) in todos.mdDetails" v-bind:key="todo.detailID">
+                <div v-bind:class="{ deleted: todo.isDeleted }">
+
+
+                    <p>
+                        <label for="Name">Name</label>
+                        <input v-model="todo.name" type="text"
+                               name="Name"
+                               v-bind:class="{ 'invalidInput' : errors.getIndexed('MDDetails','Name', todo, index)}"
+                               v-on:keydown="errors.clearByIndex('MDDetails','Name', todo, index)">
+                        <button v-on:click="deleteItem(todo)">delete Item</button>      <br />
+
+                        <span class="text-danger" v-text="errors.getIndexed('MDDetails','Name', todo, index)"></span>
+
+
+                    </p>Name: {{ todo.name }} <br />
+                    Id: {{ todo.detailID }}<br /> Index: {{ index }}
+                </div>
+
+            </div>
+            <button class="btn btn-success" v-on:click="addNewDetailItem">Add New Item</button>
+            <br />  <br />
+            <button class="btn btn-primary" v-on:click="submitToApi" v-bind:disabled="errors.any()">Submit to API</button>
+            |
+            <button class="btn btn-danger" v-on:click="clearForm">Clear Form</button>
+            |
+            <button class="btn btn-warning" v-on:click="reloadFromServer">Reload From Server</button>
+            |
+
+
+        </div>
+
+    </form>
+
+    @*<h1 v-if="true">Yes</h1>*@
+    <h1>Object Test</h1>
+    <div v-for="(value, key) in myobjext">
+        {{ key }}: {{ value }}
+    </div>
+    <div v-for="(value, key, index) in myobjext">
+        {{ index }}. {{ key }}: {{ value }}
+    </div>
+    <h1>Add Names</h1>
+    <ul>
+        <li v-for="name in names" v-text="name"> </li>
+    </ul>
+    <input id="input" type="text" v-model="newName">
+    <!-- <input id="input" type="text" v-model="newName" v-on:keyup="addName"> -->
+    <button v-on:click="addName">Add Name</button>
+    <h1>Check these links out</h1>
+    <ol>
+        <li v-for="name in links">
+            <a v-bind:href="name">{{name}}</a>
+        </li>
+    </ol>
+
+    Check out v-bind:key="todo.detailID"
+
+
+
+    <h1>Check these links out</h1>
+    <ol>
+        <li v-for="link in linksv3">
+            <a v-bind:href="link.link">{{link.name}}</a>
+        </li>
+    </ol>
+</div>
+
+@*<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/vue"></script>*@
+
+
+<script src="~/js/axios.min.js"></script>
+<script src="~/js/Vue.js"></script>
+
+<script src="~/js/Pages/MD/editVue.js"></script>
+

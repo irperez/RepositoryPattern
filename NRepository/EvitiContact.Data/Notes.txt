@@ -4,3 +4,7 @@
 
 Add-Migration Initial -project 'EvitiContact.Data' -startupproject 'NRepository.RazorPages' -Context ContactModelDbContext -OutputDir ContactModel\Migrations
 Add-Migration Initial -project 'EvitiContact.Data' -startupproject 'NRepository.RazorPages' -Context SchoolModelDbContext -OutputDir SchoolModel\Migrations
+
+
+update-database Initial -project 'EvitiContact.Data' -startupproject 'NRepository.RazorPages'  -Context ContactModelDbContext
+ update-database Initial -project 'EvitiContact.Data' -startupproject 'NRepository.RazorPages'  -Context SchoolModelDbContext

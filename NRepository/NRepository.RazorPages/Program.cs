@@ -14,7 +14,13 @@ namespace NRepository.RazorPages
     {
         public static void Main(string[] args)
         {
-            CreateWebHostBuilder(args).Build().Run();
+
+            IWebHost host = CreateWebHostBuilder(args).Build();
+
+            EvitiContact.Application.ApplicationSetup.SetupApp(host);
+       
+            host.Run();
+
         }
 
         public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>

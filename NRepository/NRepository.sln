@@ -62,7 +62,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EvitiContact.Domain", "Evit
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EvitiContact.Data", "EvitiContact.Data\EvitiContact.Data.csproj", "{747CB30C-AD44-4B1D-99BA-173D6DB59568}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EvitiContact.Application", "EvitiContact.Application\EvitiContact.Application.csproj", "{678D378B-EA21-450C-ACA6-B19FC0C6D63D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EvitiContact.ApplicationService", "EvitiContact.Application\EvitiContact.ApplicationService.csproj", "{678D378B-EA21-450C-ACA6-B19FC0C6D63D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

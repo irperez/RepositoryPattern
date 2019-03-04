@@ -1,0 +1,72 @@
+﻿@page
+@model NRepository.RazorPages.Pages.MD.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.MDMaster[0].Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MDMaster[0].Version)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MDMaster[0].CreatedDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MDMaster[0].CreatedBy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MDMaster[0].ModifiedDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MDMaster[0].ModifiedBy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.MDMaster[0].RowVersion)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.MDMaster) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Version)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedBy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ModifiedDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ModifiedBy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.RowVersion)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.MasterId">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.MasterId">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.MasterId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

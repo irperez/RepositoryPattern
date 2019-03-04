@@ -1,0 +1,86 @@
+﻿@page
+@model NRepository.RazorPages.Pages.MD.EditModel
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<h1>Edit</h1>
+
+<h4>MDMaster</h4>
+<hr />
+<p>The name of ForceError or ForceError2 will trigger a error</p>
+<div class="row">
+    <div class="col-md-4">
+        <form method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="MDMaster.MasterId" />
+            <input type="hidden" asp-for="MDMaster.RowVersion" />
+            <input type="hidden" asp-for="MDMaster.OriginalVMObject" />
+            <div class="form-group">
+                <label asp-for="MDMaster.Name" class="control-label"></label>
+                <input asp-for="MDMaster.Name" class="form-control" />
+                <span asp-validation-for="MDMaster.Name" class="text-danger"></span>
+            </div>
+            @*<div class="form-group">
+            <label asp-for="MDMaster.Version" class="control-label"></label>
+            <input asp-for="MDMaster.Version" class="form-control" />
+            <span asp-validation-for="MDMaster.Version" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="MDMaster.CreatedDate" class="control-label"></label>
+            <input asp-for="MDMaster.CreatedDate" class="form-control" />
+            <span asp-validation-for="MDMaster.CreatedDate" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="MDMaster.CreatedBy" class="control-label"></label>
+            <input asp-for="MDMaster.CreatedBy" class="form-control" />
+            <span asp-validation-for="MDMaster.CreatedBy" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="MDMaster.ModifiedDate" class="control-label"></label>
+            <input asp-for="MDMaster.ModifiedDate" class="form-control" />
+            <span asp-validation-for="MDMaster.ModifiedDate" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="MDMaster.ModifiedBy" class="control-label"></label>
+            <input asp-for="MDMaster.ModifiedBy" class="form-control" />
+            <span asp-validation-for="MDMaster.ModifiedBy" class="text-danger"></span>
+        </div>*@
+
+
+            <p> Child Items</p>
+
+            @*@foreach (var item in Model.MDMaster.MDDetails)*@
+            @for (int i = 0; i < Model.MDMaster.MDDetails.Count; i++)
+            {
+                <p> Child Item number @i.ToString() </p>
+                <input type="hidden" asp-for="MDMaster.MDDetails[i].MasterId" />
+                <input type="hidden" asp-for="MDMaster.MDDetails[i].DetailID" />
+                <div class="form-group">
+                    <label asp-for="MDMaster.MDDetails[i].Name" class="control-label"></label>
+                    <input asp-for="MDMaster.MDDetails[i].Name" class="form-control" />
+                    <span asp-validation-for="MDMaster.MDDetails[i].Name" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="MDMaster.MDDetails[i].SomeOtherName" class="control-label"></label>
+                    <input asp-for="MDMaster.MDDetails[i].SomeOtherName" class="form-control" />
+                    <span asp-validation-for="MDMaster.MDDetails[i].SomeOtherName" class="text-danger"></span>
+                </div>
+            }
+
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-page="./Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}
