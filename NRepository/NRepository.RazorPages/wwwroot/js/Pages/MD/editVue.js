@@ -196,7 +196,12 @@ let links = [
 ];
 
 
- 
+var url = window.location.pathname;
+
+
+var queryStringInfo = window.location.search
+//alert(url);
+//alert(queryStringInfo);
 
 let linksv3 = [];
 
@@ -245,7 +250,7 @@ var app = new Vue({
 
         let vm = this;  // not needed because of the arow function captures 'this'
 
-        axios.get('/api/md').then(response => {
+        axios.get('/api/md' + queryStringInfo).then(response => {
             this.setToDos(response.data);
 
 

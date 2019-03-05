@@ -1,16 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
- 
+using EvitiContact.Domain.ContactModelDB;
+using EvitiContact.Service;
 using FluentValidation;
 using FluentValidation.AspNetCore;
 using FluentValidation.Results;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
-using System.Linq;
-using EvitiContact.Service;
-using EvitiContact.Domain.ContactModelDB;
 
 namespace NRepository.RazorPages.Pages.MD
 {
@@ -22,6 +18,11 @@ namespace NRepository.RazorPages.Pages.MD
         public string Message { get; set; }
 
     }
+
+
+    /// <summary>
+    /// Changed to allow for query string parameters or null
+    /// </summary>
     [Route("api/[controller]")]
     [ApiController]
     //[ValidateModel]
@@ -40,26 +41,39 @@ namespace NRepository.RazorPages.Pages.MD
             //_mapper = mapper;
             _service = service;
         }
+        [HttpGet()]
+        public ActionResult<MDMasterViewModel> Get([FromQuery(Name = "id")] Guid id)
+        {
+            if (id == Guid.Empty)
+            {
+                return _service.Get();
 
+            }
+            else
+            {
+                return _service.Get(id);
+            }
+        }
         // GET: api/<controller>
-        [HttpGet]
-        public ActionResult<MDMasterViewModel> Get()
-        {
-            return _service.Get();
-        }
+        //[HttpGet]
+        //public ActionResult<MDMasterViewModel> Get()
+        //{
+        //    return _service.Get();
+        //}
 
-        [HttpGet("{id}")]
-        public ActionResult<MDMasterViewModel> Get(System.Guid id)
-        {
-            return _service.Get(id);
-        }
 
-        [HttpGet("{customerId}", Name = "CustomerGet")]
-        public IActionResult Get(int id)
-        {
-            return Ok("value");
-            //return "value";
-        }
+        //[HttpGet("{id}")]
+        //public ActionResult<MDMasterViewModel> Get(   Guid id)
+        //{
+        //    return _service.Get(id);
+        //}
+
+        //[HttpGet("{customerId}", Name = "CustomerGet")]
+        //public IActionResult Get(int id)
+        //{
+        //    return Ok("value");
+        //    //return "value";
+        //}
 
         public static APIErrorLine[] GetAPIErrorFromModelState(ModelStateDictionary modelState)
         {

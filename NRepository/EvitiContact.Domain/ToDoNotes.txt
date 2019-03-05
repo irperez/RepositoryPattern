@@ -1,0 +1,8 @@
+﻿1. Try adding internal or protected items to the entity items set and then use "Domain Services" to update the properties
+    The though here would be to not allow any items outside the assembly to 'set' values
+    You could then follow DDD easer and still use code generation
+
+2. Change external list to IReadOnlyList
+
+3. Fix global validation handling to us the API response to format API validation errors
+.
