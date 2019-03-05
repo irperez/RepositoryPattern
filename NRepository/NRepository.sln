@@ -48,6 +48,9 @@ EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NRepository", "NRepository", "{1F26D6CB-0A11-4B57-98B5-4358146C0E03}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Integration Tests", "Integration Tests", "{996B5B08-F7BE-4B9D-9E6D-0D731BF6A266}"
+	ProjectSection(SolutionItems) = preProject
+		TextFile1.txt = TextFile1.txt
+	EndProjectSection
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "University.Data", "University.Data\University.Data.csproj", "{2682B478-9D47-44F2-BC69-8B38189E3C9D}"
 EndProject
@@ -58,11 +61,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "References", "References", 
 		References\eviti.data.tracking.pdb = References\eviti.data.tracking.pdb
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EvitiContact.Domain", "EvitiContact.Domain\EvitiContact.Domain.csproj", "{48F653A9-BB3D-4571-AF02-CB404932C883}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EvitiContact.Domain", "EvitiContact.Domain\EvitiContact.Domain.csproj", "{48F653A9-BB3D-4571-AF02-CB404932C883}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EvitiContact.Data", "EvitiContact.Data\EvitiContact.Data.csproj", "{747CB30C-AD44-4B1D-99BA-173D6DB59568}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EvitiContact.Data", "EvitiContact.Data\EvitiContact.Data.csproj", "{747CB30C-AD44-4B1D-99BA-173D6DB59568}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EvitiContact.ApplicationService", "EvitiContact.Application\EvitiContact.ApplicationService.csproj", "{678D378B-EA21-450C-ACA6-B19FC0C6D63D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EvitiContact.ApplicationService", "EvitiContact.Application\EvitiContact.ApplicationService.csproj", "{678D378B-EA21-450C-ACA6-B19FC0C6D63D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ContactDB.IntegrationTests", "ContactDB.IntegrationTests\ContactDB.IntegrationTests.csproj", "{3E1106EA-0472-49C9-835C-A4C0BC786A03}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -138,6 +143,10 @@ Global
 		{678D378B-EA21-450C-ACA6-B19FC0C6D63D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{678D378B-EA21-450C-ACA6-B19FC0C6D63D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{678D378B-EA21-450C-ACA6-B19FC0C6D63D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3E1106EA-0472-49C9-835C-A4C0BC786A03}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E1106EA-0472-49C9-835C-A4C0BC786A03}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E1106EA-0472-49C9-835C-A4C0BC786A03}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E1106EA-0472-49C9-835C-A4C0BC786A03}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -161,6 +170,7 @@ Global
 		{48F653A9-BB3D-4571-AF02-CB404932C883} = {20A986AA-EC89-42D1-B9F3-383198966D46}
 		{747CB30C-AD44-4B1D-99BA-173D6DB59568} = {20A986AA-EC89-42D1-B9F3-383198966D46}
 		{678D378B-EA21-450C-ACA6-B19FC0C6D63D} = {20A986AA-EC89-42D1-B9F3-383198966D46}
+		{3E1106EA-0472-49C9-835C-A4C0BC786A03} = {996B5B08-F7BE-4B9D-9E6D-0D731BF6A266}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9046F5F5-2453-4C7E-8C03-D452AE04A3D3}

@@ -6,7 +6,7 @@ using EvitiContact.ContactModel;
 
 namespace EvitiContact.ContactModel
 {
-    public partial class Contact : ClientChangeTracker, IPKEntity, IAuditedEntity
+    public partial class Contact : ClientChangeTracker, IPKEntity, IAuditedEntity, IHaveIdentifier2<Guid>
     {
         public Contact()
         {

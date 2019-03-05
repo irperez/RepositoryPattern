@@ -4,8 +4,10 @@ using AutoMapper.EquivalencyExpression;
 using eviti.data.tracking;
 using eviti.data.tracking.DIHelp;
 using eviti.data.tracking.PrincipalAccessor;
+using EvitiContact.ApplicationService.Services;
 using EvitiContact.ContactModel;
 using EvitiContact.Domain.ContactModelDB;
+using EvitiContact.Domain.Services;
 using EvitiContact.SchoolModel;
 using EvitiContact.Service;
 using EvitiContact.Service.Events;
@@ -133,8 +135,10 @@ namespace NRepository.RazorPages
             services.AddSingleton(queriesConnectionString);
 
 
+            services.AddSingleton<IStateService, StateService>();
+            services.AddTransient<IMyTestService, MyTestService>();
 
-         
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

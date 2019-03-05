@@ -14,6 +14,13 @@ namespace EvitiContact.ContactModel
     /// </summary>
     public partial class ContactModelDbContext : EvitiDBContactBase
     {
+
+        public static ContactModelDbContext DBFactory()
+        {
+
+            return new ContactModelDbContext();
+        }
+
         private void InitializePartial()
         {
             //DbContext.Configuration.ProxyCreationEnabled

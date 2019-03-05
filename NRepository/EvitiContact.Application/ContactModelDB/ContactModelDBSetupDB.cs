@@ -13,10 +13,12 @@ namespace EvitiContact.Service.ContactModelDB
 {
     public class ContactModelDBSetupDB
     {
-        public static void Setup(IWebHost host)
-        {
-          
-            using (var scope = host.Services.CreateScope())
+        //public static void Setup(IWebHost host)
+        //{
+            public static void Setup(IServiceProvider serviceProvider)
+            {
+              
+            using (var scope = serviceProvider.CreateScope())
             {
                 var services = scope.ServiceProvider;
 
@@ -24,8 +26,8 @@ namespace EvitiContact.Service.ContactModelDB
                 {
                     var context = services.GetRequiredService<ContactModelDbContext>();
                     var mapper = services.GetRequiredService<IMapper>();
-                    var env = services.GetRequiredService<IHostingEnvironment>();
-                    var test = env.ContentRootPath;
+                    //var env = services.GetRequiredService<IHostingEnvironment>();
+              
                     var test2 = Directory.GetCurrentDirectory();
                     var test3 = Path.GetDirectoryName(Assembly.GetEntryAssembly().Location);
                     // using ContosoUniversity.Data; 

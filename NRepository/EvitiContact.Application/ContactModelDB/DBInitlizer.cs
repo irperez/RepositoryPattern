@@ -34,6 +34,17 @@ namespace EvitiContact.Service.ContactModelDB
                 context.AttachOnly(MasterDetailHelper.GetMasterTestObjext());
                 int result = context.SaveChanges();
             }
+
+            if (context.ContactType.Any() == false)
+            {
+                var states = EntityJsonMapper.GetContactTypeFromJSON(mapper);
+                foreach (var item in states)
+                {
+                    context.Add(item);
+                }
+                context.SaveChanges();
+            }
+
             //context.SaveChanges();
             return;   // DB has been seeded
 

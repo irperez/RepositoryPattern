@@ -1,0 +1,134 @@
+[{
+		"ID": 1,
+		"Name": "Patient",
+		"Description": null,
+		"ParentID": null,
+		"IsActive": true
+	}, {
+		"ID": 2,
+		"Name": "User",
+		"Description": null,
+		"ParentID": null,
+		"IsActive": true
+	}, {
+		"ID": 3,
+		"Name": "Individual",
+		"Description": null,
+		"ParentID": null,
+		"IsActive": true
+	}, {
+		"ID": 4,
+		"Name": "Facility",
+		"Description": null,
+		"ParentID": null,
+		"IsActive": true
+	}, {
+		"ID": 5,
+		"Name": "Payer",
+		"Description": null,
+		"ParentID": null,
+		"IsActive": true
+	}, {
+		"ID": 6,
+		"Name": "Provider",
+		"Description": null,
+		"ParentID": null,
+		"IsActive": true
+	}, {
+		"ID": 7,
+		"Name": "Medical Oncology",
+		"Description": "Medical Oncology",
+		"ParentID": 6,
+		"IsActive": true
+	}, {
+		"ID": 8,
+		"Name": "Radiation Oncology",
+		"Description": "Radiation Oncology",
+		"ParentID": 6,
+		"IsActive": true
+	}, {
+		"ID": 9,
+		"Name": "Surgical Oncology",
+		"Description": "Surgical Oncology",
+		"ParentID": 6,
+		"IsActive": false
+	}, {
+		"ID": 10,
+		"Name": "Provider Support Staff",
+		"Description": "Provider Support Staff",
+		"ParentID": 6,
+		"IsActive": true
+	}, {
+		"ID": 11,
+		"Name": "eviti Administrator",
+		"Description": "eviti Administrator",
+		"ParentID": null,
+		"IsActive": true
+	}, {
+		"ID": 12,
+		"Name": "Payer User",
+		"Description": "Payer User",
+		"ParentID": 5,
+		"IsActive": true
+	}, {
+		"ID": 13,
+		"Name": "Provider Organization",
+		"Description": "Provider Organization",
+		"ParentID": null,
+		"IsActive": true
+	}, {
+		"ID": 14,
+		"Name": "Provider Organization User",
+		"Description": "Provider Organization User",
+		"ParentID": 13,
+		"IsActive": true
+	}, {
+		"ID": 15,
+		"Name": "Support Contact",
+		"Description": "Support Contact",
+		"ParentID": null,
+		"IsActive": true
+	}, {
+		"ID": 17,
+		"Name": "General User",
+		"Description": "General User",
+		"ParentID": null,
+		"IsActive": true
+	}, {
+		"ID": 18,
+		"Name": "Organization",
+		"Description": "Organization",
+		"ParentID": null,
+		"IsActive": true
+	}, {
+		"ID": 19,
+		"Name": "PBM",
+		"Description": null,
+		"ParentID": null,
+		"IsActive": true
+	}, {
+		"ID": 20,
+		"Name": "PBM User",
+		"Description": null,
+		"ParentID": 19,
+		"IsActive": true
+	}, {
+		"ID": 21,
+		"Name": "Service Account",
+		"Description": "Service Account",
+		"ParentID": null,
+		"IsActive": null
+	}, {
+		"ID": 22,
+		"Name": "Clinical Administrator",
+		"Description": "Clinical Administrator",
+		"ParentID": 6,
+		"IsActive": true
+	}, {
+		"ID": 23,
+		"Name": "Organization User",
+		"Description": "Organization User Regimen Tagging Admin",
+		"ParentID": null,
+		"IsActive": true
+	}
+]

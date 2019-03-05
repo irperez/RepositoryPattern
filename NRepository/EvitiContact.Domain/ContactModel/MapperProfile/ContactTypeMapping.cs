@@ -16,10 +16,13 @@ namespace EvitiContact.Domain.ContactModelDB
     /// </summary>
         public ContactTypeProfile()
         {
+      
             #region Generated Mapping
             CreateMap<ContactType, ContactTypeViewModel>();
             #endregion
-         }
+            CreateMap<ContactType, ContactTypeViewModel>(MemberList.None);
+            CreateMap<ContactTypeViewModel, ContactType>(MemberList.None);
+        }
      }
     /*
     #region Generated Reference Class

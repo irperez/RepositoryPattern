@@ -3,10 +3,11 @@ using eviti.data.tracking.Interfaces;
 using System;
 using System.Collections.Generic;
 using EvitiContact.ContactModel;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace EvitiContact.ContactModel
 {
-    public partial class ContactUser : ClientChangeTracker, IPKEntity, IAuditedEntity
+    public partial class ContactUser : ClientChangeTracker, IPKEntity, IAuditedEntity, IHaveIdentifier2<Guid>
     {
         public ContactUser()
         {
@@ -14,7 +15,8 @@ namespace EvitiContact.ContactModel
             #endregion
             InitializePartial();
         }
-
+        [NotMapped]
+        public Guid GUID { get => UserGUID; set => UserGUID = value; }
         partial void InitializePartial();
 
         #region Generated Properties
