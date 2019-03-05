@@ -53,8 +53,8 @@ namespace EvitiContact.ContactModel
             : base(options, principalAccessor, _mediator)
         {
             #region Generated Constructor
-            _logger = logger;
-            #endregion
+        _logger = logger;
+        #endregion
             InitializePartial();
         }
 
@@ -92,8 +92,8 @@ namespace EvitiContact.ContactModel
 
             modelBuilder.HasAnnotation("ProductVersion", "2.2.1-servicing-10028");
 
-            // do i need this??base.OnModelCreating(modelBuilder);
-            // Or this from https://github.com/JasonGT/NorthwindTraders ??modelBuilder.ApplyAllConfigurations();
+         // do i need this??base.OnModelCreating(modelBuilder);
+         // Or this from https://github.com/JasonGT/NorthwindTraders ??modelBuilder.ApplyAllConfigurations();
 
             modelBuilder.ApplyConfiguration(new AuditLogConfiguration());
             modelBuilder.ApplyConfiguration(new ContactConfiguration());
@@ -108,7 +108,7 @@ namespace EvitiContact.ContactModel
             modelBuilder.ApplyConfiguration(new MDMasterConfiguration());
             modelBuilder.ApplyConfiguration(new StatesConfiguration());
             modelBuilder.ApplyConfiguration(new ZipCodesConfiguration());
-            #endregion
+        #endregion
 
             OnModelCreatingPartial(modelBuilder);
 

@@ -1,4 +1,6 @@
-﻿using AutoMapper;
+﻿using System;
+using System.Linq;
+using AutoMapper;
 using eviti.data.tracking;
 using eviti.data.tracking.DataContactBase;
 using EvitiContact.ContactModel;
@@ -6,10 +8,13 @@ using EvitiContact.Domain.ContactModelDB;
 using EvitiContact.Service.RepositoryDB;
 using FluentValidation.Results;
 using Newtonsoft.Json;
-using System;
 
 namespace EvitiContact.Service
 {
+
+    /// <summary>
+    /// Added root level validation to the sample
+    /// </summary>
     public class MasterDetailControllerService
     {
 
@@ -29,7 +34,7 @@ namespace EvitiContact.Service
 
         public MDMasterViewModel Get()
         {
-            Guid mid = new Guid("0FAD3A78-9C71-4622-2E06-08D65F6CDF21");
+            var mid = _context.MDMaster.OrderByDescending(x => x.CreatedDate).FirstOrDefault().MasterId;
             return Get(mid);
 
         }
@@ -63,17 +68,22 @@ namespace EvitiContact.Service
             MDMasterViewModelValidator validator = new MDMasterViewModelValidator();
             ValidationResult validationResult = validator.Validate(value);
 
+        
+            if (value.Name.Trim().ToLower() == "Master".ToLower())
+            {
+                ValidationFailure vf1 = new ValidationFailure($"{nameof(MDMaster)}.{nameof(MDMaster.Name)}", "Domain Service Error - Master Name must not contain 'master' - HAS prefix");
+                validationResult.Errors.Add(vf1);
+                // root level items should not get a key prefix like 'Master.Name' and should be just 'Name'
+                ValidationFailure vf2 = new ValidationFailure($"{nameof(MDMaster.Name)}", "Domain Service Error - Master Name must not contain 'master' - set with No prefix");
+                validationResult.Errors.Add(vf2);
+            }
+
             bool ForceError = false;
             if (value.Name.Trim().ToLower() == "ForceError".ToLower())
             {
                 ForceError = true;
             }
 
-            if (value.Name.Contains("Master"))
-            {
-                ValidationFailure vf1 = new ValidationFailure($"{nameof(MDMaster)}.{nameof(MDMaster.Name)}", "Domain Service Error - Master Name must not contain 'master'");
-                validationResult.Errors.Add(vf1);
-            }
             if (ForceError)// force Error
             {
                 ValidationFailure vf = new ValidationFailure(string.Empty, "Root Level Error");
@@ -84,6 +94,17 @@ namespace EvitiContact.Service
 
                 ValidationFailure vf2 = new ValidationFailure("DeptCode", "Department code not valid");
                 validationResult.Errors.Add(vf2);
+
+
+                ValidationFailure vf3 = new ValidationFailure("MDMaster.Name", "Name Forced Error1");
+                validationResult.Errors.Add(vf3);
+
+                ValidationFailure vf4 = new ValidationFailure("Nametest", "Name Forced Error2");
+                validationResult.Errors.Add(vf4);
+
+
+                ValidationFailure vf5 = new ValidationFailure("Name", "Name Forced Error3");
+                validationResult.Errors.Add(vf5);
             }
 
 

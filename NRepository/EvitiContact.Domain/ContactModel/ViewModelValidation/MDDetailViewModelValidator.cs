@@ -8,6 +8,10 @@ using EvitiContact.ContactModel;
 
 namespace EvitiContact.Domain.ContactModelDB
 {
+
+    /// <summary>
+    /// removed SomeOtherName from the required items to test the vue edit page
+    /// </summary>
     public partial class MDDetailViewModelValidator : AbstractValidator<MDDetailViewModel>
      {
     /// <summary>
@@ -18,8 +22,8 @@ namespace EvitiContact.Domain.ContactModelDB
     #region Generated Validation For ViewModel
     RuleFor(p => p.Name).NotEmpty();
     RuleFor(p => p.Name).MaximumLength(50);
-    RuleFor(p => p.SomeOtherName).NotEmpty();
-    RuleFor(p => p.SomeOtherName).MaximumLength(50);
+    //RuleFor(p => p.SomeOtherName).NotEmpty();
+    //RuleFor(p => p.SomeOtherName).MaximumLength(50);
     //RuleFor(p => p.Version).NotEmpty();
     //RuleFor(p => p.Version).MaximumLength(50);
     //RuleFor(p => p.CreatedBy).NotEmpty();

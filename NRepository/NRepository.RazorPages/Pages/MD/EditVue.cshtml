@@ -30,14 +30,25 @@
 
 
 
-
+    <p>Forcing Errors
+        <ol>
+            <li>
+                Name="ForceError"
+            </li>
+            <li>
+                Name="Master"
+            </li>
+        </ol>
+   
+    </p>
 
     <form v-on:submit.prevent v-on:keydown="errors.clearTest($event.target.name)">
         @*Stop the submit of the form*@
 
 
         <div>
-            <button class="btn btn-primary" v-on:click="submitToApi" v-bind:disabled="errors.any()">Submit to API</button>
+            <p>Removed v-bind:disabled="errors.any() from submit to API button until I work out root errors vs input errors. </p>
+            <button class="btn btn-primary" v-on:click="submitToApi"  >Submit to API</button>
 
             |
             <button class="btn btn-danger" v-on:click="clearForm">Clear Form</button>
@@ -53,7 +64,7 @@
 
                 </li>
             </ol>
-            <p>
+            @*<p>
                 <label for="Nametest">Name Test</label>
                 <br />
                 <input id="Nametest" v-model="todos.nametest" type="text" name="nametest"
@@ -61,8 +72,16 @@
                        v-on:keydown="errors.clear('Nametest')">
                 <br />
                 <span class="text-danger" v-text="errors.get('Nametest',todos)"></span>
+            </p>*@
+            <p>
+                <label for="Name">Name</label>
+                <br />
+                <input id="Name" v-model="todos.name" type="text" name="name"
+                       v-bind:class="{ 'invalidInput' :errors.get('Name',todos)}"
+                       v-on:keydown="errors.clear('Name')">
+                <br />
+                <span class="text-danger" v-text="errors.get('Name',todos)"></span>
             </p>
-
 
 
             <div class="row " v-for="(todo,index) in todos.mdDetails" v-bind:key="todo.detailID">

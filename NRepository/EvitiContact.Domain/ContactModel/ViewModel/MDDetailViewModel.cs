@@ -8,7 +8,11 @@ using EvitiContact.ContactModel;
 
 namespace EvitiContact.Domain.ContactModelDB
 {
-    public partial class MDDetailViewModel
+
+    /// <summary>
+    /// Added nullable Guid for MasterID and DetailID to support the Vue edit page
+    /// </summary>
+    public partial class MDDetailViewModel : ITrackDeleted
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="MDDetailViewModel"/> class.
@@ -18,8 +22,8 @@ namespace EvitiContact.Domain.ContactModelDB
         {
         }
         #region Generated  ViewModel
-        public Guid DetailID { get; set; }
-        public Guid MasterId { get; set; }
+        public Guid? DetailID { get; set; }
+        public Guid? MasterId { get; set; }
         public string Name { get; set; }
         public string SomeOtherName { get; set; }
         public decimal? Dollars { get; set; }

@@ -8,7 +8,10 @@ using EvitiContact.ContactModel;
 
 namespace EvitiContact.Domain.ContactModelDB
 {
-    public partial class MDMasterViewModel : ITrackOrginalValue
+    /// <summary>
+    /// Added nullable Guid for Master Id to support the Vue edit page
+    /// </summary>
+    public partial class MDMasterViewModel : ITrackOrginalValue, ITrackConcurrency
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="MDMasterViewModel"/> class.
@@ -18,7 +21,7 @@ namespace EvitiContact.Domain.ContactModelDB
         {
         }
         #region Generated  ViewModel
-        public Guid MasterId { get; set; }
+        public Guid? MasterId { get; set; }
         public string Name { get; set; }
         public decimal? TotalDollars { get; set; }
         public decimal NewRequired { get; set; }
