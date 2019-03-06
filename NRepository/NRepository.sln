@@ -69,6 +69,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EvitiContact.ApplicationSer
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ContactDB.IntegrationTests", "ContactDB.IntegrationTests\ContactDB.IntegrationTests.csproj", "{3E1106EA-0472-49C9-835C-A4C0BC786A03}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContactDB.UnitTests", "ContactDB.UnitTests\ContactDB.UnitTests.csproj", "{2976F5F8-24F4-4E7A-B7CA-F8E935876C75}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -147,6 +149,10 @@ Global
 		{3E1106EA-0472-49C9-835C-A4C0BC786A03}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3E1106EA-0472-49C9-835C-A4C0BC786A03}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3E1106EA-0472-49C9-835C-A4C0BC786A03}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2976F5F8-24F4-4E7A-B7CA-F8E935876C75}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2976F5F8-24F4-4E7A-B7CA-F8E935876C75}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2976F5F8-24F4-4E7A-B7CA-F8E935876C75}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2976F5F8-24F4-4E7A-B7CA-F8E935876C75}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -171,6 +177,7 @@ Global
 		{747CB30C-AD44-4B1D-99BA-173D6DB59568} = {20A986AA-EC89-42D1-B9F3-383198966D46}
 		{678D378B-EA21-450C-ACA6-B19FC0C6D63D} = {20A986AA-EC89-42D1-B9F3-383198966D46}
 		{3E1106EA-0472-49C9-835C-A4C0BC786A03} = {996B5B08-F7BE-4B9D-9E6D-0D731BF6A266}
+		{2976F5F8-24F4-4E7A-B7CA-F8E935876C75} = {1CC2937D-130C-47B3-A426-C2FDFD3C57CC}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9046F5F5-2453-4C7E-8C03-D452AE04A3D3}
