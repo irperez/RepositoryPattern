@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;   // CreateScope
 using Microsoft.Extensions.Logging;
 
-namespace EvitiContact.Service.SchoolModelDB
+namespace EvitiContact.ApplicationService.SchoolModelDB.DBSetup
 {
     public class SchoolModelDbContextSetupDB
     {

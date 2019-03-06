@@ -1,18 +1,13 @@
 ﻿using EvitiContact.SchoolModel;
+using EvitiContact.Service.RepositoryDB;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace EvitiContact.Service.RepositoryDB
+namespace EvitiContact.ApplicationService.SchoolModelDB.Repository
 {
 
-    public interface ICourseRepository : IRepository<Course, int>
-    {
-        IEnumerable<Course> GetTopSellingCourses(int count);
-        IEnumerable<Course> GetCoursesWithAuthors(int pageIndex, int pageSize);
-    }
-
-    public class CourseRepository : Repository<Course, int>, ICourseRepository
+    public class CourseRepository : RepositoryGenericBase<Course, int>, ICourseRepository
     {
         public CourseRepository(SchoolModelDbContext context)
             : base(context)

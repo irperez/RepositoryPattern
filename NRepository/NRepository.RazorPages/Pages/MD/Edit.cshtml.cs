@@ -14,6 +14,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using EvitiContact.ContactModel;
+using EvitiContact.ApplicationService.ContactModelDB.Services;
+
 namespace NRepository.RazorPages.Pages.MD
 {
     public class EditModel : PageModel

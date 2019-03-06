@@ -5,4 +5,22 @@
 2. Change external list to IReadOnlyList
 
 3. Fix global validation handling to us the API response to format API validation errors
-.
+
+4. Implement the decorator pattern 
+    - https://andrewlock.net/adding-decorated-classes-to-the-asp.net-core-di-container-using-scrutor/
+    - https://github.com/ardalis/CachedRepository/blob/c0e3db0307be2ac8d757a7605a29ece86a10a9c7/src/CachedRepoSample/Data/Repositories/CachedAuthorRepositoryDecorator.cs
+    services.AddScoped<AuthorRepository>();
+    services.AddScoped<IAuthorRepository, CachedAuthorRepository>();
+
+5. Check out this for caching
+    - https://www.hanselman.com/blog/UsingLazyCacheForCleanAndSimpleNETCoreInmemoryCaching.aspx
+    - https://github.com/alastairtree/LazyCache?WT.mc_id=-blog-scottha
+    - https://ardalis.com/building-a-cachedrepository-in-aspnet-core
+    - https://github.com/ardalis/CachedRepository/blob/c0e3db0307be2ac8d757a7605a29ece86a10a9c7/src/CachedRepoSample/Data/Repositories/CachedAuthorRepositoryDecorator.cs
+
+6. Domain services live in the domain project and work on changing state
+   The Data Later is used outside the Domain services to configuration EF core.
+   THe application service layer use the Data layer and the Domain layer to "wire up" the logic
+   All business logic should be in the Domain layer and we should strive to keep it there.  
+        See and use the specification pattern to help encapsulate the domain layer logic
+   The Domain layer should define the interfaces for the repositories

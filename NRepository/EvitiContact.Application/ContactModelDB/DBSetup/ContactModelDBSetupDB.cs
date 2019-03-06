@@ -9,7 +9,7 @@ using System;
 using System.IO;
 using System.Reflection;
 
-namespace EvitiContact.Service.ContactModelDB
+namespace EvitiContact.ApplicationService.ContactModelDB.DBSetup
 {
     public class ContactModelDBSetupDB
     {

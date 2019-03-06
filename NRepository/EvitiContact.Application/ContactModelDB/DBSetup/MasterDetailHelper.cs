@@ -1,6 +1,6 @@
 ﻿using EvitiContact.ContactModel;
 
-namespace EvitiContact.Service.ContactModelDB
+namespace EvitiContact.ApplicationService.ContactModelDB.DBSetup
 {
     public class MasterDetailHelper
     {

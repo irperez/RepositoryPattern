@@ -1,30 +1,13 @@
-﻿using AutoMapper;
+﻿using System.Transactions;
+using AutoMapper;
+using EvitiContact.ApplicationService.ContactModelDB.Repository;
+using EvitiContact.ApplicationService.SchoolModelDB.Repository;
 using EvitiContact.ContactModel;
 using EvitiContact.SchoolModel;
 using MediatR;
-using System;
-using System.Net.NetworkInformation;
-using System.Transactions;
 
 namespace EvitiContact.Service.RepositoryDB
 {
-    //https://aspnetboilerplate.com/Pages/Documents/Unit-Of-Work
-    //https://dotnetthoughts.net/implementing-the-repository-and-unit-of-work-patterns-in-aspnet-core/
-    //https://docs.microsoft.com/en-us/dotnet/standard/microservices-architecture/microservice-ddd-cqrs-patterns/infrastructure-persistence-layer-design
-    //https://docs.microsoft.com/en-us/dotnet/standard/microservices-architecture/microservice-ddd-cqrs-patterns/infrastructure-persistence-layer-implemenation-entity-framework-core
-    //https://docs.microsoft.com/en-us/aspnet/mvc/overview/older-versions/getting-started-with-ef-5-using-mvc-4/implementing-the-repository-and-unit-of-work-patterns-in-an-asp-net-mvc-application
-    public interface IUnitOfWorkBase : IDisposable
-    {
-
-        int Complete();
-    }
-
-    public interface IUnitOfWorkContactAndShoool : IUnitOfWorkBase
-    {
-        ICourseRepository Courses { get; }
-        IContactRepository Contacts { get; }
-        IMDMasterRepository MDDetails { get; }
-    }
 
 
     public class UnitOfWorkContactAndShoool : IUnitOfWorkContactAndShoool

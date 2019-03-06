@@ -2,16 +2,16 @@
 using AutoMapper.QueryableExtensions;
 using EvitiContact.ContactModel;
 using EvitiContact.Domain.ContactModelDB;
+using EvitiContact.Service.RepositoryDB;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace EvitiContact.Service.RepositoryDB
+namespace EvitiContact.ApplicationService.ContactModelDB.Repository
 {
 
-
-    public class MDMasterRepository : Repository<MDMaster, Guid>, IMDMasterRepository
+    public class MDMasterRepository : RepositoryGenericBase<MDMaster, Guid>, IMDMasterRepository
     {
 
         private readonly IMapper _mapper;
@@ -54,10 +54,5 @@ namespace EvitiContact.Service.RepositoryDB
     }
 
 
-    public interface IMDMasterRepository : IRepository<MDMaster, Guid>
-    {
-        IEnumerable<MDMaster> GetTopMDMasterByCreatedDate(int count);
-        IEnumerable<MDMaster> GetMasterWithDetails(int pageIndex, int pageSize);
-        MDMasterViewModel GetVM(Guid id);
-    }
+ 
 }

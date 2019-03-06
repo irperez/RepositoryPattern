@@ -4,7 +4,7 @@ using EvitiContact.Service.BulkProcess;
 using Microsoft.EntityFrameworkCore;
 using System.Linq;
 
-namespace EvitiContact.Service.ContactModelDB
+namespace EvitiContact.ApplicationService.ContactModelDB.DBSetup
 {
     public static class DbInitializer
     {

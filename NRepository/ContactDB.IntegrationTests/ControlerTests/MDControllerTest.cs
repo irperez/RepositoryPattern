@@ -10,6 +10,7 @@ using Xunit;
 using static ContactDB.IntegrationTests.SliceFixture;
 using EvitiContact.Domain.ContactModelDB;
 using EvitiContact.Service;
+using EvitiContact.ApplicationService.ContactModelDB.Services;
 
 namespace ContactDB.IntegrationTests.ControlerTests
 {

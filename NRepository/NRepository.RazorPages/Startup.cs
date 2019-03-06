@@ -4,6 +4,7 @@ using AutoMapper.EquivalencyExpression;
 using eviti.data.tracking;
 using eviti.data.tracking.DIHelp;
 using eviti.data.tracking.PrincipalAccessor;
+using EvitiContact.ApplicationService.ContactModelDB.Services;
 using EvitiContact.ApplicationService.Services;
 using EvitiContact.ContactModel;
 using EvitiContact.Domain.ContactModelDB;

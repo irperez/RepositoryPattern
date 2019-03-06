@@ -2,7 +2,7 @@
 using System;
 using System.Linq;
 
-namespace EvitiContact.Service.SchoolModelDB
+namespace EvitiContact.ApplicationService.SchoolModelDB.DBSetup
 {
     public static class DbInitializer
     { 

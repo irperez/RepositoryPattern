@@ -7,7 +7,7 @@ using EvitiContact.ContactModel;
 using EvitiContact.Domain.ContactModelDB;
 using Newtonsoft.Json;
 
-namespace EvitiContact.Service.ContactModelDB
+namespace EvitiContact.ApplicationService.ContactModelDB.DBSetup
 {
     public class EntityJsonMapper
     {

@@ -1,10 +1,11 @@
-﻿using eviti.data.tracking.DataContactBase;
-using eviti.data.tracking.Interfaces;
-using Microsoft.EntityFrameworkCore;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
+using eviti.data.tracking.DataContactBase;
+using eviti.data.tracking.Interfaces;
+using EvitiContact.ApplicationService.RepositoryDB;
+using Microsoft.EntityFrameworkCore;
 
 namespace EvitiContact.Service.RepositoryDB
 {
@@ -15,11 +16,11 @@ namespace EvitiContact.Service.RepositoryDB
     //}
 
 
-    public class Repository<TEntity, PKType> : IRepository<TEntity, PKType> where TEntity : class
+    public class RepositoryGenericBase<TEntity, PKType> : IRepository<TEntity, PKType> where TEntity : class
     {
         protected readonly EvitiDBContactBase Context;
         private DbSet<TEntity> _entities;
-        public Repository(EvitiDBContactBase context)
+        public RepositoryGenericBase(EvitiDBContactBase context)
         {
             Context = context;
 
@@ -95,21 +96,5 @@ namespace EvitiContact.Service.RepositoryDB
 
 
 
-    public interface IRepository<TEntity, PKType> where TEntity : class
-    {
-        TEntity Get(PKType id);
-        IEnumerable<TEntity> GetAll();
-        IEnumerable<TEntity> Find(Expression<Func<TEntity, bool>> predicate);
 
-        // This method was not in the videos, but I thought it would be useful to add.
-        TEntity SingleOrDefault(Expression<Func<TEntity, bool>> predicate);
-
-        void Add(TEntity entity);
-        void AddRange(IEnumerable<TEntity> entities);
-
-        void Remove(TEntity entity);
-        void RemoveRange(IEnumerable<TEntity> entities);
-
-        void AttachOnly(IClientChangeTracker entity);
-    }
 }

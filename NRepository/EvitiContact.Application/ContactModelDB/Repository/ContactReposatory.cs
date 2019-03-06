@@ -1,15 +1,14 @@
 ﻿using EvitiContact.ContactModel;
- 
+using EvitiContact.Service.RepositoryDB;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 
-namespace EvitiContact.Service.RepositoryDB
+namespace EvitiContact.ApplicationService.ContactModelDB.Repository
 {
 
-
-    public class ContactReposatory : Repository<Contact, Guid>, IContactRepository
+    public class ContactReposatory : RepositoryGenericBase<Contact, Guid>, IContactRepository
     {
         public ContactReposatory(ContactModelDbContext context)
             : base(context)
@@ -35,10 +34,6 @@ namespace EvitiContact.Service.RepositoryDB
     }
 
 
-    public interface IContactRepository : IRepository<Contact, Guid>
-    {
-        IEnumerable<Contact> GetTopSellingCourses(int count);
-        IEnumerable<Contact> GetCoursesWithAuthors(int pageIndex, int pageSize);
-    }
+
 
 }

@@ -1,4 +1,6 @@
 ﻿using System;
+using EvitiContact.ApplicationService.ContactModelDB.DBSetup;
+using EvitiContact.ApplicationService.SchoolModelDB.DBSetup;
 
 namespace EvitiContact.Application
 {
@@ -18,11 +20,11 @@ namespace EvitiContact.Application
         public static void SetupApp(IServiceProvider serviceProvider)
         {
             eviti.data.tracking.DIHelp.ServiceLocator.SetLocatorProvider(serviceProvider);
-            Service.SchoolModelDB.SchoolModelDbContextSetupDB.Setup(serviceProvider);
-            Service.ContactModelDB.ContactModelDBSetupDB.Setup(serviceProvider);
+            SchoolModelDbContextSetupDB.Setup(serviceProvider);
+            ContactModelDBSetupDB.Setup(serviceProvider);
         }
 
-        
+
 
 
 

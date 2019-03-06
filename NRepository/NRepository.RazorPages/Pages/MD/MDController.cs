@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Linq;
+using EvitiContact.ApplicationService.ContactModelDB.Services;
 using EvitiContact.Domain.ContactModelDB;
 using EvitiContact.Service;
 using FluentValidation;
