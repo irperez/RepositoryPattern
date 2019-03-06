@@ -9,7 +9,7 @@ namespace ContactDB.UnitTests
  
 
 
-    public class ValidationTests
+    public class DataAnnotationsValidationTests
     {
         public ValidationContext GetValidationContext(object validationTarget)
         {
