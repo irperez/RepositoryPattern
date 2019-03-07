@@ -4,7 +4,7 @@ using EvitiContact.Domain.ContactModelDB;
 using System;
 using System.Collections.Generic;
 
-namespace EvitiContact.ApplicationService.ContactModelDB.Repository
+namespace EvitiContact.Domain.ContactModel.Repository
 {
     public interface IMDMasterRepository : IRepository<MDMaster, Guid>
     {

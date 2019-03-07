@@ -71,9 +71,9 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ContactDB.IntegrationTests"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ContactDB.UnitTests", "ContactDB.UnitTests\ContactDB.UnitTests.csproj", "{2976F5F8-24F4-4E7A-B7CA-F8E935876C75}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebHelper", "WebHelper\WebHelper.csproj", "{6280C962-3664-4079-9771-ED40C8D75DFA}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebHelper", "WebHelper\WebHelper.csproj", "{6280C962-3664-4079-9771-ED40C8D75DFA}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Common", "Common\Common.csproj", "{C29EC1ED-0CA1-45F6-8EA4-B4D98A4B5EF4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common", "Common\Common.csproj", "{C29EC1ED-0CA1-45F6-8EA4-B4D98A4B5EF4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

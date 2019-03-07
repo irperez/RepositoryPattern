@@ -1,4 +1,5 @@
-﻿using EvitiContact.SchoolModel;
+﻿using EvitiContact.Domain.SchoolModel.Repository;
+using EvitiContact.SchoolModel;
 using EvitiContact.Service.RepositoryDB;
 using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;

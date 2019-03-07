@@ -4,9 +4,11 @@ using AutoMapper.EquivalencyExpression;
 using eviti.data.tracking;
 using eviti.data.tracking.DIHelp;
 using eviti.data.tracking.PrincipalAccessor;
+using EvitiContact.ApplicationService.ContactModelDB.Repository;
 using EvitiContact.ApplicationService.ContactModelDB.Services;
 using EvitiContact.ApplicationService.Services;
 using EvitiContact.ContactModel;
+using EvitiContact.Domain.ContactModel.Repository;
 using EvitiContact.Domain.ContactModelDB;
 using EvitiContact.Domain.Services;
 using EvitiContact.SchoolModel;
@@ -139,6 +141,7 @@ namespace NRepository.RazorPages
             services.AddSingleton<IStateService, StateService>();
             services.AddTransient<IMyTestService, MyTestService>();
             services.AddTransient<Common.IDateService, Common.DateService>();
+            services.AddTransient<IContactTypeRepository,  ContactTypeReposatory>();
             
 
 

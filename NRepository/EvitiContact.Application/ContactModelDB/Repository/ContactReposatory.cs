@@ -1,4 +1,5 @@
 ﻿using EvitiContact.ContactModel;
+using EvitiContact.Domain.ContactModel.Repository;
 using EvitiContact.Service.RepositoryDB;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -32,8 +33,6 @@ namespace EvitiContact.ApplicationService.ContactModelDB.Repository
 
         public ContactModelDbContext MyDBContext => Context as ContactModelDbContext;
     }
-
-
 
 
 }

@@ -70,10 +70,23 @@ function listDebugData(model) {
         {
             return new HelperResult(async writer =>
             {
-                writer.Write(
-                    "<input type='hidden' id='__pageModelConfig' value='"
-                    + System.Convert.ToBase64String(System.Text.Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(model)))
-                    + "' />");
+                string test = string.Empty;
+                try
+                {
+                    test = "<input type='hidden' id='__pageModelConfig' value='"
+                                     + System.Convert.ToBase64String(System.Text.Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(model)))
+                                     + "' />";
+                }
+                catch (System.Exception ex)
+                {
+                    string tt = ex.Message;
+                }
+
+                writer.Write(test);
+                //writer.Write(
+                //    "<input type='hidden' id='__pageModelConfig' value='"
+                //    + System.Convert.ToBase64String(System.Text.Encoding.UTF8.GetBytes(JsonConvert.SerializeObject(model)))
+                //    + "' />");
             });
         }
     }

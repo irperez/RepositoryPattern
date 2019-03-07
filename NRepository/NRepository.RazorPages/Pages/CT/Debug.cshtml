@@ -1,0 +1,45 @@
+﻿@page
+@model NRepository.RazorPages.Pages.CT.DebugModel
+@{
+}
+
+
+
+
+@PageModelInjector.RenderContextAsInput(Html, Model.ContactTypes)
+
+@Model.ContactTypes.DebugTable()
+@Model.MDMasters.DebugTable(@<tr>
+    <td>@item.MasterId</td>
+    <td>@item.Name</td>
+    <td>@item.TotalDollars</td>
+
+</tr>
+)
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    <script src="~/js/Common/configure.js"></script>
+
+    <script src="~/js/Pages/CT/Debug.js"></script>
+    <script>
+        $(document).ready(
+            function () {
+                var url = "/CT?handler=Latest" // ?;
+                alert('test');
+                $.ajax({
+                    type: "GET",
+                    url: url,
+                    contentType: "application/json",
+                    dataType: "json",
+                }).done(function (result) {
+                    console.dir(result);
+                });
+            }
+        );
+    </script>
+
+}
+
+
+
+

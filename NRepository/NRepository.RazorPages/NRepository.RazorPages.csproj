@@ -21,16 +21,13 @@
     <ProjectReference Include="..\EvitiContact.Domain\EvitiContact.Domain.csproj" />
     <ProjectReference Include="..\MyTestBL\UniversityBL.csproj" />
     <ProjectReference Include="..\University.Data\University.Data.csproj" />
+    <ProjectReference Include="..\WebHelper\WebHelper.csproj" />
   </ItemGroup>
 
   <ItemGroup>
     <Reference Include="eviti.data.tracking">
       <HintPath>..\References\eviti.data.tracking.dll</HintPath>
     </Reference>
-  </ItemGroup>
-
-  <ItemGroup>
-    <Folder Include="wwwroot\js\Common\" />
   </ItemGroup>
 
 </Project>

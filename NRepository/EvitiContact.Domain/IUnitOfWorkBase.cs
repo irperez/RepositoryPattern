@@ -10,6 +10,6 @@ namespace EvitiContact.Service.RepositoryDB
     public interface IUnitOfWorkBase : IDisposable
     {
 
-        int Complete();
+        int Commit();
     }
 }

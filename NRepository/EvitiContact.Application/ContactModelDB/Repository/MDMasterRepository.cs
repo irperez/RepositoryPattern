@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using AutoMapper.QueryableExtensions;
 using EvitiContact.ContactModel;
+using EvitiContact.Domain.ContactModel.Repository;
 using EvitiContact.Domain.ContactModelDB;
 using EvitiContact.Service.RepositoryDB;
 using Microsoft.EntityFrameworkCore;

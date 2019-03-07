@@ -1,5 +1,7 @@
-﻿using EvitiContact.ApplicationService.ContactModelDB.Repository;
-using EvitiContact.ApplicationService.SchoolModelDB.Repository;
+﻿
+
+using EvitiContact.Domain.ContactModel.Repository;
+using EvitiContact.Domain.SchoolModel.Repository;
 
 namespace EvitiContact.Service.RepositoryDB
 {
@@ -8,5 +10,6 @@ namespace EvitiContact.Service.RepositoryDB
         ICourseRepository Courses { get; }
         IContactRepository Contacts { get; }
         IMDMasterRepository MDDetails { get; }
+        IContactTypeRepository ContactTypeRepository { get; }
     }
 }

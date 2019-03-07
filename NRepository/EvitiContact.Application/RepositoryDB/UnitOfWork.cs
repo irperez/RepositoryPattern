@@ -3,12 +3,13 @@ using AutoMapper;
 using EvitiContact.ApplicationService.ContactModelDB.Repository;
 using EvitiContact.ApplicationService.SchoolModelDB.Repository;
 using EvitiContact.ContactModel;
+using EvitiContact.Domain.ContactModel.Repository;
+using EvitiContact.Domain.SchoolModel.Repository;
 using EvitiContact.SchoolModel;
 using MediatR;
 
 namespace EvitiContact.Service.RepositoryDB
 {
-
 
     public class UnitOfWorkContactAndShoool : IUnitOfWorkContactAndShoool
     {
@@ -17,10 +18,10 @@ namespace EvitiContact.Service.RepositoryDB
         private readonly IMapper _mapper;
         private IMediator _mediator { get; }
 
-        public UnitOfWorkContactAndShoool(ContactModelDbContext contactDBContext, 
-            SchoolModelDbContext schoolDBContext, 
+        public UnitOfWorkContactAndShoool(ContactModelDbContext contactDBContext,
+            SchoolModelDbContext schoolDBContext,
             IMapper mapper,
-             IMediator mediator)
+             IMediator mediator, IContactTypeRepository contactTypeRepository)
         {
             _contactDBContext = contactDBContext;
             _schoolDBContext = schoolDBContext;
@@ -29,16 +30,22 @@ namespace EvitiContact.Service.RepositoryDB
 
 
             // I don't like creating these without DI but like this for now. 
+
+            // Or these can be lazy loaded for now and then constructed when needed?
             Courses = new CourseRepository(_schoolDBContext);
             Contacts = new ContactReposatory(_contactDBContext);
             MDDetails = new MDMasterRepository(_contactDBContext, mapper);
+            ContactTypeRepository = contactTypeRepository;
+
+
         }
 
         public ICourseRepository Courses { get; private set; }
         public IContactRepository Contacts { get; private set; }
         public IMDMasterRepository MDDetails { get; private set; }
+        public IContactTypeRepository ContactTypeRepository { get; private set; }
 
-        public int Complete()
+        public int Commit()
         {
             //https://stackoverflow.com/questions/19090860/use-of-transactionscope-with-read-uncommitted-is-with-nolock-in-sql-necessar
             //            using (var txScope = new TransactionScope(TransactionScopeOption.Suppress, new TransactionOptions() { IsolationLevel = System.Transactions.IsolationLevel.ReadUncommitted }))

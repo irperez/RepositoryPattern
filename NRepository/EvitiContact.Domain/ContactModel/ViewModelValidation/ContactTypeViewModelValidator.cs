@@ -1,26 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using AutoMapper;
-using FluentValidation;
-using eviti.Data.Tracking.BaseObjects;
-using eviti.data.tracking.Interfaces;
-using EvitiContact.ContactModel;
+﻿using FluentValidation;
 
 namespace EvitiContact.Domain.ContactModelDB
 {
     public partial class ContactTypeViewModelValidator : AbstractValidator<ContactTypeViewModel>
-     {
-    /// <summary>
-    /// Initializes a new instance of the <see cref="ContactTypeViewModelValidator"/> class.
-    /// </summary>
-    public ContactTypeViewModelValidator()
-     {
-    #region Generated Validation For ViewModel
-    RuleFor(p => p.Name).NotEmpty();
-    RuleFor(p => p.Name).MaximumLength(1000);
-    #endregion
-     }
-     }
+    {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ContactTypeViewModelValidator"/> class.
+        /// </summary>
+        public ContactTypeViewModelValidator()
+        {
+            #region Generated Validation For ViewModel
+            RuleFor(p => p.Name).NotEmpty();
+            RuleFor(p => p.Name).MaximumLength(1000);
+
+
+            #endregion
+
+            RuleFor(p => p.Description).NotEmpty();
+            RuleFor(p => p.Description).MaximumLength(10);
+        }
+    }
     /*
     #region Generated Reference Class
     public partial class ContactType

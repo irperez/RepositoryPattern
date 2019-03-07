@@ -142,7 +142,7 @@ namespace EvitiContact.ApplicationService.ContactModelDB.Services
             //_context.AttachOnly(dbrecord);
             //_context.SaveChanges();
             unitOfWork.MDDetails.AttachOnly(dbrecord);
-            unitOfWork.Complete();
+            unitOfWork.Commit();
 
 
             result.Payload = _mapAndSerlizeGeneric.AutoMapToViewModel<MDMaster, MDMasterViewModel>(dbrecord);

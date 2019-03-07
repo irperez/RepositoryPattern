@@ -2,7 +2,7 @@
 using EvitiContact.SchoolModel;
 using System.Collections.Generic;
 
-namespace EvitiContact.ApplicationService.SchoolModelDB.Repository
+namespace EvitiContact.Domain.SchoolModel.Repository
 {
     public interface ICourseRepository : IRepository<Course, int>
     {

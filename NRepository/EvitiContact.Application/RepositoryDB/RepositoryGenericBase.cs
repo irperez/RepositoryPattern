@@ -9,12 +9,6 @@ using Microsoft.EntityFrameworkCore;
 
 namespace EvitiContact.Service.RepositoryDB
 {
-    //public class RepositoryOfInt<TEntity> : Repository<TEntity,int>, IRepository<TEntity, int> where TEntity : class
-    //{
-
-
-    //}
-
 
     public class RepositoryGenericBase<TEntity, PKType> : IRepository<TEntity, PKType> where TEntity : class
     {
@@ -87,6 +81,8 @@ namespace EvitiContact.Service.RepositoryDB
             Context.Set<TEntity>().Update(entity);
         }
 
+      
+       
         public void AttachOnly(IClientChangeTracker entity)
         {
             Context.AttachOnly(entity);
