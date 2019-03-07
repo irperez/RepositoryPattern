@@ -138,6 +138,9 @@ namespace NRepository.RazorPages
 
             services.AddSingleton<IStateService, StateService>();
             services.AddTransient<IMyTestService, MyTestService>();
+            services.AddTransient<Common.IDateService, Common.DateService>();
+            
+
 
 
         }

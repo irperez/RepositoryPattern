@@ -10,6 +10,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj" />
     <ProjectReference Include="..\EvitiContact.Domain\EvitiContact.Domain.csproj" />
   </ItemGroup>
 

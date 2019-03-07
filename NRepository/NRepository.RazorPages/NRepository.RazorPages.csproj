@@ -29,4 +29,8 @@
     </Reference>
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\js\Common\" />
+  </ItemGroup>
+
 </Project>

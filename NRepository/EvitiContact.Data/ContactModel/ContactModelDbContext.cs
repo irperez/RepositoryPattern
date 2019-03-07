@@ -1,5 +1,6 @@
 ﻿using System.Threading;
 using System.Threading.Tasks;
+using Common;
 using eviti.data.tracking.DataContactBase;
 using eviti.data.tracking.DIHelp;
 using eviti.data.tracking.PrincipalAccessor;
@@ -54,13 +55,15 @@ namespace EvitiContact.ContactModel
 
 
 
+        private readonly IDateService _dateService;
         public ContactModelDbContext(DbContextOptions<ContactModelDbContext> options,
             ILogger<ContactModelDbContext> logger,
-            IPrincipalAccessor principalAccessor, IMediator _mediator)
+            IPrincipalAccessor principalAccessor, IMediator _mediator,        IDateService dateService )
             : base(options, principalAccessor, _mediator)
         {
             #region Generated Constructor
         _logger = logger;
+            _dateService = dateService;
         #endregion
             InitializePartial();
         }

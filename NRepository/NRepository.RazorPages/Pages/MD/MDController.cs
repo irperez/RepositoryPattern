@@ -55,6 +55,21 @@ namespace NRepository.RazorPages.Pages.MD
                 return _service.Get(id);
             }
         }
+
+        [HttpGet("{id:guid}")]
+        public ActionResult<MDMasterViewModel> Get2(  Guid id)
+        {
+            if (id == Guid.Empty)
+            {
+                return _service.Get();
+
+            }
+            else
+            {
+                return _service.Get(id);
+            }
+        }
+
         // GET: api/<controller>
         //[HttpGet]
         //public ActionResult<MDMasterViewModel> Get()

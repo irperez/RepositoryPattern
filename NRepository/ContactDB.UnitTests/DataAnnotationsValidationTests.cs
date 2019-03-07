@@ -4,11 +4,7 @@ using Shouldly;
 using Xunit;
 
 namespace ContactDB.UnitTests
-{
-
- 
-
-
+{ 
     public class DataAnnotationsValidationTests
     {
         public ValidationContext GetValidationContext(object validationTarget)

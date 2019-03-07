@@ -12,6 +12,9 @@ namespace NRepository.RazorPages
 {
     public class Program
     {
+
+        // this is just for testing
+        public static int ViewStartCallCounter = 0;
         public static void Main(string[] args)
         {
 
