@@ -1,0 +1,151 @@
+﻿@page
+@model NRepository.RazorPages.Pages.Contacts.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Contact</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Contact.FirstName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Contact.FirstName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Contact.LastName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Contact.LastName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Contact.MiddleName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Contact.MiddleName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Contact.Title)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Contact.Title)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Contact.Credentials)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Contact.Credentials)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Contact.Prefix)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Contact.Prefix)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Contact.Suffix)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Contact.Suffix)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Contact.CompanyName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Contact.CompanyName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Contact.IsMd)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Contact.IsMd)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Contact.Version)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Contact.Version)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Contact.CreatedDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Contact.CreatedDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Contact.CreatedBy)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Contact.CreatedBy)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Contact.ModifiedDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Contact.ModifiedDate)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Contact.ModifiedBy)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Contact.ModifiedBy)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Contact.SSN)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Contact.SSN)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Contact.IsTest)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Contact.IsTest)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Contact.IsDemo)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Contact.IsDemo)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Contact.IsDeleted)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Contact.IsDeleted)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Contact.Department)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Contact.Department)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Contact.CreatedByUserID)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Contact.CreatedByUserID)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Contact.ModifiedByUserID)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Contact.ModifiedByUserID)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Contact.Type)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Contact.Type.Name)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Contact.GUID">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>

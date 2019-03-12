@@ -1,0 +1,162 @@
+﻿@page
+@model NRepository.RazorPages.Pages.Contacts.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Contact[0].FirstName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Contact[0].LastName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Contact[0].MiddleName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Contact[0].Title)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Contact[0].Credentials)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Contact[0].Prefix)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Contact[0].Suffix)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Contact[0].CompanyName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Contact[0].IsMd)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Contact[0].Version)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Contact[0].CreatedDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Contact[0].CreatedBy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Contact[0].ModifiedDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Contact[0].ModifiedBy)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Contact[0].SSN)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Contact[0].IsTest)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Contact[0].IsDemo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Contact[0].IsDeleted)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Contact[0].Department)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Contact[0].CreatedByUserID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Contact[0].ModifiedByUserID)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Contact[0].Type)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.Contact) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.MiddleName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Title)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Credentials)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Prefix)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Suffix)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CompanyName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsMd)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Version)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedBy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ModifiedDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ModifiedBy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SSN)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsTest)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsDemo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsDeleted)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Department)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedByUserID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ModifiedByUserID)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Type.Name)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.GUID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.GUID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.GUID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

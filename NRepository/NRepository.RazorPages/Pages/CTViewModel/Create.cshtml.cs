@@ -19,6 +19,8 @@ namespace NRepository.RazorPages.Pages.CTViewModel
             //ContactModelDbContext context, 
             AutoMapper.IMapper mapper, IUnitOfWorkContactAndShoool unitOfWork)
         {
+
+            throw new System.Exception("Page is not used anymore!"); 
        //     _context = context;
             _mapper = mapper;
             _unitOfWork = unitOfWork;

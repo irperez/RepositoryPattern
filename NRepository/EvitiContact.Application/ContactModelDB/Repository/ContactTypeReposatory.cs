@@ -19,6 +19,16 @@ namespace EvitiContact.ApplicationService.ContactModelDB.Repository
         {
              return MyDBContext.ContactType.Any(e => e.ID == id);
         }
+
+        public int MaxId()
+        {
+            var max = MyDBContext.ContactType.OrderByDescending(x => x.ID).FirstOrDefault();
+            if (max!=null)
+            { return max.ID; }
+            else
+            { return 0; }
+       
+        }
     }
 
 

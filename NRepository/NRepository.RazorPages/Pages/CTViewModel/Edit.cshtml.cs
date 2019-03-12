@@ -1,11 +1,13 @@
 ﻿using System.Threading.Tasks;
 using AutoMapper;
+using eviti.Data.Tracking.BaseObjects;
 using EvitiContact.ContactModel;
 using EvitiContact.Domain.ContactModelDB;
 using EvitiContact.Service.RepositoryDB;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
+using NRepository.RazorPages.Infrastructure;
 
 namespace NRepository.RazorPages.Pages.CTViewModel
 {
@@ -27,18 +29,34 @@ namespace NRepository.RazorPages.Pages.CTViewModel
 
         public async Task<IActionResult> OnGetAsync(int? id)
         {
-            if (id == null)
+            ContactType ct;
+            if (id.HasValue)
             {
-                return NotFound();
+                ct = _unitOfWork.ContactTypeRepository.Get(id.Value);
             }
-             
-            //ContactType = await _context.ContactType.FirstOrDefaultAsync(m => m.ID == id);
-            var ct = _unitOfWork.ContactTypeRepository.Get(id.Value);
-
+            else
+            {
+                ct = new ContactType();
+                // Restaurant = new Restaurant();
+            }
             if (ct == null)
             {
-                return NotFound();
+                return NotFound(); // return RedirectToPage("./NotFound");
             }
+
+
+            //if (id == null)
+            //{
+            //    return NotFound();
+            //}
+
+            //ContactType = await _context.ContactType.FirstOrDefaultAsync(m => m.ID == id);
+
+
+            //if (ct == null)
+            //{
+            //    return NotFound();
+            //}
             ContactType = _mapper.Map<ContactTypeViewModel>(ct);
             return Page();
         }
@@ -50,9 +68,24 @@ namespace NRepository.RazorPages.Pages.CTViewModel
                 return Page();
             }
 
+
+
             ContactType ct = _mapper.Map<ContactType>(ContactType);
 
+
+            if (ct.ID == 0)
+            {
+                // this is needed ONLY because we are setting the primary key here.
+                ct.TrackingState = TrackingState.Added;
+
+                ct.ID = _unitOfWork.ContactTypeRepository.MaxId() + 1;
+            }
+            else
+            {
+                // edit - this should just work. 
+            }
             _unitOfWork.ContactTypeRepository.AttachOnly(ct);
+
 
             //  _context.Attach(ContactType).State = EntityState.Modified;
 
@@ -72,8 +105,10 @@ namespace NRepository.RazorPages.Pages.CTViewModel
                     throw;
                 }
             }
-
-            return RedirectToPage("./Index");
+            TempData["Message"] = "Contact Type saved!";
+            return this.RedirectToPageJson("Index");
+        //    return this.RedirectToPageJson(nameof(IndexModel));
+          //  return RedirectToPage("./Index");
         }
 
         private bool ContactTypeExists(int id)

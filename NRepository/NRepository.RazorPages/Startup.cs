@@ -24,6 +24,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using NRepository.RazorPages.Infrastructure;
 using NRepository.UniversityBL.BL;
 using University.Data;
 
@@ -91,7 +92,10 @@ namespace NRepository.RazorPages
                 options.UseSqlServer(evitiContactModelconnectionString));
 
 
-            services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
+            services.AddMvc(opt =>
+            {
+                opt.Filters.Add(typeof(ValidatorPageFilter));  // global model state validation and respond with a json message of validation failures
+            }).SetCompatibilityVersion(CompatibilityVersion.Version_2_2)
             //   .AddJsonOptions(
             //    options => options.SerializerSettings.ReferenceLoopHandling =
             //    Newtonsoft.Json.ReferenceLoopHandling.Ignore

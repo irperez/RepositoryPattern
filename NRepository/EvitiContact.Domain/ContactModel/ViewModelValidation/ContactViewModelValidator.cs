@@ -1,40 +1,40 @@
-﻿using System;
-using System.Collections.Generic;
-using AutoMapper;
-using FluentValidation;
-using eviti.Data.Tracking.BaseObjects;
-using eviti.data.tracking.Interfaces;
-using EvitiContact.ContactModel;
+﻿using FluentValidation;
 
 namespace EvitiContact.Domain.ContactModelDB
 {
     public partial class ContactViewModelValidator : AbstractValidator<ContactViewModel>
-     {
-    /// <summary>
-    /// Initializes a new instance of the <see cref="ContactViewModelValidator"/> class.
-    /// </summary>
-    public ContactViewModelValidator()
-     {
-    #region Generated Validation For ViewModel
-    RuleFor(p => p.FirstName).MaximumLength(50);
-    RuleFor(p => p.LastName).MaximumLength(50);
-    RuleFor(p => p.MiddleName).MaximumLength(50);
-    RuleFor(p => p.Title).MaximumLength(50);
-    RuleFor(p => p.Credentials).MaximumLength(50);
-    RuleFor(p => p.Prefix).MaximumLength(50);
-    RuleFor(p => p.Suffix).MaximumLength(50);
-    RuleFor(p => p.CompanyName).MaximumLength(100);
-    //RuleFor(p => p.Version).NotEmpty();
-    //RuleFor(p => p.Version).MaximumLength(50);
-    //RuleFor(p => p.CreatedBy).NotEmpty();
-    //RuleFor(p => p.CreatedBy).MaximumLength(256);
-    //RuleFor(p => p.ModifiedBy).NotEmpty();
-    //RuleFor(p => p.ModifiedBy).MaximumLength(256);
-    RuleFor(p => p.SSN).MaximumLength(500);
-    RuleFor(p => p.Department).MaximumLength(100);
-    #endregion
-     }
-     }
+    {
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ContactViewModelValidator"/> class.
+        /// </summary>
+        public ContactViewModelValidator()
+        {
+            #region Generated Validation For ViewModel
+            RuleFor(p => p.FirstName).MaximumLength(50);
+            RuleFor(p => p.LastName).MaximumLength(50);
+            RuleFor(p => p.MiddleName).MaximumLength(50);
+            RuleFor(p => p.Title).MaximumLength(50);
+            RuleFor(p => p.Credentials).MaximumLength(50);
+            RuleFor(p => p.Prefix).MaximumLength(50);
+            RuleFor(p => p.Suffix).MaximumLength(50);
+            RuleFor(p => p.CompanyName).MaximumLength(100);
+            //RuleFor(p => p.Version).NotEmpty();
+            //RuleFor(p => p.Version).MaximumLength(50);
+            //RuleFor(p => p.CreatedBy).NotEmpty();
+            //RuleFor(p => p.CreatedBy).MaximumLength(256);
+            //RuleFor(p => p.ModifiedBy).NotEmpty();
+            //RuleFor(p => p.ModifiedBy).MaximumLength(256);
+            RuleFor(p => p.SSN).MaximumLength(500);
+            RuleFor(p => p.Department).MaximumLength(100);
+            #endregion
+
+            //RuleFor(p => p.FirstName).NotEmpty();
+            RuleFor(p => p.LastName).NotEmpty();
+
+            RuleFor(p => p.TypeID).NotEmpty();
+            RuleFor(p => p.TypeID).GreaterThan(0);
+        }
+    }
     /*
     #region Generated Reference Class
     public partial class Contact

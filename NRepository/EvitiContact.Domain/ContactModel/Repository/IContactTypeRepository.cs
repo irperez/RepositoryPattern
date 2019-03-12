@@ -1,6 +1,5 @@
 ﻿using EvitiContact.ApplicationService.RepositoryDB;
 using EvitiContact.ContactModel;
-using System;
 
 namespace EvitiContact.Domain.ContactModel.Repository
 {
@@ -10,8 +9,9 @@ namespace EvitiContact.Domain.ContactModel.Repository
         //IEnumerable<Contact> GetCoursesWithAuthors(int pageIndex, int pageSize);
 
         bool Exists(int ID);
-         
 
+
+        int MaxId();
     }
 
 

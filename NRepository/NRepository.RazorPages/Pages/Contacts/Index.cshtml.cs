@@ -7,7 +7,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.EntityFrameworkCore;
 using EvitiContact.ContactModel;
 
-namespace NRepository.RazorPages.Pages.CTViewModel
+namespace NRepository.RazorPages.Pages.Contacts
 {
     public class IndexModel : PageModel
     {
@@ -18,14 +18,12 @@ namespace NRepository.RazorPages.Pages.CTViewModel
             _context = context;
         }
 
-        [TempData]
-        public string Message { get; set; }
-
-        public IList<ContactType> ContactType { get;set; }
+        public IList<Contact> Contact { get;set; }
 
         public async Task OnGetAsync()
         {
-            ContactType = await _context.ContactType.ToListAsync();
+            Contact = await _context.Contact
+                .Include(c => c.Type).ToListAsync();
         }
     }
 }
