@@ -1,0 +1,28 @@
+﻿@model List<EvitiContact.Domain.ContactModelDB.ContactEmailViewModel>
+@for (int i = 0; i < Model.Count; i++)
+{
+    <input type="hidden" asp-for="@Model[i].Guid" />
+    <input type="hidden" asp-for="@Model[i].ContactGuid" />
+    @*<div class="form-group">
+            <label asp-for="@Model.Contact.ContactEmails[i].ContactGuid" class="control-label"></label>
+            <select asp-for="@Model.Contact.ContactEmails[i].ContactGuid" class="form-control" asp-items="ViewBag.ContactGuid"></select>
+            <span asp-validation-for="@Model.Contact.ContactEmails[i].ContactGuid" class="text-danger"></span>
+        </div>*@
+    <div class="form-group">
+        <label asp-for="@Model[i].Name" class="control-label"></label>
+        <input asp-for="@Model[i].Name" class="form-control" />
+        <span asp-validation-for="@Model[i].Name" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model[i].EmailAddress" class="control-label"></label>
+        <input asp-for="@Model[i].EmailAddress" class="form-control" />
+        <span asp-validation-for="@Model[i].EmailAddress" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <div class="checkbox">
+            <label>
+                <input asp-for="@Model[i].IsPrimary" /> @Html.DisplayNameFor(model => model[i].IsPrimary)
+            </label>
+        </div>
+    </div>
+}

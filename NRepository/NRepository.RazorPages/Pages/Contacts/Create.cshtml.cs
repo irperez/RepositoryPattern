@@ -1,27 +1,30 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
+using AutoMapper;
+using EvitiContact.ContactModel;
+using EvitiContact.Domain.ContactModelDB;
+using EvitiContact.Service.RepositoryDB;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using EvitiContact.ContactModel;
-using EvitiContact.Domain.ContactModelDB;
 
 namespace NRepository.RazorPages.Pages.Contacts
 {
     public class CreateModel : PageModel
     {
-        private readonly EvitiContact.ContactModel.ContactModelDbContext _context;
 
-        public CreateModel(EvitiContact.ContactModel.ContactModelDbContext context)
+        // private readonly EvitiContact.ContactModel.ContactModelDbContext _context;
+        private readonly IMapper _mapper;
+        private readonly IUnitOfWorkContactAndShoool _unitOfWork;
+        public CreateModel(IMapper mapper, IUnitOfWorkContactAndShoool unitOfWork)
         {
-            _context = context;
+            _mapper = mapper;
+            _unitOfWork = unitOfWork;
         }
-
         public IActionResult OnGet()
         {
-            ViewData["TypeID"] = new SelectList(_context.ContactType, "ID", "Name");
+
+            var ctList = _unitOfWork.ContactTypeRepository.GetAll();
+            ViewData["TypeID"] = new SelectList(ctList, "ID", "Name");
             return Page();
         }
 
@@ -34,9 +37,11 @@ namespace NRepository.RazorPages.Pages.Contacts
             {
                 return Page();
             }
-
-          //  _context.Contact.Add(Contact);
-           // await _context.SaveChangesAsync();
+            Contact contact = _mapper.Map<Contact>(Contact);
+            _unitOfWork.Contacts.AttachOnly(contact);
+            _unitOfWork.Commit();
+            //_context.Contact.Add(Contact);
+            //await _context.SaveChangesAsync();
 
             return RedirectToPage("./Index");
         }

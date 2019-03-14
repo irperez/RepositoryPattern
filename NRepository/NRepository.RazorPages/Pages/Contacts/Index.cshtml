@@ -25,49 +25,49 @@
             <th>
                 @Html.DisplayNameFor(model => model.Contact[0].Title)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Contact[0].Credentials)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Contact[0].Prefix)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Contact[0].Suffix)
-            </th>
+            @*<th>
+            @Html.DisplayNameFor(model => model.Contact[0].Credentials)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Contact[0].Prefix)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Contact[0].Suffix)
+        </th>*@
             <th>
                 @Html.DisplayNameFor(model => model.Contact[0].CompanyName)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Contact[0].IsMd)
             </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Contact[0].Version)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Contact[0].CreatedDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Contact[0].CreatedBy)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Contact[0].ModifiedDate)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Contact[0].ModifiedBy)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Contact[0].SSN)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Contact[0].IsTest)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Contact[0].IsDemo)
-            </th>
+            @*<th>
+            @Html.DisplayNameFor(model => model.Contact[0].Version)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Contact[0].CreatedDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Contact[0].CreatedBy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Contact[0].ModifiedDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Contact[0].ModifiedBy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Contact[0].SSN)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Contact[0].IsTest)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Contact[0].IsDemo)
+        </th>*@
             <th>
                 @Html.DisplayNameFor(model => model.Contact[0].IsDeleted)
             </th>
-            <th>
+            @*<th>
                 @Html.DisplayNameFor(model => model.Contact[0].Department)
             </th>
             <th>
@@ -78,6 +78,9 @@
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.Contact[0].Type)
+            </th>*@
+            <th>
+                @Html.DisplayNameFor(model => model.Contact[0].TypeID)
             </th>
             <th></th>
         </tr>
@@ -97,7 +100,7 @@
             <td>
                 @Html.DisplayFor(modelItem => item.Title)
             </td>
-            <td>
+            @*<td>
                 @Html.DisplayFor(modelItem => item.Credentials)
             </td>
             <td>
@@ -105,14 +108,14 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.Suffix)
-            </td>
+            </td>*@
             <td>
                 @Html.DisplayFor(modelItem => item.CompanyName)
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.IsMd)
             </td>
-            <td>
+            @*<td>
                 @Html.DisplayFor(modelItem => item.Version)
             </td>
             <td>
@@ -135,11 +138,11 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.IsDemo)
-            </td>
+            </td>*@
             <td>
                 @Html.DisplayFor(modelItem => item.IsDeleted)
             </td>
-            <td>
+            @*<td>
                 @Html.DisplayFor(modelItem => item.Department)
             </td>
             <td>
@@ -147,7 +150,7 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.ModifiedByUserID)
-            </td>
+            </td>*@
             <td>
                 @Html.DisplayFor(modelItem => item.Type.Name)
             </td>

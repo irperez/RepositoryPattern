@@ -20,8 +20,10 @@ namespace EvitiContact.Domain.ContactModelDB
             #region Generated Mapping
             CreateMap<ContactType, ContactTypeViewModel>();
             #endregion
-            CreateMap<ContactType, ContactTypeViewModel>(MemberList.None);
-            CreateMap<ContactTypeViewModel, ContactType>(MemberList.None);
+            //CreateMap<ContactType, ContactTypeViewModel>(MemberList.None);
+            //CreateMap<ContactTypeViewModel, ContactType>(MemberList.None);
+            CreateMap<ContactType, ContactTypeViewModel>( );
+            CreateMap<ContactTypeViewModel, ContactType>( );
         }
      }
     /*

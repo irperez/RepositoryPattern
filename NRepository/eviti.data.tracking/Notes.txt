@@ -1,0 +1,174 @@
+﻿Scaffold-DbContext "Server=(localdb)\mssqllocaldb;Database=OrderDetailEFTest;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir OrderDB -Force  
+
+
+ 
+
+SEE THIS - https://cmatskas.com/scaffolding-dbcontext-and-models-with-entityframework-core-2-0-and-the-cli/
+
+ Key points to consider.  The order is not fluent on these thoughs as of yet and this needs to be redone. 
+1.	Make sure that the Guid types for client side primary keys are setup to auto generate with ValueGeneratedOnAdd otherwise the line below on-line a. will always be true and throw errow when attaching the object to the context.   With this feature EF will generate new guids using the SQL server sequential algorithm.  A workaround is that you can manually set the tracking state of any object. 
+a.	var IsKeySet = node.Entry.IsKeySet; 
+b.	https://docs.microsoft.com/en-us/ef/core/modeling/generated-properties 
+c.	This is bad with our setup.  6 hours to figure this out!!!!- ValueGeneratedNever
+2.	If the method above is not needed then we need to generate logic to track guid and int generation in the base class, or some other method or we track each object explicly and set the is dirty flag.
+3.	Entity framework does not use the public properties when loading from the DB so the object are fresh are read to be tracked. 
+4.	New object, as of right now, do track the changes and look as if they are dirty, it’s not a problem per say as the modified collection is not used in the insert process and they can be reset after the insert logic. 
+5.	I don’t see where I documented this but “Backing Fields” are what skips the property setter and getter from triggering the audit tracking. I found this by accident - https://docs.microsoft.com/en-us/ef/core/modeling/backing-field 
+6.	Make sure you finish the audit logic and maybe capture property by property changes and raise an event when saving is done to trigger the audit log inserts. 
+7.	Finish the created by, modified by, created on, modified on logic. 
+8.	We should probably remove the Inotifiy property change event logic and interface as we most lily will not need it.
+9.	We can use an interface for the tracking, use the partial class to set the base class to give different objects different features??  That way the iauditable can track all properties and values and others can just track the properties.
+10.	You can use this to automate the migration command and harvest the files.  Just generate a dotnet assemble , compile it, and process the scaffolding command http://www.learnentityframeworkcore.com/walkthroughs/existing-database 
+ 
+11.	When attaching objects use the track graph method to set the states.  Any state that is not explicitly set will be figured out via the IsKeySet method.  This includes auto generated DB id int were tested and client side guid generation. 
+
+12.	The change tracker has all the objects that were attached to the graph.  This can be used to iterate over all objects and process WHATEVER is needed.  the downside is that you need a DB context for the processing.  
+
+13.	Make sure to find out that setting that triggers the model filter a view of the db to exclude all properties.  This will be useful in soft delete scenarios.  No coding is needed in the models.  This would be good in my opinion 
+ 
+14.	The Scaffold-DbContext template override were taken from the entity framework core source directly and then hacked up to fix the client side guid issue and other changes.
+
+15.	The tracking state needs to be set in the following cases.
+
+a.	1. In a delete scenario where an item in a collection should be marked as deleted.    We can enhance this if need buy using a custom collection that emits events but I think it’s overkill
+b.	2. many to many - only set if in a many to many setups where there are two foreign key used as a composite primary key.   In this case new records that set only this key (not the objects) when the tracking state should be set to “added” as the IsKeySet will incorelty mark it as an update and the insert will fail.  An alternative method will be to define many to many with a segregate primary key.  They the FKs can be set on the object or the properties directly.  
+c.	3. if you want to force a full update of all properties you can set the tracking state to Modified.  This will trigger EF to update all properties to the DB.
+16.	Removing an item does not remove it from the DB.  You can pass a collection to the Remove method or set the tracking state explicitly.
+17.	 The base class is needed for the process to work. This can be a base call or an interface.
+18.	Additional Tony Sneed client side tracking should work if we use his code or derive from his base classed.   This included his merge features as well as his change tracking collection
+a.	his change tracking collection will need a bit of work but it would be excellent in the case of an upload of changed only data and or merging back DB id or DB generated values.
+19.	Make sure you explore the LoadRelatedEntities functions.
+https://github.com/aspnet/EntityFrameworkCore/issues/4424 
+https://blog.oneunicorn.com/author/ajcvickers/ 
+https://blog.oneunicorn.com/2016/11/17/add-attach-update-and-remove-methods-in-ef-core-1-1/
+https://blog.oneunicorn.com/2016/11/17/ef-core-1-1-looking-at-your-model-in-the-debugger/ 
+
+https://blog.oneunicorn.com/2016/11/09/internal-code-in-ef-core-1-1/ 
+http://www.learnentityframeworkcore.com/raw-sql 
+http://www.learnentityframeworkcore.com/model/shadow-properties 
+http://www.learnentityframeworkcore.com/configuration/many-to-many-relationship-configuration 
+http://www.learnentityframeworkcore.com/inheritance 
+https://msdn.microsoft.com/en-us/magazine/mt767693.aspx 
+https://msdn.microsoft.com/magazine/mt694083 
+https://docs.microsoft.com/en-us/ef/core/api/microsoft.entityframeworkcore.changetracking.entityentry 
+https://docs.microsoft.com/en-us/ef/core/saving/explicit-values-generated-properties 
+
+
+https://github.com/aspnet/EntityFrameworkCore/issues/4424  
+
+
+https://docs.microsoft.com/en-us/ef/core/modeling/generated-properties 
+ https://docs.microsoft.com/en-us/ef/core/saving/explicit-values-generated-properties 
+ https://github.com/aspnet/EntityFrameworkCore/issues/4424 
+
+
+Data Points - EF Core Change-Tracking Behavior: Unchanged, Modified and Added - August 2016
+https://msdn.microsoft.com/magazine/mt767693
+
+
+Data Points - Handling the State of Disconnected Entities in EF - April 2016
+https://msdn.microsoft.com/magazine/mt694083 
+
+
+
+
+
+
+
+   SEE THIS  - ValueGeneratedOnAdd
+   https://docs.microsoft.com/en-us/ef/core/modeling/generated-properties 
+
+
+
+Scaffold-DbContext "Server=(localdb)\mssqllocaldb;Database=OrderDetailEFTest;Trusted_Connection=True;" Microsoft.EntityFrameworkCore.SqlServer -OutputDir OrderDB -Force  
+
+
+ 
+
+   The instance of entity type   cannot be tracked because another instance with the same key value for  is already being tracked. When attaching existing entities, ensure that only one entity instance with a given key value is attached. Consider using 'DbContextOptionsBuilder.EnableSensitiveDataLogging' to see the conflicting key values.
+
+
+   SEE THIS  - ValueGeneratedOnAdd
+   https://docs.microsoft.com/en-us/ef/core/modeling/generated-properties 
+
+
+          modelBuilder.Entity<Order>(entity =>
+            {
+                entity.Property(e => e.OrderId).ValueGeneratedOnAdd();
+
+                entity.Property(e => e.CreatedOn).HasColumnType("datetime");
+
+                entity.Property(e => e.Name)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+            });
+
+            modelBuilder.Entity<OrderDetail>(entity =>
+            {
+                entity.Property(e => e.OrderDetailId).ValueGeneratedOnAdd();
+
+                entity.Property(e => e.CreatedOn).HasColumnType("datetime");
+
+                entity.Property(e => e.Name)
+                    .IsRequired()
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+
+                entity.HasOne(d => d.Order)
+                    .WithMany(p => p.OrderDetail)
+                    .HasForeignKey(d => d.OrderId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK_OrderDetail_Order");
+            });
+
+
+
+
+https://app.pluralsight.com/player?course=building-multi-client-end-to-end-service-oriented-applications&author=miguel-castro&name=building-multi-client-end-to-end-service-oriented-applications-m4&clip=9&mode=live
+
+using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Linq;
+using System.Linq.Expressions;
+using Core.Common.Utils;
+
+namespace Core.Common.Core
+{
+    public class NotificationObject : INotifyPropertyChanged
+    {
+        private event PropertyChangedEventHandler _PropertyChangedEvent;
+
+        protected List<PropertyChangedEventHandler> _PropertyChangedSubscribers = new List<PropertyChangedEventHandler>();
+
+        public event PropertyChangedEventHandler PropertyChanged
+        {
+            add
+            {
+                if (!_PropertyChangedSubscribers.Contains(value))
+                {
+                    _PropertyChangedEvent += value;
+                    _PropertyChangedSubscribers.Add(value);
+                }
+            }
+            remove
+            {
+                _PropertyChangedEvent -= value;
+                _PropertyChangedSubscribers.Remove(value);
+            }
+        }
+
+        protected virtual void OnPropertyChanged(string propertyName)
+        {
+            if (_PropertyChangedEvent != null)
+                _PropertyChangedEvent(this, new PropertyChangedEventArgs(propertyName));
+        }
+
+        protected virtual void OnPropertyChanged<T>(Expression<Func<T>> propertyExpression)
+        {
+            string propertyName = PropertySupport.ExtractPropertyName(propertyExpression);
+            OnPropertyChanged(propertyName);
+        }
+    }
+}

@@ -75,6 +75,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "WebHelper", "WebHelper\WebH
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Common", "Common\Common.csproj", "{C29EC1ED-0CA1-45F6-8EA4-B4D98A4B5EF4}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "eviti.data.tracking", "eviti.data.tracking\eviti.data.tracking.csproj", "{A76CC537-2BCA-4334-AE21-EB7CE8C752AC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -165,6 +167,10 @@ Global
 		{C29EC1ED-0CA1-45F6-8EA4-B4D98A4B5EF4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C29EC1ED-0CA1-45F6-8EA4-B4D98A4B5EF4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C29EC1ED-0CA1-45F6-8EA4-B4D98A4B5EF4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A76CC537-2BCA-4334-AE21-EB7CE8C752AC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A76CC537-2BCA-4334-AE21-EB7CE8C752AC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A76CC537-2BCA-4334-AE21-EB7CE8C752AC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A76CC537-2BCA-4334-AE21-EB7CE8C752AC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -192,6 +198,7 @@ Global
 		{2976F5F8-24F4-4E7A-B7CA-F8E935876C75} = {1CC2937D-130C-47B3-A426-C2FDFD3C57CC}
 		{6280C962-3664-4079-9771-ED40C8D75DFA} = {20A986AA-EC89-42D1-B9F3-383198966D46}
 		{C29EC1ED-0CA1-45F6-8EA4-B4D98A4B5EF4} = {20A986AA-EC89-42D1-B9F3-383198966D46}
+		{A76CC537-2BCA-4334-AE21-EB7CE8C752AC} = {20A986AA-EC89-42D1-B9F3-383198966D46}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9046F5F5-2453-4C7E-8C03-D452AE04A3D3}

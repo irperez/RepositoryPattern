@@ -31,11 +31,16 @@ namespace EvitiContact.ContactModel
 
 
         private string _EmailAddress;  
-        public string EmailAddress { get { return _EmailAddress; } set { SetWithNotify(value, ref _EmailAddress); } } 
+        public string EmailAddress { get { return _EmailAddress; } set { SetWithNotify(value, ref _EmailAddress); } }
 
-
-        private bool _IsPrimary;  
-        public bool IsPrimary { get { return _IsPrimary; } set { SetWithNotify(value, ref _IsPrimary); } } 
+        // Looks like bool are a problem for the tracking framework if we don't start with the original state.  
+        // We can only support nullable bools
+        // because if we have a true field, we default to false, get an update to set the field to false
+        // the tracking framework comparison will not "see" the tracking change.  Changing them to 
+        // nullable bools will work, until i find a reason why it will not, as it passed items on to 
+        // EF core
+        private bool? _IsPrimary;  
+        public bool? IsPrimary { get { return _IsPrimary; } set { SetWithNotify(value, ref _IsPrimary); } } 
 
 
         #endregion

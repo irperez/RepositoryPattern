@@ -24,3 +24,10 @@
    All business logic should be in the Domain layer and we should strive to keep it there.  
         See and use the specification pattern to help encapsulate the domain layer logic
    The Domain layer should define the interfaces for the repositories
+
+
+7.   // Looks like bool are a problem for the tracking framework.  We can only support nullable bools
+        // because if we have a true field, we default to false, get an update to set the field to false
+        // the tracking framework comparison will not "see" the tracking change.  Changing them to 
+        // nullable bools will work, until i find a reason why it will not, as it passed items on to 
+        // EF core

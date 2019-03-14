@@ -14,9 +14,9 @@ namespace EvitiContact.Domain.ContactModelDB
             RuleFor(p => p.LastName).MaximumLength(50);
             RuleFor(p => p.MiddleName).MaximumLength(50);
             RuleFor(p => p.Title).MaximumLength(50);
-            RuleFor(p => p.Credentials).MaximumLength(50);
-            RuleFor(p => p.Prefix).MaximumLength(50);
-            RuleFor(p => p.Suffix).MaximumLength(50);
+            //RuleFor(p => p.Credentials).MaximumLength(50);
+            //RuleFor(p => p.Prefix).MaximumLength(50);
+            //RuleFor(p => p.Suffix).MaximumLength(50);
             RuleFor(p => p.CompanyName).MaximumLength(100);
             //RuleFor(p => p.Version).NotEmpty();
             //RuleFor(p => p.Version).MaximumLength(50);
@@ -24,8 +24,8 @@ namespace EvitiContact.Domain.ContactModelDB
             //RuleFor(p => p.CreatedBy).MaximumLength(256);
             //RuleFor(p => p.ModifiedBy).NotEmpty();
             //RuleFor(p => p.ModifiedBy).MaximumLength(256);
-            RuleFor(p => p.SSN).MaximumLength(500);
-            RuleFor(p => p.Department).MaximumLength(100);
+            //RuleFor(p => p.SSN).MaximumLength(500);
+            //RuleFor(p => p.Department).MaximumLength(100);
             #endregion
 
             //RuleFor(p => p.FirstName).NotEmpty();
@@ -33,6 +33,21 @@ namespace EvitiContact.Domain.ContactModelDB
 
             RuleFor(p => p.TypeID).NotEmpty();
             RuleFor(p => p.TypeID).GreaterThan(0);
+
+            RuleFor(x => x.LastName).Must((model, userName) => {
+                // Determine whether 'userName' is unique.
+                string t = string.Empty;
+
+                t = model.LastName;
+                if (model.LastName.Contains("test") == false)
+                {
+                    return false;
+                }
+                return true;
+            }).WithMessage("Your last name does not contain the word 'test'");
+
+
+            RuleForEach(x => x.ContactEmails).SetValidator(new ContactEmailViewModelValidator());
         }
     }
     /*

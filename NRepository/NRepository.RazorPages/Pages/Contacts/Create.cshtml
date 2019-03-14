@@ -33,21 +33,21 @@
                 <input asp-for="Contact.Title" class="form-control" />
                 <span asp-validation-for="Contact.Title" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="Contact.Credentials" class="control-label"></label>
-                <input asp-for="Contact.Credentials" class="form-control" />
-                <span asp-validation-for="Contact.Credentials" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Contact.Prefix" class="control-label"></label>
-                <input asp-for="Contact.Prefix" class="form-control" />
-                <span asp-validation-for="Contact.Prefix" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Contact.Suffix" class="control-label"></label>
-                <input asp-for="Contact.Suffix" class="form-control" />
-                <span asp-validation-for="Contact.Suffix" class="text-danger"></span>
-            </div>
+            @*<div class="form-group">
+                    <label asp-for="Contact.Credentials" class="control-label"></label>
+                    <input asp-for="Contact.Credentials" class="form-control" />
+                    <span asp-validation-for="Contact.Credentials" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Contact.Prefix" class="control-label"></label>
+                    <input asp-for="Contact.Prefix" class="form-control" />
+                    <span asp-validation-for="Contact.Prefix" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Contact.Suffix" class="control-label"></label>
+                    <input asp-for="Contact.Suffix" class="form-control" />
+                    <span asp-validation-for="Contact.Suffix" class="text-danger"></span>
+                </div>*@
             <div class="form-group">
                 <label asp-for="Contact.CompanyName" class="control-label"></label>
                 <input asp-for="Contact.CompanyName" class="form-control" />
@@ -55,79 +55,79 @@
             </div>
             <div class="form-group">
                 <label asp-for="Contact.TypeID" class="control-label"></label>
-                <select asp-for="Contact.TypeID" class ="form-control" asp-items="ViewBag.TypeID"></select>
+                <select asp-for="Contact.TypeID" class="form-control" asp-items="ViewBag.TypeID"></select>
             </div>
             <div class="form-group">
                 <div class="checkbox">
                     <label>
-                        <input asp-for="Contact.IsMd" /> @Html.DisplayNameFor(model => model.Contact.IsMd))
+                        <input asp-for="Contact.IsMd" /> @Html.DisplayNameFor(model => model.Contact.IsMd)
                     </label>
                 </div>
             </div>
             @*<div class="form-group">
-                <label asp-for="Contact.Version" class="control-label"></label>
-                <input asp-for="Contact.Version" class="form-control" />
-                <span asp-validation-for="Contact.Version" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Contact.CreatedDate" class="control-label"></label>
-                <input asp-for="Contact.CreatedDate" class="form-control" />
-                <span asp-validation-for="Contact.CreatedDate" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Contact.CreatedBy" class="control-label"></label>
-                <input asp-for="Contact.CreatedBy" class="form-control" />
-                <span asp-validation-for="Contact.CreatedBy" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Contact.ModifiedDate" class="control-label"></label>
-                <input asp-for="Contact.ModifiedDate" class="form-control" />
-                <span asp-validation-for="Contact.ModifiedDate" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Contact.ModifiedBy" class="control-label"></label>
-                <input asp-for="Contact.ModifiedBy" class="form-control" />
-                <span asp-validation-for="Contact.ModifiedBy" class="text-danger"></span>
-            </div>*@
-            <div class="form-group">
-                <label asp-for="Contact.SSN" class="control-label"></label>
-                <input asp-for="Contact.SSN" class="form-control" />
-                <span asp-validation-for="Contact.SSN" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Contact.IsTest" class="control-label"></label>
-                <input asp-for="Contact.IsTest" class="form-control" />
-                <span asp-validation-for="Contact.IsTest" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <div class="checkbox">
-                    <label>
-                        <input asp-for="Contact.IsDemo" /> @Html.DisplayNameFor(model => model.Contact.IsDemo))
-                    </label>
+                    <label asp-for="Contact.Version" class="control-label"></label>
+                    <input asp-for="Contact.Version" class="form-control" />
+                    <span asp-validation-for="Contact.Version" class="text-danger"></span>
                 </div>
-            </div>
-            <div class="form-group">
-                <div class="checkbox">
-                    <label>
-                        <input asp-for="Contact.IsDeleted" /> @Html.DisplayNameFor(model => model.Contact.IsDeleted))
-                    </label>
+                <div class="form-group">
+                    <label asp-for="Contact.CreatedDate" class="control-label"></label>
+                    <input asp-for="Contact.CreatedDate" class="form-control" />
+                    <span asp-validation-for="Contact.CreatedDate" class="text-danger"></span>
                 </div>
-            </div>
-            <div class="form-group">
-                <label asp-for="Contact.Department" class="control-label"></label>
-                <input asp-for="Contact.Department" class="form-control" />
-                <span asp-validation-for="Contact.Department" class="text-danger"></span>
-            </div>
+                <div class="form-group">
+                    <label asp-for="Contact.CreatedBy" class="control-label"></label>
+                    <input asp-for="Contact.CreatedBy" class="form-control" />
+                    <span asp-validation-for="Contact.CreatedBy" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Contact.ModifiedDate" class="control-label"></label>
+                    <input asp-for="Contact.ModifiedDate" class="form-control" />
+                    <span asp-validation-for="Contact.ModifiedDate" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Contact.ModifiedBy" class="control-label"></label>
+                    <input asp-for="Contact.ModifiedBy" class="form-control" />
+                    <span asp-validation-for="Contact.ModifiedBy" class="text-danger"></span>
+                </div>*@
             @*<div class="form-group">
-                <label asp-for="Contact.CreatedByUserID" class="control-label"></label>
-                <input asp-for="Contact.CreatedByUserID" class="form-control" />
-                <span asp-validation-for="Contact.CreatedByUserID" class="text-danger"></span>
-            </div>
+                    <label asp-for="Contact.SSN" class="control-label"></label>
+                    <input asp-for="Contact.SSN" class="form-control" />
+                    <span asp-validation-for="Contact.SSN" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Contact.IsTest" class="control-label"></label>
+                    <input asp-for="Contact.IsTest" class="form-control" />
+                    <span asp-validation-for="Contact.IsTest" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <div class="checkbox">
+                        <label>
+                            <input asp-for="Contact.IsDemo" /> @Html.DisplayNameFor(model => model.Contact.IsDemo))
+                        </label>
+                    </div>
+                </div>*@
             <div class="form-group">
-                <label asp-for="Contact.ModifiedByUserID" class="control-label"></label>
-                <input asp-for="Contact.ModifiedByUserID" class="form-control" />
-                <span asp-validation-for="Contact.ModifiedByUserID" class="text-danger"></span>
-            </div>*@
+                <div class="checkbox">
+                    <label>
+                        <input asp-for="Contact.IsDeleted" /> @Html.DisplayNameFor(model => model.Contact.IsDeleted)
+                    </label>
+                </div>
+            </div>
+            @* <div class="form-group">
+                        <label asp-for="Contact.Department" class="control-label"></label>
+                        <input asp-for="Contact.Department" class="form-control" />
+                        <span asp-validation-for="Contact.Department" class="text-danger"></span>
+                    </div>
+                   <div class="form-group">
+                    <label asp-for="Contact.CreatedByUserID" class="control-label"></label>
+                    <input asp-for="Contact.CreatedByUserID" class="form-control" />
+                    <span asp-validation-for="Contact.CreatedByUserID" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="Contact.ModifiedByUserID" class="control-label"></label>
+                    <input asp-for="Contact.ModifiedByUserID" class="form-control" />
+                    <span asp-validation-for="Contact.ModifiedByUserID" class="text-danger"></span>
+                </div>*@
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-default" />
             </div>
@@ -141,4 +141,5 @@
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
 }

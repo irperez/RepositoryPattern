@@ -18,6 +18,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\eviti.data.tracking\eviti.data.tracking.csproj" />
     <ProjectReference Include="..\EvitiContact.Data\EvitiContact.Data.csproj" />
     <ProjectReference Include="..\EvitiContact.Domain\EvitiContact.Domain.csproj" />
   </ItemGroup>

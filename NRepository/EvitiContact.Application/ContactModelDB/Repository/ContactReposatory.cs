@@ -31,6 +31,25 @@ namespace EvitiContact.ApplicationService.ContactModelDB.Repository
                 .ToList();
         }
 
+        public IEnumerable<Contact> GetAllWithContactType()
+        {
+
+            return MyDBContext.Contact
+                .Include(c => c.Type)               
+                .ToList();
+        }
+
+        public Contact GetContactWithDetails(Guid id)
+        {
+            return MyDBContext.Contact
+                .Where(c=> c.GUID == id)
+                .Include(c => c.Type)
+                  .Include(c => c.ContactPhones)
+                    .Include(c => c.ContactAddresses)
+                      .Include(c => c.ContactEmails)
+                .FirstOrDefault();
+        }
+
         public ContactModelDbContext MyDBContext => Context as ContactModelDbContext;
     }
 

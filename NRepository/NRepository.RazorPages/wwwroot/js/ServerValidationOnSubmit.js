@@ -13,7 +13,7 @@
 
 // to use see the ValidatorPageFilter class
 
- 
+
 // See Jimmy Bogard's razor pages core sample as well as google for this "building-mvc-jimmy-style".
 // The link below does not seam to work anymore. 
 // 
@@ -46,7 +46,7 @@ var highlightFields = function (response) {
 
 
 
-           // $el.css("background-color", "red");
+            // $el.css("background-color", "red");
             $el.closest('.form-group').addClass('has-error');
         }
     });
@@ -64,18 +64,24 @@ var highlightErrors = function (xhr) {
 };
 var showSummary = function (response) {
 
-    alert('showSummary1');
-    $('#validationSummary').empty().removeClass('hidden');
-    alert('showSummary2');
+    var validationSummaryKey = '#validationSummary';
 
-    var $bobTest = $('#validationSummary');
-   // alert(bobtest);
+    if ($(validationSummaryKey).length==0) {
+        alert("The validationSummary is missing.");
+    }
+    //if ($('#validationSummary').length) {
+    //    alert("The element you're testing (validationSummary) is present.");
+    //}
+    //alert('showSummary1');
+    $(validationSummaryKey).empty().removeClass('hidden');
+    //alert('showSummary2');
 
+ 
+ 
 
     var verboseErrors = _.flatten(_.map(response, 'Errors')),
         errors = [];
 
-  //  alert(verboseErrors);
 
     var nonNullErrors = _.reject(verboseErrors, function (error) {
         return error.ErrorMessage.indexOf('must not be empty') > -1;
@@ -88,25 +94,35 @@ var showSummary = function (response) {
 
         errors.push(error.ErrorMessage);
     });
+    //alert(nonNullErrors);
+    //alert(verboseErrors);
 
-    if (nonNullErrors.length !== verboseErrors.length) {
-        errors.push('The highlighted fields are required to submit this form.');
+    //if (nonNullErrors.length !== verboseErrors.length) {
+    //    errors.push('The highlighted fields are required to submit this form.');
+    //}
+
+    if (errors.length > 0) {
+         
+        var $ul = $(validationSummaryKey).append('<p>Please review the highlighted fields for errors.</p>').append('<ul></ul>');
+
+        _.each(errors, function (error) {
+           // alert(error);
+            var $li = $('<li></li>').text(error);
+            $li.appendTo($ul);
+        });
     }
-
-    var $ul = $('#validationSummary').append('<ul></ul>');
-
-    _.each(errors, function (error) {
-        var $li = $('<li></li>').text(error);
-        $li.appendTo($ul);
-    });
 };
 
 var redirect = function (data) {
     console.log(data);
     console.dir(data);
-    alert('redirect');
-    alert(data);
- 
+    //alert('redirect');
+    //alert(data);
+
+    var test = JSON.stringify(data);
+    alert(test);
+    return;
+
     if (data.redirect) {
         window.location = data.redirect;
     } else {
@@ -155,10 +171,10 @@ $('form[method=post]').not('.no-ajax').on('submit', function () {
             200: redirect
         }
     }).always(function () {
-        alert("always");
+        // alert("always");
         submitBtn.prop('disabled', false);
     })
         .fail(highlightErrors);
-     alert('end of function');
+    // alert('end of function');
     return false;
 });

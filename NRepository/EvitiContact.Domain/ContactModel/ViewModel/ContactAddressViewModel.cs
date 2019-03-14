@@ -18,7 +18,7 @@ namespace EvitiContact.Domain.ContactModelDB
      {
      }
     #region Generated  ViewModel
-    public Guid GUID { get; set; }
+    public Guid? GUID { get; set; }
     public Guid ContactGUID { get; set; }
     public string Name { get; set; }
     public string Street { get; set; }

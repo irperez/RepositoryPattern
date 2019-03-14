@@ -9,6 +9,10 @@ namespace EvitiContact.Domain.ContactModel.Repository
     {
         IEnumerable<Contact> GetTopSellingCourses(int count);
         IEnumerable<Contact> GetCoursesWithAuthors(int pageIndex, int pageSize);
+
+        IEnumerable<Contact> GetAllWithContactType( );
+
+        Contact  GetContactWithDetails(Guid id);
     }
      
 }

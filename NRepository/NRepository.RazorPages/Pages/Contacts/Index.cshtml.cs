@@ -1,29 +1,35 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Mvc.RazorPages;
-using Microsoft.EntityFrameworkCore;
+using AutoMapper;
 using EvitiContact.ContactModel;
+using EvitiContact.Domain.ContactModelDB;
+using EvitiContact.Service.RepositoryDB;
+using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace NRepository.RazorPages.Pages.Contacts
 {
     public class IndexModel : PageModel
     {
-        private readonly EvitiContact.ContactModel.ContactModelDbContext _context;
-
-        public IndexModel(EvitiContact.ContactModel.ContactModelDbContext context)
+        // private readonly EvitiContact.ContactModel.ContactModelDbContext _context;
+        private readonly IMapper _mapper;
+        private readonly IUnitOfWorkContactAndShoool _unitOfWork;
+        public IndexModel(IMapper mapper, IUnitOfWorkContactAndShoool unitOfWork)
         {
-            _context = context;
+            _mapper = mapper;
+            _unitOfWork = unitOfWork;
         }
 
-        public IList<Contact> Contact { get;set; }
+        public IList<ContactViewModel> Contact { get; set; }
 
         public async Task OnGetAsync()
         {
-            Contact = await _context.Contact
-                .Include(c => c.Type).ToListAsync();
+            IEnumerable<Contact> allitems = _unitOfWork.Contacts.GetAllWithContactType();
+            //var temp = await _context.Contact
+            //      .Include(c => c.Type).ToListAsync();
+
+            // var VMstores = Mapper.Map<IEnumerable<Store>, IEnumerable<StoreVM>>(stores);
+            Contact = _mapper.Map<IEnumerable<Contact>, IList<ContactViewModel>>(allitems);
+            // Contact = _mapper.Map<IList<Contact>>(allitems);
         }
     }
 }
