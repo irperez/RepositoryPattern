@@ -48,6 +48,8 @@ namespace EvitiContact.Domain.ContactModelDB
 
 
             RuleForEach(x => x.ContactEmails).SetValidator(new ContactEmailViewModelValidator());
+            RuleForEach(x => x.ContactAddresses).SetValidator(new ContactAddressViewModelValidator());
+            RuleForEach(x => x.ContactPhones).SetValidator(new ContactPhoneViewModelValidator());
         }
     }
     /*

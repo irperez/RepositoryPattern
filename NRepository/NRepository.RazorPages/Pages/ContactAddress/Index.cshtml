@@ -1,0 +1,120 @@
+﻿@page
+@model NRepository.RazorPages.Pages.NewFolder.IndexModel
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    <a asp-page="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ContactAddress[0].Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ContactAddress[0].Street)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ContactAddress[0].Street2)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ContactAddress[0].City)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ContactAddress[0].Province)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ContactAddress[0].ZipCodeExtension)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ContactAddress[0].ZipCode)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ContactAddress[0].Country)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ContactAddress[0].IsPrimary)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ContactAddress[0].TimeZone)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ContactAddress[0].Longitude)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ContactAddress[0].Latitude)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ContactAddress[0].ZipCodeString)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ContactAddress[0].ContactGU)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ContactAddress[0].StateNavigation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model.ContactAddress) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Street)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Street2)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.City)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Province)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ZipCodeExtension)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ZipCode)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Country)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsPrimary)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TimeZone)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Longitude)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Latitude)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ZipCodeString)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ContactGU.CreatedBy)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StateNavigation.Name)
+            </td>
+            <td>
+                <a asp-page="./Edit" asp-route-id="@item.GUID">Edit</a> |
+                <a asp-page="./Details" asp-route-id="@item.GUID">Details</a> |
+                <a asp-page="./Delete" asp-route-id="@item.GUID">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

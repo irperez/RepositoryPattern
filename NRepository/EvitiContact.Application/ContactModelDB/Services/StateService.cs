@@ -1,12 +1,9 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using EvitiContact.ContactModel;
 using EvitiContact.Domain.Services;
 using Microsoft.EntityFrameworkCore;
-
-using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace EvitiContact.ApplicationService.ContactModelDB.Services
 {
@@ -63,7 +60,8 @@ namespace EvitiContact.ApplicationService.ContactModelDB.Services
     {
 
 
-        private readonly ContactModelDbContext ctx;
+        // private readonly ContactModelDbContext ctx;
+        private readonly IServiceScopeFactory _services;
         private List<States> _list;
 
         public Dictionary<string, States> _dictByAppriviation { get; private set; }
@@ -71,11 +69,15 @@ namespace EvitiContact.ApplicationService.ContactModelDB.Services
         public Dictionary<string, States> _dictByName { get; private set; }
         public Dictionary<string, ZipCodes> _zipcodesByCode { get; private set; }
 
-        public StateService(ContactModelDbContext ctx)
+        //public StateService(ContactModelDbContext ctx)
+        //{
+        //    this.ctx = ctx;
+        //}
+        public StateService(IServiceScopeFactory services)
         {
-            this.ctx = ctx;
-        }
+            _services = services;
 
+        }
         public void DummyItems()
         {
 
@@ -131,19 +133,26 @@ namespace EvitiContact.ApplicationService.ContactModelDB.Services
                 {
                     if (_list == null)
                     {
-                        _list = ctx.States.Include(x => x.ZipCodes).ToList();
-                        _dictByAppriviation = _list.ToDictionary(x => x.Abbreviation, x => x);
-                        _dictByName = _list.ToDictionary(x => x.Name, x => x);
-                        _zipcodesByCode = new Dictionary<string, ZipCodes>();
 
-                        foreach (var item in _list)
+                        using (var scope = _services.CreateScope())
                         {
-                            foreach (var subItem in item.ZipCodes)
+                            var ctx = scope.ServiceProvider.GetRequiredService<ContactModelDbContext>();
+
+
+
+                            _list = ctx.States.Include(x => x.ZipCodes).ToList();
+                            _dictByAppriviation = _list.ToDictionary(x => x.Abbreviation, x => x);
+                            _dictByName = _list.ToDictionary(x => x.Name, x => x);
+                            _zipcodesByCode = new Dictionary<string, ZipCodes>();
+
+                            foreach (var item in _list)
                             {
-                                _zipcodesByCode[subItem.ZipCode] = subItem;
+                                foreach (var subItem in item.ZipCodes)
+                                {
+                                    _zipcodesByCode[subItem.ZipCode] = subItem;
+                                }
                             }
                         }
-
                         //    _zipcodesByCode = _list.ToDictionary(x => x.ZipCodes.Select(zip => zip.ZipCode), x => x.ZipCodes.Select(zip => zip));
                     }
                 }
@@ -166,6 +175,12 @@ namespace EvitiContact.ApplicationService.ContactModelDB.Services
         public void StartUp()
         {
             PrepList();
+        }
+
+        public List<States> GetAllStates()
+        {
+            PrepList();
+            return _list;  // this should be changed to a I read only list but i forget the sysntax 
         }
     }
 }

@@ -136,6 +136,13 @@
             <hr />
             @Html.EditorFor(model => Model.Contact.ContactEmails, "ContactEmailEdit")
 
+            <H3> Addresses</H3>
+            <hr />
+            @Html.EditorFor(model => Model.Contact.ContactAddresses, "ContactAddressEdit")
+
+            <H3> Phones</H3>
+            <hr />
+            @Html.EditorFor(model => Model.Contact.ContactAddresses, "ContactPhonesEdit")
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-default" />
             </div>

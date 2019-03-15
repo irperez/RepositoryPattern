@@ -1,0 +1,84 @@
+﻿@model List<EvitiContact.Domain.ContactModelDB.ContactAddressViewModel>
+@for (int i = 0; i < Model.Count; i++)
+{
+    <input type="hidden" asp-for="@Model[i].GUID" />
+    <input type="hidden" asp-for="@Model[i].ContactGUID" />
+ 
+  
+    <div class="form-group">
+        <label asp-for="@Model[i].Name" class="control-label"></label>
+        <input asp-for="@Model[i].Name" class="form-control" />
+        <span asp-validation-for="@Model[i].Name" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model[i].Street" class="control-label"></label>
+        <input asp-for="@Model[i].Street" class="form-control" />
+        <span asp-validation-for="@Model[i].Street" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model[i].Street2" class="control-label"></label>
+        <input asp-for="@Model[i].Street2" class="form-control" />
+        <span asp-validation-for="@Model[i].Street2" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model[i].City" class="control-label"></label>
+        <input asp-for="@Model[i].City" class="form-control" />
+        <span asp-validation-for="@Model[i].City" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model[i].State" class="control-label"></label>
+        <select asp-for="@Model[i].State" class="form-control" asp-items="ViewBag.State"></select>
+        <span asp-validation-for="@Model[i].State" class="text-danger"></span>
+    </div>
+    @*<div class="form-group">
+            <label asp-for="@Model[i].Province" class="control-label"></label>
+            <input asp-for="@Model[i].Province" class="form-control" />
+            <span asp-validation-for="@Model[i].Province" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model[i].ZipCodeExtension" class="control-label"></label>
+            <input asp-for="@Model[i].ZipCodeExtension" class="form-control" />
+            <span asp-validation-for="@Model[i].ZipCodeExtension" class="text-danger"></span>
+        </div>*@
+    <div class="form-group">
+        <label asp-for="@Model[i].ZipCode" class="control-label"></label>
+        <input asp-for="@Model[i].ZipCode" class="form-control" />
+        <span asp-validation-for="@Model[i].ZipCode" class="text-danger"></span>
+    </div>
+    @*<div class="form-group">
+            <label asp-for="@Model[i].Country" class="control-label"></label>
+            <input asp-for="@Model[i].Country" class="form-control" />
+            <span asp-validation-for="@Model[i].Country" class="text-danger"></span>
+        </div>*@
+    <div class="form-group">
+        <div class="checkbox">
+            <label>
+                <input asp-for="@Model[i].IsPrimary" /> @Html.DisplayNameFor(model => Model[i].IsPrimary)
+            </label>
+        </div>
+    </div>
+    @*<div class="form-group">
+            <label asp-for="@Model[i].TimeZone" class="control-label"></label>
+            <input asp-for="@Model[i].TimeZone" class="form-control" />
+            <span asp-validation-for="@Model[i].TimeZone" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model[i].Longitude" class="control-label"></label>
+            <input asp-for="@Model[i].Longitude" class="form-control" />
+            <span asp-validation-for="@Model[i].Longitude" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model[i].Latitude" class="control-label"></label>
+            <input asp-for="@Model[i].Latitude" class="form-control" />
+            <span asp-validation-for="@Model[i].Latitude" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="@Model[i].ZipCodeString" class="control-label"></label>
+            <input asp-for="@Model[i].ZipCodeString" class="form-control" />
+            <span asp-validation-for="@Model[i].ZipCodeString" class="text-danger"></span>
+        </div>*@
+    <div class="form-group">
+        <input type="submit" value="Save" class="btn btn-default" />
+    </div>
+
+}

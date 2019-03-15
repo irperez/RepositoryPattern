@@ -9,6 +9,7 @@ namespace EvitiContact.Domain.Services
     {
         void StartUp();
         States GetStateByAbbreviation(string Abbreviation);
+        List<States> GetAllStates();
         States GetStateByName(string Name);
         ZipCodes GetZipByCode(string zipCode);
     }

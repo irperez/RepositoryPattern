@@ -24,7 +24,7 @@ namespace EvitiContact.Domain.ContactModelDB
                 string t = string.Empty;
 
                 t = model.Name;
-                if (model.Name.Contains("test")==false)
+                if (model.EmailAddress.Contains("test")==false)
                 {
                     return false;
                 }

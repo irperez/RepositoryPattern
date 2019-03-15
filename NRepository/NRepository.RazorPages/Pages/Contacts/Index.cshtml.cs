@@ -4,22 +4,28 @@ using AutoMapper;
 using EvitiContact.ContactModel;
 using EvitiContact.Domain.ContactModelDB;
 using EvitiContact.Service.RepositoryDB;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 
 namespace NRepository.RazorPages.Pages.Contacts
 {
-    public class IndexModel : PageModel
+    public class Index : PageModel
     {
         // private readonly EvitiContact.ContactModel.ContactModelDbContext _context;
         private readonly IMapper _mapper;
         private readonly IUnitOfWorkContactAndShoool _unitOfWork;
-        public IndexModel(IMapper mapper, IUnitOfWorkContactAndShoool unitOfWork)
+        public Index(IMapper mapper, IUnitOfWorkContactAndShoool unitOfWork)
         {
             _mapper = mapper;
             _unitOfWork = unitOfWork;
         }
 
         public IList<ContactViewModel> Contact { get; set; }
+
+
+        [TempData]
+        public string Message { get; set; }
+
 
         public async Task OnGetAsync()
         {

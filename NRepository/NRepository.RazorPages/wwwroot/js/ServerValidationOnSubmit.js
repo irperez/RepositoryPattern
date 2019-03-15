@@ -120,8 +120,8 @@ var redirect = function (data) {
     //alert(data);
 
     var test = JSON.stringify(data);
-    alert(test);
-    return;
+    alert("redirecting to: " + test);
+   // return;
 
     if (data.redirect) {
         window.location = data.redirect;

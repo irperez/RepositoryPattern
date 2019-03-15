@@ -4,6 +4,7 @@ using System.Threading.Tasks;
 using AutoMapper;
 using EvitiContact.ContactModel;
 using EvitiContact.Domain.ContactModelDB;
+using EvitiContact.Domain.Services;
 using EvitiContact.Service.RepositoryDB;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
@@ -23,10 +24,13 @@ namespace NRepository.RazorPages.Pages.Contacts
 
         private readonly IMapper _mapper;
         private readonly IUnitOfWorkContactAndShoool _unitOfWork;
-        public EditModel(IMapper mapper, IUnitOfWorkContactAndShoool unitOfWork)
+        private readonly IStateService _stateService;
+
+        public EditModel(IMapper mapper, IUnitOfWorkContactAndShoool unitOfWork, IStateService stateService)
         {
             _mapper = mapper;
             _unitOfWork = unitOfWork;
+            _stateService = stateService;
         }
 
         [BindProperty]
@@ -42,7 +46,9 @@ namespace NRepository.RazorPages.Pages.Contacts
             Contact = _mapper.Map<ContactViewModel>(c);
             //Contact = await _context.Contact
             //    .Include(c => c.Type).FirstOrDefaultAsync(m => m.GUID == id);
+           var test = new SelectList(_stateService.GetAllStates(), "StateCode", "Name");
 
+            ViewData["State"] = new SelectList(_stateService.GetAllStates(), "StateCode", "Name");
             if (Contact == null)
             {
                 return NotFound();
@@ -80,8 +86,12 @@ namespace NRepository.RazorPages.Pages.Contacts
             //    }
             //}
 
-           // return  this. RedirectToActionJson(nameof(Index));
-            return this.RedirectToPageJson( "Index" );
+            // return  this. RedirectToActionJson(nameof(Index));
+
+            TempData["Message"] = "Contact Type saved!";
+            return this.RedirectToPageJson(nameof(Index));
+            //return this.RedirectToPageJson( "Index" );
+
           //  return RedirectToPage("./Index");
         }
 

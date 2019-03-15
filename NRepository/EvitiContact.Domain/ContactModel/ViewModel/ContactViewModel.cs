@@ -55,9 +55,9 @@ namespace EvitiContact.Domain.ContactModelDB
         //public Guid? ModifiedByUserID { get; set; }
         #endregion
         public ContactTypeViewModel Type { get; set; }
-        public IList<ContactPhoneViewModel> Phones { get; set; } = new List<ContactPhoneViewModel>();
+        public IList<ContactPhoneViewModel> ContactPhones { get; set; } = new List<ContactPhoneViewModel>();
         public IList<ContactEmailViewModel> ContactEmails { get; set; } = new List<ContactEmailViewModel>();
-        public IList<ContactAddressViewModel> Addresses { get; set; } = new List<ContactAddressViewModel>();
+        public IList<ContactAddressViewModel> ContactAddresses { get; set; } = new List<ContactAddressViewModel>();
 
     }
     /*
