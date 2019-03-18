@@ -1,14 +1,15 @@
 ﻿@model List<EvitiContact.Domain.ContactModelDB.ContactAddressViewModel>
 @for (int i = 0; i < Model.Count; i++)
 {
+    <div>
     <input type="hidden" asp-for="@Model[i].GUID" />
     <input type="hidden" asp-for="@Model[i].ContactGUID" />
- 
-  
+
+
     <div class="form-group">
         <label asp-for="@Model[i].Name" class="control-label"></label>
         <input asp-for="@Model[i].Name" class="form-control" />
-        <span asp-validation-for="@Model[i].Name" class="text-danger"></span>
+        @*<span asp-validation-for="@Model[i].Name" class="text-danger"></span>*@
     </div>
     <div class="form-group">
         <label asp-for="@Model[i].Street" class="control-label"></label>
@@ -77,8 +78,8 @@
             <input asp-for="@Model[i].ZipCodeString" class="form-control" />
             <span asp-validation-for="@Model[i].ZipCodeString" class="text-danger"></span>
         </div>*@
-    <div class="form-group">
-        <input type="submit" value="Save" class="btn btn-default" />
-    </div>
-
+    @*<div class="form-group">
+            <input type="submit" value="Save" class="btn btn-default" />
+        </div>*@</div>
+    <hr />
 }
