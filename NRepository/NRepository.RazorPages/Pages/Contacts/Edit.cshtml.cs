@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
@@ -15,7 +16,7 @@ using NRepository.RazorPages.Infrastructure;
 
 namespace NRepository.RazorPages.Pages.Contacts
 {
-
+  
   
 
     public class EditModel : PageModel
@@ -36,8 +37,23 @@ namespace NRepository.RazorPages.Pages.Contacts
         [BindProperty]
         public ContactViewModel Contact { get; set; }
 
+        public ContactViewModel DummyContact { get; set; }
+
         public async Task<IActionResult> OnGetAsync(Guid? id)
         {
+
+            DummyContact = new ContactViewModel();
+            DummyContact.ContactPhones = new  List<ContactPhoneViewModel>();
+            DummyContact.ContactPhones.Add(new ContactPhoneViewModel());
+
+            DummyContact.ContactAddresses = new List<ContactAddressViewModel>();
+            DummyContact.ContactAddresses.Add(new ContactAddressViewModel());
+
+
+            DummyContact.ContactEmails = new List<ContactEmailViewModel>();
+            DummyContact.ContactEmails.Add(new ContactEmailViewModel());
+
+
             if (id == null)
             {
                 return NotFound();

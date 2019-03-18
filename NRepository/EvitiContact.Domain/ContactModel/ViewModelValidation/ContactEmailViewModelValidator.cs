@@ -24,6 +24,11 @@ namespace EvitiContact.Domain.ContactModelDB
                 string t = string.Empty;
 
                 t = model.Name;
+
+                if (string.IsNullOrWhiteSpace(model.EmailAddress)==true)
+                {
+                    return false;
+                }
                 if (model.EmailAddress.Contains("test")==false)
                 {
                     return false;
