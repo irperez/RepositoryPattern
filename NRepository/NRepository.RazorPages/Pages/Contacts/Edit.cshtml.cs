@@ -16,12 +16,12 @@ using NRepository.RazorPages.Infrastructure;
 
 namespace NRepository.RazorPages.Pages.Contacts
 {
-  
-  
+
+
 
     public class EditModel : PageModel
     {
-     
+
 
         private readonly IMapper _mapper;
         private readonly IUnitOfWorkContactAndShoool _unitOfWork;
@@ -39,30 +39,47 @@ namespace NRepository.RazorPages.Pages.Contacts
 
         public ContactViewModel DummyContact { get; set; }
 
+
+        private void AddDummyModel()
+        {
+            // maybe we can move this into a partial view so we don't need to pollute the model here
+            DummyContact = new ContactViewModel
+            {
+                ContactPhones = new List<ContactPhoneViewModel>()
+            };
+            DummyContact.ContactPhones.Add(new ContactPhoneViewModel());
+
+            DummyContact.ContactAddresses = new List<ContactAddressViewModel>
+            {
+                new ContactAddressViewModel()
+            };
+
+
+            DummyContact.ContactEmails = new List<ContactEmailViewModel>
+            {
+                new ContactEmailViewModel()
+            };
+
+
+
+        }
+
+
         public async Task<IActionResult> OnGetAsync(Guid? id)
         {
 
-            DummyContact = new ContactViewModel();
-            DummyContact.ContactPhones = new  List<ContactPhoneViewModel>();
-            DummyContact.ContactPhones.Add(new ContactPhoneViewModel());
-
-            DummyContact.ContactAddresses = new List<ContactAddressViewModel>();
-            DummyContact.ContactAddresses.Add(new ContactAddressViewModel());
-
-
-            DummyContact.ContactEmails = new List<ContactEmailViewModel>();
-            DummyContact.ContactEmails.Add(new ContactEmailViewModel());
+            AddDummyModel();
 
 
             if (id == null)
             {
                 return NotFound();
             }
-           var c =  _unitOfWork.Contacts.GetContactWithDetails(id.Value);
+            var c = _unitOfWork.Contacts.GetContactWithDetails(id.Value);
             Contact = _mapper.Map<ContactViewModel>(c);
             //Contact = await _context.Contact
             //    .Include(c => c.Type).FirstOrDefaultAsync(m => m.GUID == id);
-           var test = new SelectList(_stateService.GetAllStates(), "StateCode", "Name");
+            var test = new SelectList(_stateService.GetAllStates(), "StateCode", "Name");
 
             ViewData["State"] = new SelectList(_stateService.GetAllStates(), "StateCode", "Name");
             if (Contact == null)
@@ -80,14 +97,14 @@ namespace NRepository.RazorPages.Pages.Contacts
             {
                 return Page();
             }
-     
-          //  _context.Attach(Contact).State = EntityState.Modified;
+
+            //  _context.Attach(Contact).State = EntityState.Modified;
 
             //try
             //{
-                Contact contact = _mapper.Map<Contact>(Contact);
+            Contact contact = _mapper.Map<Contact>(Contact);
             _unitOfWork.Contacts.AttachOnly(contact);
-                _unitOfWork.Commit();
+            _unitOfWork.Commit();
             //  await _context.SaveChangesAsync();
             //}
             //catch (DbUpdateConcurrencyException)
@@ -108,7 +125,7 @@ namespace NRepository.RazorPages.Pages.Contacts
             return this.RedirectToPageJson(nameof(Index));
             //return this.RedirectToPageJson( "Index" );
 
-          //  return RedirectToPage("./Index");
+            //  return RedirectToPage("./Index");
         }
 
         //private bool ContactExists(Guid id)

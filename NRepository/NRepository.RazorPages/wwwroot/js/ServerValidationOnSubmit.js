@@ -20,6 +20,10 @@
 //https://thefreezeteam.azurewebsites.net/2015/08/10/building-mvc-jimmy-style/
 var highlightFields = function (response) {
 
+
+  
+
+
     $('.form-group').removeClass('has-error');
     //  alert('highlightFields');
     $.each(response, function (propName, val) {
@@ -132,6 +136,23 @@ var redirect = function (data) {
 };
 
 $('form[method=post]').not('.no-ajax').on('submit', function () {
+
+
+    //https://stackoverflow.com/questions/5052315/how-to-fire-jquery-function-only-if-form-is-valid
+    // this is using the jquery validate unobtrusive validation to check if the form is client side valid before sending to the server.
+    if ($(this).valid()) {
+       // alert('form is valid');
+        //var Message = $('#FormConfirmMessage').val();
+        //return confirm(Message);
+    }
+    else {
+
+        alert('form is NOT valid');
+        return false;
+    }
+    // end jquery validate unobtrusive validation
+
+
     var submitBtn = $(this).find('[type="submit"]');
     //alert('bobtest');
     submitBtn.prop('disabled', true);
@@ -139,6 +160,7 @@ $('form[method=post]').not('.no-ajax').on('submit', function () {
 
     var $this = $(this),
         formData = $this.serialize();
+
 
     //    alert(formData);
     console.log(formData);

@@ -1,4 +1,5 @@
-﻿using FluentValidation;
+﻿using EvitiContact.Domain.Services;
+using FluentValidation;
 
 namespace EvitiContact.Domain.ContactModelDB
 {
@@ -7,7 +8,7 @@ namespace EvitiContact.Domain.ContactModelDB
         /// <summary>
         /// Initializes a new instance of the <see cref="ContactViewModelValidator"/> class.
         /// </summary>
-        public ContactViewModelValidator()
+        public ContactViewModelValidator(IStateService mytest)
         {
             #region Generated Validation For ViewModel
             RuleFor(p => p.FirstName).MaximumLength(50);
@@ -48,7 +49,7 @@ namespace EvitiContact.Domain.ContactModelDB
 
 
             RuleForEach(x => x.ContactEmails).SetValidator(new ContactEmailViewModelValidator());
-            RuleForEach(x => x.ContactAddresses).SetValidator(new ContactAddressViewModelValidator());
+            RuleForEach(x => x.ContactAddresses).SetValidator(new ContactAddressViewModelValidator(mytest));
             RuleForEach(x => x.ContactPhones).SetValidator(new ContactPhoneViewModelValidator());
         }
     }

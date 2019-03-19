@@ -1,4 +1,5 @@
-﻿using FluentValidation;
+﻿using EvitiContact.Domain.Services;
+using FluentValidation;
 
 namespace EvitiContact.Domain.ContactModelDB
 {
@@ -7,7 +8,7 @@ namespace EvitiContact.Domain.ContactModelDB
         /// <summary>
         /// Initializes a new instance of the <see cref="ContactAddressViewModelValidator"/> class.
         /// </summary>
-        public ContactAddressViewModelValidator()
+        public ContactAddressViewModelValidator(IStateService myStateService)
         {
             #region Generated Validation For ViewModel
             RuleFor(p => p.Name).NotEmpty();
@@ -28,7 +29,61 @@ namespace EvitiContact.Domain.ContactModelDB
 
             RuleFor(p => p.Street).NotEmpty();
             RuleFor(p => p.City).NotEmpty();
-            RuleFor(p => p.ZipCode).NotEmpty();
+            //RuleFor(p => p.ZipCode).NotEmpty().InclusiveBetween(10000, 99999);
+            //RuleFor(p => p.ZipCode).InclusiveBetween(10000, 99999);
+            //int i = 0;
+            //// RuleFor(x => x.ZipCode).Length(5, 5).Must(x => int.TryParse(x, out i));
+            ////RuleFor(x => x.ZipCode).Length(5, 5).WithMessage("Zip Code must be 5 digits");
+            //var test = i;
+             RuleFor(x => x.ZipCode).Matches(@"^\d{5}$").WithMessage("Zip Code must be 5 digits");
+
+
+            RuleFor(x => x.ZipCode).Must((model, zipcode) =>
+            {
+                
+                string t = string.Empty;
+                if (string.IsNullOrWhiteSpace(model.ZipCode) == true)
+                {
+                    return false;
+                }
+
+                var testZip = myStateService.GetZipByCode(zipcode);
+                if (testZip == null)
+                {
+                    return false;
+                }
+
+                if (testZip.StateCode != model.State)
+                {
+                    return false;
+                }
+                var stateCode = model.State;
+
+
+                return true;
+            }).WithMessage("The zip code is not valid for the selected State.");
+
+
+            //RuleFor(x => x.ZipCode).Must((model, zipcode) =>
+            //{
+
+            //    string t = string.Empty;
+            //    if (string.IsNullOrWhiteSpace(model.ZipCode) == true)
+            //    {
+            //        return false;
+            //    }
+            //    myStateService.GetAllStates.w
+            //    var testZip = myStateService.GetZipByCode(zipcode);
+            //    if (testZip == null)
+            //    {
+            //        return false;
+            //    }
+            //    var stateCode = model.State;
+
+
+            //    return true;
+            //}).WithMessage("The zip code is not valid.");
+
         }
     }
     /*
