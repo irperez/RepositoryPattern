@@ -165,7 +165,7 @@
             </button>
             <hr />
             <div class="form-horizontal" style="width:400px;" id="listOfContactPhones">
-                @Html.EditorFor(model => Model.Contact.ContactPhones, "ContactPhonesEdit")
+                @Html.EditorFor(model => Model.Contact.ContactPhones, "ContactPhoneEdit")
 
             </div>
             <div class="form-group">
@@ -196,7 +196,7 @@
 </script>
 
 <script id="templatePhonesRow" type="text/template">
-    @Html.EditorFor(model => Model.DummyContact.ContactPhones, "ContactPhonesEdit")
+    @Html.EditorFor(model => Model.DummyContact.ContactPhones, "ContactPhoneEdit")
 </script>
 
 @section Scripts {

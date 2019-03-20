@@ -19,7 +19,9 @@ namespace EvitiContact.Domain.ContactModelDB
             #region Generated Mapping
             CreateMap<ContactPhone, ContactPhoneViewModel>();
             #endregion
-         }
+
+            CreateMap<ContactPhoneViewModel, ContactPhone>();
+        }
      }
     /*
     #region Generated Reference Class

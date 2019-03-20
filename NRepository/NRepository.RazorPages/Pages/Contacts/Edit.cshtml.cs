@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using AutoMapper;
 using EvitiContact.ContactModel;
@@ -10,8 +9,6 @@ using EvitiContact.Service.RepositoryDB;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.AspNetCore.Mvc.Rendering;
-using Microsoft.EntityFrameworkCore;
-using Newtonsoft.Json;
 using NRepository.RazorPages.Infrastructure;
 
 namespace NRepository.RazorPages.Pages.Contacts
@@ -102,9 +99,21 @@ namespace NRepository.RazorPages.Pages.Contacts
 
             //try
             //{
-            Contact contact = _mapper.Map<Contact>(Contact);
-            _unitOfWork.Contacts.AttachOnly(contact);
-            _unitOfWork.Commit();
+
+            try
+
+            {
+                Contact contact = _mapper.Map<Contact>(Contact);
+                _unitOfWork.Contacts.AttachOnly(contact);
+                _unitOfWork.Commit();
+
+            }
+            catch (Exception ex)
+            {
+                string t = ex.Message;
+                throw;
+            }
+
             //  await _context.SaveChangesAsync();
             //}
             //catch (DbUpdateConcurrencyException)

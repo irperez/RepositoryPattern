@@ -1,0 +1,52 @@
+﻿@model List<EvitiContact.Domain.ContactModelDB.ContactPhoneViewModel>
+@for (int i = 0; i < Model.Count; i++)
+{
+<div>
+    <input type="hidden" asp-for="@Model[i].GUID" />
+    <input type="hidden" asp-for="@Model[i].ContactGUID" />
+    @*<div class="form-group">
+            <label asp-for="@Model[i].ContactGUID" class="control-label"></label>
+            <select asp-for="@Model[i].ContactGUID" class="form-control" asp-items="ViewBag.ContactGUID"></select>
+            <span asp-validation-for="@Model[i].ContactGUID" class="text-danger"></span>
+        </div>*@
+    <div class="form-group">
+        <label asp-for="@Model[i].Name" class="control-label"></label>
+        <input asp-for="@Model[i].Name" class="form-control" />
+        <span asp-validation-for="@Model[i].Name" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model[i].AreaCode" class="control-label"></label>
+        <input asp-for="@Model[i].AreaCode" class="form-control" />
+        <span asp-validation-for="@Model[i].AreaCode" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model[i].PhoneNumber" class="control-label"></label>
+        <input asp-for="@Model[i].PhoneNumber" class="form-control" />
+        <span asp-validation-for="@Model[i].PhoneNumber" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model[i].Extension" class="control-label"></label>
+        <input asp-for="@Model[i].Extension" class="form-control" />
+        <span asp-validation-for="@Model[i].Extension" class="text-danger"></span>
+    </div>
+    <div class="form-group">
+        <div class="checkbox">
+            <label>
+                <input asp-for="@Model[i].IsInternational" /> @Html.DisplayNameFor(model => Model[i].IsInternational)
+            </label>
+        </div>
+    </div>
+    <div class="form-group">
+        <div class="checkbox">
+            <label>
+                <input asp-for="@Model[i].IsPrimary" /> @Html.DisplayNameFor(model => Model[i].IsPrimary)
+            </label>
+        </div>
+    </div>
+    <div class="form-group">
+        <label asp-for="@Model[i].PhoneTypeId" class="control-label"></label>
+        <input asp-for="@Model[i].PhoneTypeId" class="form-control" />
+        <span asp-validation-for="@Model[i].PhoneTypeId" class="text-danger"></span>
+    </div>
+</div>
+}
