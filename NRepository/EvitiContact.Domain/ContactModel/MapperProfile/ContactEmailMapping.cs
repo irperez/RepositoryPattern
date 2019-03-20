@@ -5,6 +5,8 @@ using FluentValidation;
 using eviti.Data.Tracking.BaseObjects;
 using eviti.data.tracking.Interfaces;
 using EvitiContact.ContactModel;
+using AutoMapper.EquivalencyExpression;
+using eviti.data.tracking.BaseObjects;
 
 namespace EvitiContact.Domain.ContactModelDB
 {
@@ -19,7 +21,11 @@ namespace EvitiContact.Domain.ContactModelDB
             #region Generated Mapping
             CreateMap<ContactEmail, ContactEmailViewModel>();
             #endregion
-            CreateMap<ContactEmailViewModel, ContactEmail>();
+           // CreateMap<ContactEmailViewModel, ContactEmail>();
+
+            CreateMap<ContactEmailViewModel, ContactEmail>(MemberList.None)
+          .EqualityComparison((odto, o) => odto.Guid == o.Guid)
+          .ForMember(d => d.TrackingState, opt => opt.MapFrom(s => TrackingHelper.SetIsDeletedToTrackingStateDeleted(s.IsDeleted)));
         }
      }
     /*

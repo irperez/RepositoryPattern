@@ -30,6 +30,8 @@ namespace EvitiContact.Domain.ContactModelDB
         public string Latitude { get; set; }
         public string ZipCodeString { get; set; }
         #endregion
+
+        public bool IsDeleted { get; set; }
     }
     /*
     #region Generated Reference Class

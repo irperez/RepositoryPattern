@@ -1,27 +1,28 @@
-﻿using System;
-using System.Collections.Generic;
-using AutoMapper;
-using FluentValidation;
-using eviti.Data.Tracking.BaseObjects;
-using eviti.data.tracking.Interfaces;
+﻿using AutoMapper;
+using AutoMapper.EquivalencyExpression;
+using eviti.data.tracking.BaseObjects;
 using EvitiContact.ContactModel;
 
 namespace EvitiContact.Domain.ContactModelDB
 {
     public partial class ContactAddressProfile : Profile
     {
-    /// <summary>
-    /// Initializes a new instance of the <see cref="ContactAddressProfile"/> class.
-    /// Based on <see cref="ContactAddress"/> class.
-    /// </summary>
+        /// <summary>
+        /// Initializes a new instance of the <see cref="ContactAddressProfile"/> class.
+        /// Based on <see cref="ContactAddress"/> class.
+        /// </summary>
         public ContactAddressProfile()
         {
             #region Generated Mapping
             CreateMap<ContactAddress, ContactAddressViewModel>();
             #endregion
-            CreateMap<ContactAddressViewModel, ContactAddress>();
+            //   CreateMap<ContactAddressViewModel, ContactAddress>();
+
+            CreateMap<ContactAddressViewModel, ContactAddress>(MemberList.None)
+        .EqualityComparison((odto, o) => odto.GUID == o.GUID)
+        .ForMember(d => d.TrackingState, opt => opt.MapFrom(s => TrackingHelper.SetIsDeletedToTrackingStateDeleted(s.IsDeleted)));
         }
-     }
+    }
     /*
     #region Generated Reference Class
     public partial class ContactAddress

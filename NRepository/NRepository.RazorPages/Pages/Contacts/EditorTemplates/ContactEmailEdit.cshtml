@@ -26,5 +26,13 @@
             </label>
         </div>
     </div>
+    <div class="form-group">
+        <div class="checkbox">
+            <label>
+                <input asp-for="@Model[i].IsDeleted" /> @Html.DisplayNameFor(model => model[i].IsDeleted)
+            </label>
+        </div>
+    </div>
+
 </div>
 }

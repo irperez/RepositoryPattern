@@ -15,122 +15,124 @@
             @*<div asp-validation-summary="ModelOnly" class="text-danger" id=""></div>*@
             @Html.ValidationSummary(false, "", new { @class = "text-danger", @id = "validationSummary" })
             <h1>Contact Details</h1>
-            <input type="hidden" asp-for="Contact.GUID" />
+            <input type="hidden" asp-for="ViewModel.GUID" />
+            <input type="hidden" asp-for="ViewModel.OriginalVMObject" />
+            
             <div class="form-group">
-                <label asp-for="Contact.FirstName" class="control-label"></label>
-                <input asp-for="Contact.FirstName" class="form-control" />
-                <span asp-validation-for="Contact.FirstName" class="text-danger"></span>
+                <label asp-for="ViewModel.FirstName" class="control-label"></label>
+                <input asp-for="ViewModel.FirstName" class="form-control" />
+                <span asp-validation-for="ViewModel.FirstName" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Contact.LastName" class="control-label"></label>
-                <input asp-for="Contact.LastName" class="form-control" />
-                <span asp-validation-for="Contact.LastName" class="text-danger"></span>
+                <label asp-for="ViewModel.LastName" class="control-label"></label>
+                <input asp-for="ViewModel.LastName" class="form-control" />
+                <span asp-validation-for="ViewModel.LastName" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Contact.MiddleName" class="control-label"></label>
-                <input asp-for="Contact.MiddleName" class="form-control" />
-                <span asp-validation-for="Contact.MiddleName" class="text-danger"></span>
+                <label asp-for="ViewModel.MiddleName" class="control-label"></label>
+                <input asp-for="ViewModel.MiddleName" class="form-control" />
+                <span asp-validation-for="ViewModel.MiddleName" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Contact.Title" class="control-label"></label>
-                <input asp-for="Contact.Title" class="form-control" />
-                <span asp-validation-for="Contact.Title" class="text-danger"></span>
+                <label asp-for="ViewModel.Title" class="control-label"></label>
+                <input asp-for="ViewModel.Title" class="form-control" />
+                <span asp-validation-for="ViewModel.Title" class="text-danger"></span>
             </div>
             @*<div class="form-group">
-            <label asp-for="Contact.Credentials" class="control-label"></label>
-            <input asp-for="Contact.Credentials" class="form-control" />
-            <span asp-validation-for="Contact.Credentials" class="text-danger"></span>
+            <label asp-for="ViewModel.Credentials" class="control-label"></label>
+            <input asp-for="ViewModel.Credentials" class="form-control" />
+            <span asp-validation-for="ViewModel.Credentials" class="text-danger"></span>
         </div>
         <div class="form-group">
-            <label asp-for="Contact.Prefix" class="control-label"></label>
-            <input asp-for="Contact.Prefix" class="form-control" />
-            <span asp-validation-for="Contact.Prefix" class="text-danger"></span>
+            <label asp-for="ViewModel.Prefix" class="control-label"></label>
+            <input asp-for="ViewModel.Prefix" class="form-control" />
+            <span asp-validation-for="ViewModel.Prefix" class="text-danger"></span>
         </div>
         <div class="form-group">
-            <label asp-for="Contact.Suffix" class="control-label"></label>
-            <input asp-for="Contact.Suffix" class="form-control" />
-            <span asp-validation-for="Contact.Suffix" class="text-danger"></span>
+            <label asp-for="ViewModel.Suffix" class="control-label"></label>
+            <input asp-for="ViewModel.Suffix" class="form-control" />
+            <span asp-validation-for="ViewModel.Suffix" class="text-danger"></span>
         </div>*@
             <div class="form-group">
-                <label asp-for="Contact.CompanyName" class="control-label"></label>
-                <input asp-for="Contact.CompanyName" class="form-control" />
-                <span asp-validation-for="Contact.CompanyName" class="text-danger"></span>
+                <label asp-for="ViewModel.CompanyName" class="control-label"></label>
+                <input asp-for="ViewModel.CompanyName" class="form-control" />
+                <span asp-validation-for="ViewModel.CompanyName" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <label asp-for="Contact.TypeID" class="control-label"></label>
-                <select asp-for="Contact.TypeID" class="form-control" asp-items="ViewBag.TypeID"></select>
-                <span asp-validation-for="Contact.TypeID" class="text-danger"></span>
+                <label asp-for="ViewModel.TypeID" class="control-label"></label>
+                <select asp-for="ViewModel.TypeID" class="form-control" asp-items="ViewBag.TypeID"></select>
+                <span asp-validation-for="ViewModel.TypeID" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <div class="checkbox">
                     <label>
-                        <input asp-for="Contact.IsMd" /> @Html.DisplayNameFor(model => model.Contact.IsMd)
+                        <input asp-for="ViewModel.IsMd" /> @Html.DisplayNameFor(model => model.ViewModel.IsMd)
                     </label>
                 </div>
             </div>
             @*<div class="form-group">
-            <label asp-for="Contact.Version" class="control-label"></label>
-            <input asp-for="Contact.Version" class="form-control" />
-            <span asp-validation-for="Contact.Version" class="text-danger"></span>
+            <label asp-for="ViewModel.Version" class="control-label"></label>
+            <input asp-for="ViewModel.Version" class="form-control" />
+            <span asp-validation-for="ViewModel.Version" class="text-danger"></span>
         </div>
         <div class="form-group">
-            <label asp-for="Contact.CreatedDate" class="control-label"></label>
-            <input asp-for="Contact.CreatedDate" class="form-control" />
-            <span asp-validation-for="Contact.CreatedDate" class="text-danger"></span>
+            <label asp-for="ViewModel.CreatedDate" class="control-label"></label>
+            <input asp-for="ViewModel.CreatedDate" class="form-control" />
+            <span asp-validation-for="ViewModel.CreatedDate" class="text-danger"></span>
         </div>
         <div class="form-group">
-            <label asp-for="Contact.CreatedBy" class="control-label"></label>
-            <input asp-for="Contact.CreatedBy" class="form-control" />
-            <span asp-validation-for="Contact.CreatedBy" class="text-danger"></span>
+            <label asp-for="ViewModel.CreatedBy" class="control-label"></label>
+            <input asp-for="ViewModel.CreatedBy" class="form-control" />
+            <span asp-validation-for="ViewModel.CreatedBy" class="text-danger"></span>
         </div>
         <div class="form-group">
-            <label asp-for="Contact.ModifiedDate" class="control-label"></label>
-            <input asp-for="Contact.ModifiedDate" class="form-control" />
-            <span asp-validation-for="Contact.ModifiedDate" class="text-danger"></span>
+            <label asp-for="ViewModel.ModifiedDate" class="control-label"></label>
+            <input asp-for="ViewModel.ModifiedDate" class="form-control" />
+            <span asp-validation-for="ViewModel.ModifiedDate" class="text-danger"></span>
         </div>
         <div class="form-group">
-            <label asp-for="Contact.ModifiedBy" class="control-label"></label>
-            <input asp-for="Contact.ModifiedBy" class="form-control" />
-            <span asp-validation-for="Contact.ModifiedBy" class="text-danger"></span>
+            <label asp-for="ViewModel.ModifiedBy" class="control-label"></label>
+            <input asp-for="ViewModel.ModifiedBy" class="form-control" />
+            <span asp-validation-for="ViewModel.ModifiedBy" class="text-danger"></span>
         </div>
         <div class="form-group">
-            <label asp-for="Contact.SSN" class="control-label"></label>
-            <input asp-for="Contact.SSN" class="form-control" />
-            <span asp-validation-for="Contact.SSN" class="text-danger"></span>
+            <label asp-for="ViewModel.SSN" class="control-label"></label>
+            <input asp-for="ViewModel.SSN" class="form-control" />
+            <span asp-validation-for="ViewModel.SSN" class="text-danger"></span>
         </div>
         <div class="form-group">
-            <label asp-for="Contact.IsTest" class="control-label"></label>
-            <input asp-for="Contact.IsTest" class="form-control" />
-            <span asp-validation-for="Contact.IsTest" class="text-danger"></span>
+            <label asp-for="ViewModel.IsTest" class="control-label"></label>
+            <input asp-for="ViewModel.IsTest" class="form-control" />
+            <span asp-validation-for="ViewModel.IsTest" class="text-danger"></span>
         </div>
         <div class="form-group">
             <div class="checkbox">
                 <label>
-                    <input asp-for="Contact.IsDemo" /> @Html.DisplayNameFor(model => model.Contact.IsDemo)
+                    <input asp-for="ViewModel.IsDemo" /> @Html.DisplayNameFor(model => model.ViewModel.IsDemo)
                 </label>
             </div>
         </div>*@
             <div class="form-group">
                 <div class="checkbox">
                     <label>
-                        <input asp-for="Contact.IsDeleted" /> @Html.DisplayNameFor(model => model.Contact.IsDeleted)
+                        <input asp-for="ViewModel.IsDeleted" /> @Html.DisplayNameFor(model => model.ViewModel.IsDeleted)
                     </label>
                 </div>
             </div>
             @*<div class="form-group">
-            <label asp-for="Contact.Department" class="control-label"></label>
-            <input asp-for="Contact.Department" class="form-control" />
-            <span asp-validation-for="Contact.Department" class="text-danger"></span>
+            <label asp-for="ViewModel.Department" class="control-label"></label>
+            <input asp-for="ViewModel.Department" class="form-control" />
+            <span asp-validation-for="ViewModel.Department" class="text-danger"></span>
         </div>
         <div class="form-group">
-            <label asp-for="Contact.CreatedByUserID" class="control-label"></label>
-            <input asp-for="Contact.CreatedByUserID" class="form-control" />
-            <span asp-validation-for="Contact.CreatedByUserID" class="text-danger"></span>
+            <label asp-for="ViewModel.CreatedByUserID" class="control-label"></label>
+            <input asp-for="ViewModel.CreatedByUserID" class="form-control" />
+            <span asp-validation-for="ViewModel.CreatedByUserID" class="text-danger"></span>
         </div>
         <div class="form-group">
-            <label asp-for="Contact.ModifiedByUserID" class="control-label"></label>
-            <input asp-for="Contact.ModifiedByUserID" class="form-control" />
-            <span asp-validation-for="Contact.ModifiedByUserID" class="text-danger"></span>
+            <label asp-for="ViewModel.ModifiedByUserID" class="control-label"></label>
+            <input asp-for="ViewModel.ModifiedByUserID" class="form-control" />
+            <span asp-validation-for="ViewModel.ModifiedByUserID" class="text-danger"></span>
         </div>*@
 
 
@@ -142,7 +144,7 @@
             </button>
             <hr />
             <div class="form-horizontal" style="width:400px;" id="listOfContactEmail">
-                @Html.EditorFor(model => Model.Contact.ContactEmails, "ContactEmailEdit")
+                @Html.EditorFor(model => Model.ViewModel.ContactEmails, "ContactEmailEdit")
             </div>
 
 
@@ -153,10 +155,10 @@
             </button>
             <hr />
             <div class="form-horizontal" style="width:400px;" id="listOfContactAddresses">
-                @Html.EditorFor(model => Model.Contact.ContactAddresses, "ContactAddressEdit")
+                @Html.EditorFor(model => Model.ViewModel.ContactAddresses, "ContactAddressEdit")
             </div>
 
-     
+
 
 
             <H3 style="display: inline-block"> Phones</H3>
@@ -165,7 +167,7 @@
             </button>
             <hr />
             <div class="form-horizontal" style="width:400px;" id="listOfContactPhones">
-                @Html.EditorFor(model => Model.Contact.ContactPhones, "ContactPhoneEdit")
+                @Html.EditorFor(model => Model.ViewModel.ContactPhones, "ContactPhoneEdit")
 
             </div>
             <div class="form-group">
@@ -183,21 +185,21 @@
 @*<div>
         <a id="linkAddTermsRow" onclick="addContactEmailsRow();">add ContactEmails</a>
     </div>*@
+<p>The client side new items templates are here - start</p>
+<partial name="ClientTemplates/_DummyItems" />
+<p>The client side new items templates are here - end </p>
 
-
-
-
-<script id="templateEmailRow" type="text/template">
-    @Html.EditorFor(model => Model.DummyContact.ContactEmails, "ContactEmailEdit")
+@*<script id="templateEmailRow" type="text/template">
+    @Html.EditorFor(model => Model.DummyViewModel.ContactEmails, "ContactEmailEdit")
 </script>
 
 <script id="templateAddressRow" type="text/template">
-    @Html.EditorFor(model => Model.DummyContact.ContactAddresses, "ContactAddressEdit")
+    @Html.EditorFor(model => Model.DummyViewModel.ContactAddresses, "ContactAddressEdit")
 </script>
 
 <script id="templatePhonesRow" type="text/template">
-    @Html.EditorFor(model => Model.DummyContact.ContactPhones, "ContactPhoneEdit")
-</script>
+    @Html.EditorFor(model => Model.DummyViewModel.ContactPhones, "ContactPhoneEdit")
+</script>*@
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
@@ -208,7 +210,7 @@
 
 <script>
 
-// Example output -  <input id="Contact_ContactEmails_5__Name" name="Contact.ContactEmails[5].Name"  >
+// Example output -  <input id="Contact_ContactEmails_5__Name" name="ViewModel.ContactEmails[5].Name"  >
     function addContactRow(parentKey,TemplateRowKey, dummyIdKey, idKey) {
         event.preventDefault();
         alert('bob15');
@@ -227,16 +229,16 @@
         var nextSequenceNumber = $(parentKey).children('div').length;
        // alert(index);
         //var idnewValue = 'Contact_ContactEmails' + '_' + index; //id="Contact_ContactEmails_5__Name"
-        //var nameNewValue = 'Contact.ContactEmails' + '[' + index + ']'; //name="Contact.ContactEmails[5].Name"
+        //var nameNewValue = 'ViewModel.ContactEmails' + '[' + index + ']'; //name="ViewModel.ContactEmails[5].Name"
  
         //var idPattern = new RegExp("DummyContact_ContactEmails" + '_0', "g"); //'DummyContact_ContactEmails_0'
-        //var namePattern = new RegExp("DummyContact.ContactEmails" + "\\[0\\]", "g"); //'DummyContact.ContactEmails[0]'
+        //var namePattern = new RegExp("DummyViewModel.ContactEmails" + "\\[0\\]", "g"); //'DummyViewModel.ContactEmails[0]'
 
         var idnewValue = idKey + '_' + nextSequenceNumber; //id="Contact_ContactEmails_5__Name"
-        var nameNewValue = nameKey + '[' + nextSequenceNumber + ']'; //name="Contact.ContactEmails[5].Name"
+        var nameNewValue = nameKey + '[' + nextSequenceNumber + ']'; //name="ViewModel.ContactEmails[5].Name"
 
         var idPattern = new RegExp(dummyIdKey + '_0', "g"); //'DummyContact_ContactEmails_0'
-        var namePattern = new RegExp(dummyNameKey + "\\[0\\]", "g"); //'DummyContact.ContactEmails[0]'
+        var namePattern = new RegExp(dummyNameKey + "\\[0\\]", "g"); //'DummyViewModel.ContactEmails[0]'
 
         // find the template Row
         var templateRow = $('#' + TemplateRowKey).html();//'#templateEmailRow'

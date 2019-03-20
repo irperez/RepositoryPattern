@@ -23,8 +23,10 @@ namespace EvitiContact.Domain.ContactModelDB
     public string Name { get; set; }
     public string EmailAddress { get; set; }
     public bool IsPrimary { get; set; }
-    #endregion
-     }
+        #endregion
+
+        public bool IsDeleted { get; set; }
+    }
     /*
     #region Generated Reference Class
     public partial class ContactEmail

@@ -10,7 +10,7 @@ using EvitiContact.ContactModel;
 
 namespace EvitiContact.Domain.ContactModelDB
 {
-    public partial class ContactViewModel
+    public partial class ContactViewModel : ITrackOrginalValue
     {
         /// <summary>
         /// Initializes a new instance of the <see cref="ContactViewModel"/> class.
@@ -58,7 +58,7 @@ namespace EvitiContact.Domain.ContactModelDB
         public IList<ContactPhoneViewModel> ContactPhones { get; set; } = new List<ContactPhoneViewModel>();
         public IList<ContactEmailViewModel> ContactEmails { get; set; } = new List<ContactEmailViewModel>();
         public IList<ContactAddressViewModel> ContactAddresses { get; set; } = new List<ContactAddressViewModel>();
-
+        public string OriginalVMObject { get; set; }
     }
     /*
     #region Generated Reference Class
