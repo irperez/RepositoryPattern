@@ -5,6 +5,8 @@ using FluentValidation;
 using eviti.Data.Tracking.BaseObjects;
 using eviti.data.tracking.Interfaces;
 using EvitiContact.ContactModel;
+using AutoMapper.EquivalencyExpression;
+using eviti.data.tracking.BaseObjects;
 
 namespace EvitiContact.Domain.ContactModelDB
 {
@@ -20,7 +22,12 @@ namespace EvitiContact.Domain.ContactModelDB
             CreateMap<ContactPhone, ContactPhoneViewModel>();
             #endregion
 
-            CreateMap<ContactPhoneViewModel, ContactPhone>();
+        //    CreateMap<ContactPhoneViewModel, ContactPhone>();
+
+            CreateMap<ContactPhoneViewModel, ContactPhone>(MemberList.None)
+      .EqualityComparison((odto, o) => odto.GUID == o.GUID)  // this is really important if we want the mapping not to clear and recreate the collection.  
+                                                            //If it does that then EF core will trigger full updates for the rows.
+      .ForMember(d => d.TrackingState, opt => opt.MapFrom(s => TrackingHelper.SetIsDeletedToTrackingStateDeleted(s.IsDeleted)));
         }
      }
     /*

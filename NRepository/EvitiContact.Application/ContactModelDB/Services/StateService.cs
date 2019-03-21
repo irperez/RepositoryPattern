@@ -140,7 +140,7 @@ namespace EvitiContact.ApplicationService.ContactModelDB.Services
 
 
 
-                            _list = ctx.States.Include(x => x.ZipCodes).ToList();
+                            _list = ctx.States.Include(x => x.ZipCodes).AsNoTracking().ToList();
                             _dictByAppriviation = _list.ToDictionary(x => x.Abbreviation, x => x);
                             _dictByName = _list.ToDictionary(x => x.Name, x => x);
                             _zipcodesByCode = new Dictionary<string, ZipCodes>();

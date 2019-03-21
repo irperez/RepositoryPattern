@@ -27,7 +27,7 @@ namespace EvitiContact.ContactModel
             //DbContext.Configuration.ProxyCreationEnabled
             //base.Configuration.ProxyCreationEnabled = false;
 
-            //this.ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.NoTracking;
+             this.ChangeTracker.QueryTrackingBehavior = QueryTrackingBehavior.NoTracking;
         }
 
         private void OnConfiguringPartial(DbContextOptionsBuilder optionsBuilder)
@@ -39,6 +39,8 @@ namespace EvitiContact.ContactModel
 
             // var temp2 = ServiceLocator.GetService<ILoggerFactory>();
             // optionsBuilder .UseLoggerFactory(temp2).EnableSensitiveDataLogging();
+
+             
 
             if (_logger == null)
             {

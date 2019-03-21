@@ -85,8 +85,12 @@ namespace NRepository.RazorPages
             // services.AddDbContext<ContactModelDbContext>(options => options.UseInMemoryDatabase("ContactModelDbContext"));
 
 
-            services.AddDbContext< ContactModelDbContext>(options =>
-                options.UseSqlServer(evitiContactModelconnectionString));
+            services.AddDbContext<ContactModelDbContext>(options =>
+            {
+                options.EnableSensitiveDataLogging(true);
+                options.UseSqlServer(evitiContactModelconnectionString);
+            }
+                );
 
             services.AddDbContext<SchoolModelDbContext>(options =>
                 options.UseSqlServer(evitiContactModelconnectionString));
@@ -145,8 +149,8 @@ namespace NRepository.RazorPages
             services.AddSingleton<IStateService, StateService>();
             services.AddTransient<IMyTestService, MyTestService>();
             services.AddTransient<Common.IDateService, Common.DateService>();
-            services.AddTransient<IContactTypeRepository,  ContactTypeReposatory>();
-            
+            services.AddTransient<IContactTypeRepository, ContactTypeReposatory>();
+
 
 
 
@@ -155,7 +159,7 @@ namespace NRepository.RazorPages
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
-            if(env.IsDevelopment())
+            if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
